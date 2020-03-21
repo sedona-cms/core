@@ -16,6 +16,6 @@
 
 ``npm run watch``
 
-3. Run nuxt project project from `dev` directory
+3. Run nuxt project from `dev` directory
 
 ``npm run dev``
