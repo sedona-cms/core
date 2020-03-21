@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import {Context} from '@nuxt/vue-app'
+import { Context } from '@nuxt/types'
 
 /**
  * Load admin
@@ -7,7 +7,7 @@ import {Context} from '@nuxt/vue-app'
  * @exports
  * @param {Context} context nuxt context
  */
-export async function load(context) {
+export async function load(context: Context): Promise<void> {
     // @ts-ignore
     await import('@sedona-cms/core/lib/assets/css/quasar.css')
     // @ts-ignore
@@ -21,12 +21,12 @@ export async function load(context) {
     document.body.style.setProperty('--q-color-negative', '#f44336') // red
     document.body.style.setProperty('--q-color-dark', '#424242')
 
-    // await loadAdminPanel(context.app)
+    await loadAdminPanel(context.app)
 
-    window._onNuxtLoaded = async ($root) => {
-        console.log($root)
-        await loadAdminPanel($root)
-    }
+    // @ts-ignore
+    // window._onNuxtLoaded = async ($root) => {
+    //    await loadAdminPanel($root)
+    // }
 }
 
 /**
@@ -46,12 +46,9 @@ export function unload(context) {
  *
  * @returns {Promise<void>} void
  */
-async function loadAdminPanel($root) {
+async function loadAdminPanel($root): Promise<void> {
     // @ts-ignore
     const AdminPanel = (await import('@sedona-cms/core/lib/components/router-view/router-panel')).default
     const adminPanel = new AdminPanel()
-    const $nuxt = document.querySelector('body')
-    if ($nuxt !== null) {
-        $nuxt.prepend(adminPanel.$mount().$el)
-    }
+    document.body.prepend(adminPanel.$mount().$el)
 }
