@@ -1,0 +1,10 @@
+{
+  "items": [
+    {
+      "title": "Post List",
+      "subTitle": "Post list Subtitle",
+      "type": "item",
+      "component": "components/posts-list"
+    }
+  ]
+}

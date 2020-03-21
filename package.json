@@ -1,0 +1,35 @@
+{
+  "name": "@sedona-cms/core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "dev": "nuxt  --config-file dev/nuxt.config.js",
+    "watch": "make -f Makefile watch",
+    "build": "make -f Makefile build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "quasar": "^1.9.10"
+  },
+  "devDependencies": {
+    "@getsedona/nuxt-sedona": "0.0.20",
+    "@getsedona/vue-components": "^0.1.6",
+    "@nuxt/types": "^0.6.4",
+    "@types/node": "^13.9.2",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
+    "@vue/babel-preset-jsx": "^1.1.2",
+    "npm-self-link": "^1.1.7",
+    "nuxt": "^2.12.0",
+    "postcss": "^7.0.27",
+    "postcss-prefixwrap": "^1.13.1",
+    "postcss-remove-rules": "^1.0.0",
+    "sedona-components": "^4.10.2",
+    "tsc-watch": "^4.2.3",
+    "typescript": "^3.8.3"
+  }
+}
