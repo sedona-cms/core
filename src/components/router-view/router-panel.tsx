@@ -1,5 +1,6 @@
 import Vue, { VNode } from 'vue'
 import RouterView from './router-view'
+import MainToolbar from './main-toolbar'
 
 let qApp: HTMLElement | null
 
@@ -7,6 +8,7 @@ export default Vue.extend({
     name: 'RouterPanel',
     components: {
         RouterView,
+        MainToolbar,
     },
     data() {
         return {
@@ -51,7 +53,8 @@ export default Vue.extend({
                         class="toggle-button"
                         on-click={ this.toggle }
                     />
-                    <div class="row self-stretch fit">
+                    <div class="fit">
+                        <main-toolbar />
                         <router-view/>
                     </div>
                 </div>
