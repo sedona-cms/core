@@ -1,5 +1,6 @@
 import * as path from 'path'
 import { Module } from '@nuxt/types'
+import { uid } from 'quasar'
 import { loadConfigFile } from './utils/config'
 
 export const meta = require('../package.json')
@@ -41,6 +42,13 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
     } else {
         options = Object.assign({}, defaultOptions, moduleOptions)
     }
+
+    options.items = options.items.map(item => {
+        return {
+            id: uid(),
+            ...item,
+        }
+    })
 
     this.addTemplate({
         src: path.resolve(__dirname, 'templates/quasar.js'),

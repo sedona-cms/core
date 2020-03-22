@@ -1,9 +1,14 @@
 type MenuItem = {
     id?: string
-    title: string
-    subTitle: string
-    type: 'item' | 'category'
-    component: string
+    title?: string
+    subTitle?: string
+    icon?: string
+    type: 'item' | 'section'
+    component: string | Function
+    params?: {
+        [key: string]: any
+    }
+    items?: MenuItem[]
 }
 
 type ToolbarButton = {

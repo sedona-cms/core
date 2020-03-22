@@ -17,19 +17,19 @@ export async function load(context: Context, config: ModuleConfig): Promise<void
     const Quasar = await require('./quasar')
     Vue.use(Quasar.default)
 
-    const Sedona = (await import('./sedona')).default
-    Vue.prototype.$sedona = new Sedona({
-        propsData: {
-            config,
-        },
-    })
-
     document.body.style.setProperty('--q-color-primary', '#26a69a') // teal-5
     document.body.style.setProperty('--q-color-secondary', '#b0bec5')
     document.body.style.setProperty('--q-color-negative', '#f44336') // red
     document.body.style.setProperty('--q-color-dark', '#424242')
 
-    await loadAdminPanel(context.app)
+    const adminPanel = await loadAdminPanel(context.app)
+
+    const { Sedona } = await import('./sedona')
+    Vue.prototype.$sedona = new Sedona(config, adminPanel)
+
+    console.log(Vue.prototype.$sedona)
+
+    document.body.prepend(adminPanel.$mount().$el)
 
     // @ts-ignore
     // window._onNuxtLoaded = async ($root) => {
@@ -54,9 +54,9 @@ export function unload(context) {
  *
  * @returns {Promise<void>} void
  */
-async function loadAdminPanel($root): Promise<void> {
+async function loadAdminPanel($root): Promise<Vue> {
     // @ts-ignore
     const AdminPanel = (await import('@sedona-cms/core/lib/components/router-view/router-panel')).default
     const adminPanel = new AdminPanel()
-    document.body.prepend(adminPanel.$mount().$el)
+    return adminPanel
 }

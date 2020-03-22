@@ -1,19 +1,8 @@
 import Vue, { VNode } from 'vue'
 import { uid } from 'quasar'
 
-const defaultToolbarConfig: ToolbarConfig = {
-    showHome: true,
-    title: '',
-    buttons: [],
-}
-
 export default Vue.extend({
     name: 'MainToolbar',
-    computed: {
-        config(): ToolbarConfig {
-            return Object.assign({}, defaultToolbarConfig, this.$sedona.config?.toolbar || {})
-        },
-    },
     methods: {
         buttonClick({ id, title, component, icon = 'folder' }) {
             console.log(id, title, component)
@@ -23,7 +12,7 @@ export default Vue.extend({
     render(): VNode {
         const buttons: VNode[] = []
 
-        if (this.config.showHome) {
+        if (this.$sedona.toolBarConfig.showHome) {
             buttons.push(
                 <q-btn flat={ true } round={ true } dense={ true } class="q-mr-sm">
                     <q-icon name="home"/>
@@ -32,7 +21,7 @@ export default Vue.extend({
             )
         }
 
-        this.config.buttons.forEach((button: ToolbarButton) => {
+        this.$sedona.toolBarConfig.buttons.forEach((button: ToolbarButton) => {
             const title = button?.title || false
             const icon = button?.icon || 'extension'
             const id = uid()
@@ -51,8 +40,8 @@ export default Vue.extend({
             )
         })
 
-        if (this.config.title !== '') {
-            buttons.push(<q-toolbar-title>{ this.config.title }</q-toolbar-title>)
+        if (this.$sedona.toolBarConfig.title !== '') {
+            buttons.push(<q-toolbar-title>{ this.$sedona.toolBarConfig.title }</q-toolbar-title>)
         }
 
         return <q-toolbar class="bg-grey-7">{ buttons }</q-toolbar>

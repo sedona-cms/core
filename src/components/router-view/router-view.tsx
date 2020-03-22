@@ -1,26 +1,82 @@
 import Vue, { VNode } from 'vue'
+import { MenuList } from '../menu-list'
+import { ItemTabContainer } from '../item-tab-container'
+
+type CurrentMenuItems = {
+    [id: string]: MenuItem
+}
 
 export default Vue.extend({
     name: 'RouterView',
-    components: {},
+    components: {
+        MenuList,
+        ItemTabContainer,
+    },
     data() {
         return {
             activeTab: 'tab-home', // Tab ID
-            items: {}, // Menu Items
+            items: {} as CurrentMenuItems, // Menu Items
         }
     },
+    mounted(): void {
+        this.$root.$on('admin:view-change', (item, params) => {
+            if (typeof item === 'object') {
+                if (`tab-${ item.id }` === this.activeTab) {
+                    return
+                }
+                this.menuItemClick(Object.assign(item, { icon: 'folder', params }))
+            }
+            if (typeof item === 'string') {
+                if (this.activeTab === item) {
+                    return
+                }
+                this.activeTab = item
+            }
+        })
+        // this.$root.$on('admin:view-back', () => this.goBack())
+    },
+    methods: {
+        async menuItemClick(item: MenuItem): Promise<void> {
+            if (item.type === 'section') {
+                item.component = MenuList
+            }
+            this.$set(this.items, String(item.id), item)
+            await this.$nextTick()
+            this.activeTab = `tab-${ item.id }`
+        },
+    },
     render(): VNode {
+        const itemKeys = Object.keys(this.items)
 
-        // console.log(document.getElementById('q-app').clientHeight)
+        if (itemKeys.length === 0) {
+            const adminMenu = <menu-list items={ this.$sedona.menuItems } on-click={ this.menuItemClick }/>
+            this.$set(this.items, 'home', { id: 'home', component: adminMenu })
+        }
 
-        // console.log(document)
+        const views = new Set<VNode>()
+
+        itemKeys.forEach((menuId) => {
+            const item = this.items[menuId]
+            views.add(
+                <q-tab-panel name={ `tab-${ item.id }` } style="padding:5px 0px">
+                    <item-tab-container
+                        title={ item?.title || '' }
+                        subTitle={ item?.subTitle || '' }
+                        icon={ item?.icon || 'folder' }
+                        component={ item.component }
+                        items={ item?.items || [] }
+                        params={ item?.params || {} }
+                    />
+                </q-tab-panel>,
+            )
+        })
 
         return (
             <q-scroll-area
                 dark={ true }
                 style="height: calc(100% - 50px); width: 100%; max-width: 300px;"
             >
-                <div
+                <q-tab-panels
                     class="fit"
                     style="color:inherit;background:inherit;"
                     animated={ true }
@@ -28,50 +84,8 @@ export default Vue.extend({
                     infinite={ true }
                     value={ this.activeTab }
                 >
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-                    End
-                </div>
+                    { [ ...views ] }
+                </q-tab-panels>
             </q-scroll-area>
         )
     },
