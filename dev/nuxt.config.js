@@ -5,8 +5,6 @@ export default {
         [
             '../lib/module.js',
             {
-                items: [
-                ]
             }
         ],
         [

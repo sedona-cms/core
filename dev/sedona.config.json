@@ -1,4 +1,14 @@
 {
+  "toolbar": {
+    "title": "Sedona Admin",
+    "buttons": [
+      {
+        "title": "SEO",
+        "icon": "folder",
+        "component": "components/post-seo"
+      }
+    ]
+  },
   "items": [
     {
       "title": "Post List",

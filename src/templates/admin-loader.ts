@@ -6,8 +6,9 @@ import { Context } from '@nuxt/types'
  *
  * @exports
  * @param {Context} context nuxt context
+ * @param {ModuleConfig} config module config
  */
-export async function load(context: Context): Promise<void> {
+export async function load(context: Context, config: ModuleConfig): Promise<void> {
     // @ts-ignore
     await import('@sedona-cms/core/lib/assets/css/quasar.css')
     // @ts-ignore
@@ -15,6 +16,13 @@ export async function load(context: Context): Promise<void> {
 
     const Quasar = await require('./quasar')
     Vue.use(Quasar.default)
+
+    const Sedona = (await import('./sedona')).default
+    Vue.prototype.$sedona = new Sedona({
+        propsData: {
+            config,
+        },
+    })
 
     document.body.style.setProperty('--q-color-primary', '#26a69a') // teal-5
     document.body.style.setProperty('--q-color-secondary', '#b0bec5')

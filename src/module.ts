@@ -4,13 +4,11 @@ import { loadConfigFile } from './utils/config'
 
 export const meta = require('../package.json')
 
-interface Options {
-    a: boolean
-    b: number
-    c: string
+const defaultOptions: ModuleConfig = {
+    items: [],
 }
 
-const adminModule: Module<Options> = async function (moduleOptions) {
+const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
     this.extendBuild((config) => {
         config.node = {
             fs: 'empty',
@@ -33,13 +31,16 @@ const adminModule: Module<Options> = async function (moduleOptions) {
         this.options.build.transpile.push(meta.name)
     } else {
         // @ts-ignore
-        this.options.build.transpile = [meta.name]
+        this.options.build.transpile = [ meta.name ]
     }
 
-
-    const config = await loadConfigFile(this.options.rootDir || process.cwd())
-
-    console.log(config)
+    let options: ModuleConfig
+    if (moduleOptions === undefined || (typeof moduleOptions === 'object' && Object.keys(moduleOptions).length === 0)) {
+        options = await loadConfigFile(this.options.rootDir || process.cwd())
+        options = Object.assign({}, defaultOptions, options)
+    } else {
+        options = Object.assign({}, defaultOptions, moduleOptions)
+    }
 
     this.addTemplate({
         src: path.resolve(__dirname, 'templates/quasar.js'),
@@ -49,10 +50,9 @@ const adminModule: Module<Options> = async function (moduleOptions) {
         src: path.resolve(__dirname, 'templates/admin-loader.js'),
         fileName: path.join('nuxt-admin', 'admin-loader.js'),
     })
-
     this.addTemplate({
-        src: path.resolve(__dirname, '../lib/assets/css/quasar.css'),
-        fileName: path.join('nuxt-admin', 'quasar.css'),
+        src: path.resolve(__dirname, 'templates/sedona.js'),
+        fileName: path.join('nuxt-admin', 'sedona.js'),
     })
 
 
@@ -61,7 +61,8 @@ const adminModule: Module<Options> = async function (moduleOptions) {
     this.addPlugin({
         src: path.resolve(__dirname, 'templates/plugin.js'),
         fileName: path.join('nuxt-admin', 'plugin.admin.js'),
-        options: {},
+        mode: 'client',
+        options,
     })
 }
 

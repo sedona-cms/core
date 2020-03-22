@@ -21,6 +21,8 @@ import {QMenu} from 'quasar/src/components/menu'
 import {QOptionGroup} from 'quasar/src/components/option-group'
 import {QField} from 'quasar/src/components/field'
 
+import { QScrollArea } from 'quasar/src/components/scroll-area'
+
 import * as directives from 'quasar/src/directives.js'
 import {Dialog} from 'quasar/src/plugins.js'
 
@@ -57,6 +59,7 @@ export default {
                 QMenu,
                 QOptionGroup,
                 QField,
+                QScrollArea,
             },
             directives,
             plugins: {

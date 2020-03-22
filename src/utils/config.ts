@@ -5,9 +5,9 @@ import * as fs from 'fs'
  * Load sedona.config.json from root directory
  *
  * @param {string} rootPath path to src directory
- * @returns {Promise<Config>} config object
+ * @returns {Promise<ModuleConfig>} config object
  */
-export async function loadConfigFile(rootPath: string): Promise<Config> {
+export async function loadConfigFile(rootPath: string): Promise<ModuleConfig> {
     const configFile = path.resolve(rootPath, 'sedona.config.json')
     if (fs.existsSync(configFile)) {
         const data = await require(`${ configFile }`)
