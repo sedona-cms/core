@@ -2,6 +2,10 @@
   "name": "@sedona-cms/core",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sedona-cms/core.git"
+  },
   "main": "lib/index.js",
   "types": "types/index.d.ts",
   "scripts": {
