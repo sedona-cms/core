@@ -3,6 +3,7 @@ import RouterView from './router-view'
 import MainToolbar from './main-toolbar'
 
 let qApp: HTMLElement | null
+let nuxtDiv: HTMLElement | null
 
 export default Vue.extend({
     name: 'RouterPanel',
@@ -19,6 +20,7 @@ export default Vue.extend({
         await this.$nextTick()
 
         qApp = document.getElementById('q-app')
+        nuxtDiv = document.getElementById('__nuxt')
 
         const isOpen: boolean = JSON.parse(localStorage.getItem('sedona-panel-open') || 'false')
         if (isOpen) {
@@ -26,19 +28,30 @@ export default Vue.extend({
         }
     },
     methods: {
-        toggle: function (): void {
+        toggle(): void {
             if (qApp !== null) {
-                qApp.style.left = qApp.style.left === '-300px' ? '0px' : '-300px'
-                this.isPanelOpen = qApp.style.left === '0px'
-                localStorage.setItem('sedona-panel-open', String(this.isPanelOpen))
+                if (this.isPanelOpen) {
+                    this.close()
+                } else {
+                    this.open()
+                }
             }
 
         },
         open(): void {
-            if (qApp !== null) {
+            if (qApp !== null && nuxtDiv !== null) {
                 qApp.style.left = '0px'
+                nuxtDiv.style.paddingLeft = '350px'
                 this.isPanelOpen = true
                 localStorage.setItem('sedona-panel-open', String(true))
+            }
+        },
+        close(): void {
+            if (qApp !== null && nuxtDiv !== null) {
+                qApp.style.left = '-300px'
+                nuxtDiv.style.paddingLeft = 'unset'
+                this.isPanelOpen = false
+                localStorage.setItem('sedona-panel-open', String(false))
             }
         },
     },
@@ -54,7 +67,7 @@ export default Vue.extend({
                         on-click={ this.toggle }
                     />
                     <div class="fit">
-                        <main-toolbar />
+                        <main-toolbar/>
                         <router-view/>
                     </div>
                 </div>
