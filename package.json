@@ -49,8 +49,7 @@
   },
   "lint-staged": {
     "*.{js, ts, tsx, vue, css, md}": [
-      "prettier --write ./src ./scripts ./dev",
-      "git add"
+      "prettier --write ./src ./scripts ./dev"
     ]
   }
 }
