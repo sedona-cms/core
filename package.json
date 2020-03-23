@@ -21,7 +21,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "quasar": "^1.9.10"
+    "quasar": "^1.9.11"
   },
   "devDependencies": {
     "@getsedona/nuxt-sedona": "0.0.20",
