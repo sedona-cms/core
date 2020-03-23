@@ -2,20 +2,20 @@
 
 ## Install
 
-``npm i @sedona-cms/core``
+`npm i @sedona-cms/core`
 
 ## Development
 
 1. Install dependencies
 
-``npm ci``
+`npm ci`
 
-``npx npm-self-link``
+`npx npm-self-link`
 
 2. Run watch process
 
-``npm run watch``
+`npm run watch`
 
 3. Run nuxt project from `dev` directory
 
-``npm run dev``
+`npm run dev`
