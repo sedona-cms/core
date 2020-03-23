@@ -63,6 +63,7 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
   this.addTemplate({
     src: path.resolve(__dirname, 'templates/sedona.js'),
     fileName: path.join('nuxt-admin', 'sedona.js'),
+    options,
   })
 
   // Plugins

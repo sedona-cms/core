@@ -6,9 +6,8 @@ import { Context } from '@nuxt/types'
  *
  * @exports
  * @param {Context} context nuxt context
- * @param {ModuleConfig} config module config
  */
-export async function load(context: Context, config: ModuleConfig): Promise<void> {
+export async function load(context: Context): Promise<void> {
   // @ts-ignore
   await import('@sedona-cms/core/lib/assets/css/quasar.css')
   // @ts-ignore
@@ -25,7 +24,7 @@ export async function load(context: Context, config: ModuleConfig): Promise<void
   const adminPanel = await loadAdminPanel(context.app)
 
   const { Sedona } = await import('./sedona')
-  Vue.prototype.$sedona = new Sedona(config, adminPanel)
+  Vue.prototype.$sedona = new Sedona()
 
   console.log(Vue.prototype.$sedona)
 

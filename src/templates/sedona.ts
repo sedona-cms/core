@@ -1,12 +1,8 @@
+const config: Readonly<ModuleConfig> = Object.freeze(JSON.parse('<%= JSON.stringify(options) %>'))
+
 export class Sedona {
-  private readonly config: ModuleConfig
-
-  constructor(config: ModuleConfig) {
-    this.config = Object.freeze(config)
-  }
-
   get menuItems(): MenuItem[] {
-    return this.config?.items || []
+    return config?.items || []
   }
 
   get toolBarConfig(): ToolbarConfig {
@@ -15,7 +11,7 @@ export class Sedona {
       title: '',
       buttons: [],
     }
-    return Object.assign({}, defaultToolbarConfig, this.config?.toolbar || {})
+    return Object.assign({}, defaultToolbarConfig, config?.toolbar || {})
   }
 
   goBack(): void {
