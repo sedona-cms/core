@@ -62,6 +62,7 @@ function main() {
                     console.log('Result:', path.resolve(__dirname, '../lib/assets/css/quasar.css'))
                     return true
                 })
+
                 if (result.map) {
                     fs.writeFile('dist/quasar.css.map', result.map, () => true)
                 }

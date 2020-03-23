@@ -50,6 +50,12 @@
   "lint-staged": {
     "src/**/*.{js,ts,tsx,vue,css,md}": [
       "prettier --write"
+    ],
+    "dev/**/*.{js,vue,css,json}": [
+      "prettier --write"
+    ],
+    "scripts/*.{js}": [
+      "prettier --write"
     ]
   }
 }
