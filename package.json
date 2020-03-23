@@ -29,13 +29,24 @@
     "@types/node": "^13.9.2",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-preset-jsx": "^1.1.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
     "npm-self-link": "^1.1.7",
     "nuxt": "^2.12.0",
     "postcss": "^7.0.27",
     "postcss-prefixwrap": "^1.13.1",
     "postcss-remove-rules": "^1.0.0",
+    "prettier": "2.0.1",
     "sedona-components": "^4.10.2",
     "tsc-watch": "^4.2.3",
     "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
