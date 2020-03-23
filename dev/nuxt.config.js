@@ -1,26 +1,21 @@
 export default {
-    rootDir: 'dev',
+  rootDir: 'dev',
 
-    modules: [
-        [
-            '../lib/module.js',
-            {}
-        ],
-        [
-            '@getsedona/nuxt-sedona',
-            {
-                components: ['card', 'feature'],
-            }
-        ]
+  modules: [
+    ['../lib/module.js', {}],
+    [
+      '@getsedona/nuxt-sedona',
+      {
+        components: ['card', 'feature'],
+      },
     ],
+  ],
 
-    plugins: [
-        {src: '~/plugins/admin', mode: 'client'}
-    ],
+  plugins: [{ src: '~/plugins/admin', mode: 'client' }],
 
-    // watch: ['../lib/*.js', '../lib/**/*.js']
+  // watch: ['../lib/*.js', '../lib/**/*.js']
 
-    build: {
-        extractCSS: true,
-    }
+  build: {
+    extractCSS: true,
+  },
 }

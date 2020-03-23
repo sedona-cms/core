@@ -8,10 +8,10 @@ import * as fs from 'fs'
  * @returns {Promise<ModuleConfig>} config object
  */
 export async function loadConfigFile(rootPath: string): Promise<ModuleConfig> {
-    const configFile = path.resolve(rootPath, 'sedona.config.json')
-    if (fs.existsSync(configFile)) {
-        const data = await require(`${ configFile }`)
-        return JSON.parse(JSON.stringify(data))
-    }
-    throw new Error(`Sedona CMS config file not found in ${ configFile }`)
+  const configFile = path.resolve(rootPath, 'sedona.config.json')
+  if (fs.existsSync(configFile)) {
+    const data = await require(`${configFile}`)
+    return JSON.parse(JSON.stringify(data))
+  }
+  throw new Error(`Sedona CMS config file not found in ${configFile}`)
 }

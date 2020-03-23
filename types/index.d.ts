@@ -1,33 +1,33 @@
 type MenuItem = {
-    id?: string
-    title?: string
-    subTitle?: string
-    icon?: string
-    type: 'item' | 'section'
-    component: string | Function
-    params?: {
-        [key: string]: any
-    }
-    items?: MenuItem[]
+  id?: string
+  title?: string
+  subTitle?: string
+  icon?: string
+  type: 'item' | 'section'
+  component: string | Function
+  params?: {
+    [key: string]: any
+  }
+  items?: MenuItem[]
 }
 
 type ToolbarButton = {
-    title: string
-    icon: string
-    component: string
+  title: string
+  icon: string
+  component: string
 }
 
 type ToolbarConfig = {
-    showHome: boolean
-    title: string
-    buttons: ToolbarButton[]
+  showHome: boolean
+  title: string
+  buttons: ToolbarButton[]
 }
 
 type ModuleConfig = {
-    toolbar?: ToolbarConfig
-    items: MenuItem[]
+  toolbar?: ToolbarConfig
+  items: MenuItem[]
 }
 
 interface Window {
-    _onNuxtLoaded: () => {}
+  _onNuxtLoaded: () => {}
 }
