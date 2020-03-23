@@ -47,6 +47,9 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx,vue,css,md}": " prettier --write ./src ./scripts ./dev"
+    "*.{js,ts,tsx,vue,css,md}": [
+      "prettier --write ./src ./scripts ./dev",
+      "git add --patch"
+    ]
   }
 }
