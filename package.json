@@ -10,6 +10,8 @@
   "types": "types/index.d.ts",
   "scripts": {
     "dev": "nuxt  --config-file dev/nuxt.config.js",
+    "dev:build": "nuxt build --config-file dev/nuxt.config.js",
+    "dev:start": "nuxt start --config-file dev/nuxt.config.js",
     "watch": "make -f Makefile watch",
     "build": "make -f Makefile build",
     "test": "echo \"Error: no test specified\" && exit 1"

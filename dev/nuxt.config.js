@@ -4,8 +4,7 @@ export default {
     modules: [
         [
             '../lib/module.js',
-            {
-            }
+            {}
         ],
         [
             '@getsedona/nuxt-sedona',
@@ -16,8 +15,12 @@ export default {
     ],
 
     plugins: [
-        { src: '~/plugins/admin', mode: 'client' }
+        {src: '~/plugins/admin', mode: 'client'}
     ],
 
     // watch: ['../lib/*.js', '../lib/**/*.js']
+
+    build: {
+        extractCSS: true,
+    }
 }
