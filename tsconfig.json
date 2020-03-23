@@ -6,6 +6,7 @@
     "declaration": false,
     "noImplicitAny": false,
     "noLib": false,
+    "skipLibCheck": true,
     "sourceMap": false,
     "allowJs": true,
     "checkJs": true,
