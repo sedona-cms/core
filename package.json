@@ -54,7 +54,7 @@
     "dev/**/*.{js,vue,css,json}": [
       "prettier --write"
     ],
-    "scripts/*.{js}": [
+    "scripts/*.js": [
       "prettier --write"
     ]
   }
