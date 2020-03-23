@@ -19,6 +19,6 @@ export class Sedona {
     }
 
     goBack(): void {
-        console.log('goBack')
+        console.log('goBack hook')
     }
 }
