@@ -3,7 +3,8 @@
     "module": "ESNext",
     "target": "es2020",
     "moduleResolution": "Node",
-    "declaration": false,
+    "declaration": true,
+    "declarationDir": "./types/generated",
     "noImplicitAny": false,
     "noLib": false,
     "skipLibCheck": true,
@@ -17,19 +18,12 @@
     "strict": true,
     "removeComments": false,
     "importHelpers": true,
-    "lib": [
-      "ES6",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "listFiles": false,
+    "lib": ["ES6", "DOM", "DOM.Iterable"],
     "outDir": "./lib",
-    "typeRoots": ["./node_modules/@types", "./types"]
+    "typeRoots": [
+      "./node_modules/@types", "./types"
+    ]
   },
-  "exclude": [
-    "node_modules",
-    "lib",
-    "dev",
-    "scripts",
-    "components.js"
-  ]
+  "exclude": ["node_modules", "lib", "dev", "scripts", "components.js"]
 }
