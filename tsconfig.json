@@ -3,8 +3,6 @@
     "module": "ESNext",
     "target": "es2020",
     "moduleResolution": "Node",
-    "declaration": true,
-    "declarationDir": "./types/generated",
     "noImplicitAny": false,
     "noLib": false,
     "skipLibCheck": true,
