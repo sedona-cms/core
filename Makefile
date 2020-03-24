@@ -1,4 +1,5 @@
 build:
+	npm run eslint
 	rm -rf lib
 	rm -rf types/generated
 	npx tsc --project tsconfig.json
