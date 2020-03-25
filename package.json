@@ -1,10 +1,13 @@
 {
   "name": "@sedona-cms/core",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "repository": {
     "type": "git",
     "url": "git@github.com:sedona-cms/core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sedona-cms/blocks/issues"
   },
   "main": "lib/index.js",
   "types": "types/index.d.ts",
