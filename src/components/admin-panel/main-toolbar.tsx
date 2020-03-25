@@ -5,8 +5,7 @@ export default Vue.extend({
   name: 'MainToolbar',
   methods: {
     buttonClick({ id, title, component, icon = 'folder' }) {
-      console.log(id, title, component, icon)
-      // this.$admin.goTo({ id, title, icon, component })
+      this.$root.$emit('admin:view-change', { id, title, icon, component })
     },
   },
   render(): VNode {
@@ -14,7 +13,12 @@ export default Vue.extend({
 
     if (this.$sedona.toolBarConfig.showHome) {
       buttons.push(
-        <q-btn flat={true} round={true} dense={true} class="q-mr-sm">
+        <q-btn
+          flat={true}
+          round={true}
+          dense={true}
+          class="q-mr-sm"
+          on-click={() => this.$root.$emit('admin:view-change', 'tab-home')}>
           <q-icon name="home" />
           <q-tooltip content-class="bg-amber text-black shadow-4">Home</q-tooltip>
         </q-btn>

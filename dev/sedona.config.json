@@ -5,7 +5,7 @@
       {
         "title": "SEO",
         "icon": "folder",
-        "component": "components/post-seo"
+        "component": "views/site-seo"
       }
     ]
   },
@@ -14,7 +14,7 @@
       "title": "Post List",
       "subTitle": "Post list Subtitle",
       "type": "item",
-      "component": "components/posts-list"
+      "component": "views/posts-list"
     }
   ]
 }
