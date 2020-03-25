@@ -19,7 +19,7 @@ export default Vue.extend({
     }
   },
   mounted(): void {
-    this.$root.$on('admin:view-change', (item, parameters) => {
+    this.$root.$on('admin:view-change', (item: MenuItem | string, parameters: any) => {
       if (typeof item === 'object') {
         if (`tab-${item.id}` === this.activeTab) {
           return

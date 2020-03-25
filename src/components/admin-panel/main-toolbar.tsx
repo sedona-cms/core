@@ -4,8 +4,8 @@ import { uid } from 'quasar'
 export default Vue.extend({
   name: 'MainToolbar',
   methods: {
-    buttonClick({ id, title, component, icon = 'folder' }) {
-      this.$root.$emit('admin:view-change', { id, title, icon, component })
+    buttonClick(menuItem: MenuItem | string) {
+      this.$root.$emit('admin:view-change', menuItem)
     },
   },
   render(): VNode {
@@ -36,7 +36,7 @@ export default Vue.extend({
           round={true}
           dense={true}
           class="q-mr-sm"
-          on-click={() => this.buttonClick({ id, ...button })}>
+          on-click={() => this.buttonClick({ id, type: 'item', ...button })}>
           <q-icon name={icon} />
           {title ? <q-tooltip>{button.title}</q-tooltip> : ''}
         </q-btn>
