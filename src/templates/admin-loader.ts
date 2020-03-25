@@ -27,6 +27,7 @@ export const adminLoader: AdminLoader = {
     const { Sedona } = await import('./sedona')
     Vue.prototype.$sedona = new Sedona()
 
+    // @ts-ignore
     const AdminPanel = (await import('@sedona-cms/core/lib/components/router-view/router-panel'))
       .default
     document.body.prepend(new AdminPanel().$mount().$el)
