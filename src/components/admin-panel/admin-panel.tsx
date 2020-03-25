@@ -1,12 +1,12 @@
 import Vue, { VNode } from 'vue'
-import RouterView from './router-view'
+import { RouterView } from '../router-view'
 import MainToolbar from './main-toolbar'
 
 let qApp: HTMLElement | null
 let nuxtDiv: HTMLElement | null
 
 export default Vue.extend({
-  name: 'RouterPanel',
+  name: 'AdminPanel',
   components: {
     RouterView,
     MainToolbar,

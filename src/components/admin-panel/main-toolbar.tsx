@@ -32,8 +32,7 @@ export default Vue.extend({
           round={true}
           dense={true}
           class="q-mr-sm"
-          on-click={() => this.buttonClick({ id, ...button })}
-        >
+          on-click={() => this.buttonClick({ id, ...button })}>
           <q-icon name={icon} />
           {title ? <q-tooltip>{button.title}</q-tooltip> : ''}
         </q-btn>

@@ -1,3 +1,3 @@
-import RouterPanel from './router-panel'
+import RouterView from './router-view'
 
-export { RouterPanel }
+export { RouterView }
