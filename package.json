@@ -50,14 +50,14 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,ts,tsx,vue,css,md}": [
+    "src/**/*.{js,ts,tsx,vue,md}": [
       "prettier --write"
     ],
     "src/**/*.{js,ts,tsx}": [
       "prettier --write",
       "npm run eslint"
     ],
-    "dev/**/*.{js,vue,css,json}": [
+    "dev/**/*.{js,vue,json}": [
       "prettier --write"
     ],
     "scripts/*.js": [
