@@ -1,15 +1,7 @@
 export default {
   rootDir: 'dev',
 
-  modules: [
-    ['../lib/module.js', {}],
-    [
-      '@getsedona/nuxt-sedona',
-      {
-        components: ['card', 'feature'],
-      },
-    ],
-  ],
+  modules: [['../lib/module.js', {}]],
 
   buildModules: ['@getsedona/nuxt-sedona'],
 
