@@ -10,6 +10,7 @@ const sourceFile = path.resolve(__dirname, '../node_modules/quasar/dist/quasar.c
 console.log('Source file:', sourceFile)
 console.log('Quasar version:', pkg.version)
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function main() {
   fs.readFile(sourceFile, (error, code) => {
     // eslint-disable-next-line promise/catch-or-return,promise/no-promise-in-callback
@@ -42,7 +43,8 @@ function main() {
           '.admin-panel, .admin-panel, .admin-panel #q-app': '*',
           'body.platform-ios.within-iframe, body.platform-ios.within-iframe #q-app': '*',
           'body.electron .q-electron-drag': '*',
-          'body.electron .q-electron-drag .q-btn-item, body.electron .q-electron-drag--exception': '*',
+          'body.electron .q-electron-drag .q-btn-item, body.electron .q-electron-drag--exception':
+            '*',
           '.admin-panel code, .admin-panel kbd, .admin-panel pre, .admin-panel samp': '*',
           '.admin-panel hr': '*',
           '.admin-panel button, .admin-panel input, .admin-panel optgroup, .admin-panel select, .admin-panel textarea':
@@ -54,9 +56,9 @@ function main() {
       .process(code, { from: sourceFile, to: 'dist/quasar.css' })
       .then(result => {
         const css = result.css.replace(/body\.desktop/g, 'body')
-        const destPath = path.resolve(__dirname, '../lib/assets/css')
-        if (!fs.existsSync(destPath)) {
-          fs.mkdirSync(destPath, { recursive: true })
+        const destinationPath = path.resolve(__dirname, '../lib/assets/css')
+        if (!fs.existsSync(destinationPath)) {
+          fs.mkdirSync(destinationPath, { recursive: true })
         }
 
         fs.writeFile('lib/assets/css/quasar.css', css, () => {
@@ -67,6 +69,8 @@ function main() {
         if (result.map) {
           fs.writeFile('dist/quasar.css.map', result.map, () => true)
         }
+
+        return true
       })
   })
 }

@@ -19,12 +19,12 @@ export default Vue.extend({
     }
   },
   mounted(): void {
-    this.$root.$on('admin:view-change', (item, params) => {
+    this.$root.$on('admin:view-change', (item, parameters) => {
       if (typeof item === 'object') {
         if (`tab-${item.id}` === this.activeTab) {
           return
         }
-        this.menuItemClick(Object.assign(item, { icon: 'folder', params }))
+        this.menuItemClick(Object.assign(item, { icon: 'folder', params: parameters }))
       }
       if (typeof item === 'string') {
         if (this.activeTab === item) {
@@ -79,8 +79,7 @@ export default Vue.extend({
           animated={true}
           keepAlive={false}
           infinite={true}
-          value={this.activeTab}
-        >
+          value={this.activeTab}>
           {[...views]}
         </q-tab-panels>
       </q-scroll-area>

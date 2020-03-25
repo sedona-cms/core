@@ -19,8 +19,15 @@ export default Vue.extend({
   async mounted(): Promise<void> {
     await this.$nextTick()
 
-    qApp = document.getElementById('q-app')
-    nuxtDiv = document.getElementById('__nuxt')
+    qApp = document.querySelector('#q-app')
+    nuxtDiv = document.querySelector('#__nuxt')
+
+    if (qApp === null) {
+      throw new Error(`No element with #q-app selector`)
+    }
+    if (nuxtDiv === null) {
+      throw new Error(`No element with #__nuxt selector`)
+    }
 
     const isOpen: boolean = JSON.parse(localStorage.getItem('sedona-panel-open') || 'false')
     if (isOpen) {
@@ -29,29 +36,23 @@ export default Vue.extend({
   },
   methods: {
     toggle(): void {
-      if (qApp !== null) {
-        if (this.isPanelOpen) {
-          this.close()
-        } else {
-          this.open()
-        }
-      }
+      this.isPanelOpen ? this.close() : this.open()
     },
     open(): void {
-      if (qApp !== null && nuxtDiv !== null) {
-        qApp.style.left = '0px'
-        nuxtDiv.style.paddingLeft = '350px'
-        this.isPanelOpen = true
-        localStorage.setItem('sedona-panel-open', String(true))
-      }
+      // @ts-ignore
+      qApp.style.left = '0px'
+      // @ts-ignore
+      nuxtDiv.style.paddingLeft = '350px'
+      this.isPanelOpen = true
+      localStorage.setItem('sedona-panel-open', String(true))
     },
     close(): void {
-      if (qApp !== null && nuxtDiv !== null) {
-        qApp.style.left = '-300px'
-        nuxtDiv.style.paddingLeft = 'unset'
-        this.isPanelOpen = false
-        localStorage.setItem('sedona-panel-open', String(false))
-      }
+      // @ts-ignore
+      qApp.style.left = '-300px'
+      // @ts-ignore
+      nuxtDiv.style.paddingLeft = 'unset'
+      this.isPanelOpen = false
+      localStorage.setItem('sedona-panel-open', String(false))
     },
   },
   render(): VNode {

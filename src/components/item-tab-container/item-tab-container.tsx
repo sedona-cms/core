@@ -49,7 +49,7 @@ export default Vue.extend({
     }
   },
   render(h): VNode {
-    const viewProps = {
+    const viewProperties = {
       items: this.items,
     }
     let view
@@ -58,7 +58,7 @@ export default Vue.extend({
         view = h(this.asyncComponent, { props: this.params })
         break
       case 'function':
-        view = h(this.component, { props: viewProps })
+        view = h(this.component, { props: viewProperties })
         break
       case 'object':
         view = this.component
@@ -73,7 +73,13 @@ export default Vue.extend({
     return (
       <div class="fit">
         <q-toolbar inset={false}>
-          <q-btn flat={true} round={true} dense={true} icon={this.icon} on-click={this.$sedona.goBack} />
+          <q-btn
+            flat={true}
+            round={true}
+            dense={true}
+            icon={this.icon}
+            on-click={this.$sedona.goBack}
+          />
           <q-toolbar-title shrink={true}>{this.title}</q-toolbar-title>
         </q-toolbar>
         <q-separator dark={true} horizontal={true} inset={false} />
