@@ -15,9 +15,12 @@ build-assets:
 	node scripts/build.quasar.js
 	cp -r src/assets lib
 
+copy-css:
+	cd ./src && find . -name '*.css' | cpio -pdm ./../lib
+
 build-dev: build-ts-dev build-assets
 
 build-prod: build-ts-prod build-assets
 
 watch: build-dev
-	npx tsc --watch --project tsconfig.json
+	npx tsc-watch --onSuccess 'make -f Makefile copy-css'

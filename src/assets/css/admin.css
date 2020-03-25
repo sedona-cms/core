@@ -1,25 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-:root {
-  --admin-panel-width: 300px;
-}
-
-.admin-panel {
-  width: var(--admin-panel-width);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  z-index: 99;
-  font-size: 15px;
-  direction: ltr;
-  transition: left 0.2s cubic-bezier(0.82, 0.085, 0.395, 0.895);
-}
-
-.admin-panel--inner {
-  background: inherit;
-}
-
 .dialog-plugin.admin-panel {
   min-width: auto;
   min-height: auto;

@@ -2,6 +2,8 @@ import Vue, { VNode } from 'vue'
 import { RouterView } from '../router-view'
 import MainToolbar from './main-toolbar'
 
+import './admin-panel.css'
+
 let qApp: HTMLElement | null
 let nuxtDiv: HTMLElement | null
 

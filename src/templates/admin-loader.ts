@@ -21,6 +21,8 @@ export const adminLoader: AdminLoader = {
     document.body.style.setProperty('--q-color-negative', '#f44336') // red
     document.body.style.setProperty('--q-color-dark', '#424242')
 
+    document.body.style.setProperty('--admin-panel-width', '300px')
+
     const Quasar = await require('./quasar')
     Vue.use(Quasar.default)
 
