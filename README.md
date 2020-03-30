@@ -1,5 +1,7 @@
 # Sedona CMS
 
+![Node.js Package](https://github.com/sedona-cms/core/workflows/Node.js%20Package/badge.svg)
+
 ## Install
 
 `npm i @sedona-cms/core`
