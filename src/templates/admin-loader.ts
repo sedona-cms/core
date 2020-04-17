@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import { eventBus } from '@sedona-cms/core'
 
 type AdminLoader = {
   load: () => Promise<void>
@@ -30,6 +29,8 @@ export const adminLoader: AdminLoader = {
     const { Sedona } = await import('./sedona')
     Vue.prototype.$sedona = new Sedona()
 
+    // @ts-ignore
+    const { eventBus } = await import('@sedona-cms/core')
     eventBus.emit('sedona:loaded')
 
     // @ts-ignore
