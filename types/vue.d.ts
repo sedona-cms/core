@@ -1,4 +1,4 @@
-import { Sedona } from './generated/templates/sedona'
+import { Sedona } from './templates/sedona'
 
 declare module 'vue/types/vue' {
   interface Vue {

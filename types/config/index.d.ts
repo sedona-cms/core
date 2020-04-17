@@ -27,7 +27,3 @@ type ModuleConfig = {
   toolbar?: ToolbarConfig
   items: MenuItem[]
 }
-
-interface Window {
-  _onNuxtLoaded: () => {}
-}
