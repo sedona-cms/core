@@ -3,7 +3,7 @@ node_modules/
 dev/.nuxt/
 lib/
 
-types/*
+types/
 !types/config/
 !types/vue.d.ts
 
