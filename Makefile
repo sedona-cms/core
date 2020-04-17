@@ -3,12 +3,10 @@ lint:
 
 build-ts-dev: lint
 	rm -rf lib
-	rm -rf types/generated
 	npx tsc --project tsconfig.json
 
 build-ts-prod: lint
 	rm -rf lib
-	rm -rf types/generated
 	npx tsc --project tsconfig.build.json
 
 build-assets:
