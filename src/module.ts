@@ -69,11 +69,6 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
     options,
   })
 
-  this.addTemplate({
-    src: path.resolve(__dirname, 'templates/event-bus.js'),
-    fileName: path.join('admin', 'event-bus.js'),
-  })
-
   // Plugins
 
   this.addPlugin({
