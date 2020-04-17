@@ -20,7 +20,7 @@ copy-css:
 
 build-dev: build-ts-dev build-assets
 
-build-prod: build-ts-prod build-assets
+build-prod: build-ts-prod build-assets copy-css
 
 watch: build-dev
 	npx tsc-watch --onSuccess 'make -f Makefile copy-css'
