@@ -36,7 +36,10 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
   }
 
   let options: ModuleConfig
-  if (moduleOptions === undefined || (typeof moduleOptions === 'object' && Object.keys(moduleOptions).length === 0)) {
+  if (
+    moduleOptions === undefined ||
+    (typeof moduleOptions === 'object' && Object.keys(moduleOptions).length === 0)
+  ) {
     options = await loadConfigFile(this.options.rootDir || process.cwd())
     options = Object.assign({}, defaultOptions, options)
   } else {
@@ -64,6 +67,11 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
     src: path.resolve(__dirname, 'templates/sedona.js'),
     fileName: path.join('nuxt-admin', 'sedona.js'),
     options,
+  })
+
+  this.addTemplate({
+    src: path.resolve(__dirname, 'templates/event-bus.js'),
+    fileName: path.join('nuxt-admin', 'event-bus.js'),
   })
 
   // Plugins

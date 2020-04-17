@@ -29,8 +29,13 @@ export const adminLoader: AdminLoader = {
     const { Sedona } = await import('./sedona')
     Vue.prototype.$sedona = new Sedona()
 
+    const { eventBus } = await import('./event-bus')
+    eventBus.emit('sedona:loaded')
+
     // @ts-ignore
     const { AdminPanel } = await import('@sedona-cms/core/lib/components/admin-panel')
     document.body.prepend(new AdminPanel().$mount().$el)
+
+    eventBus.emit('sedona:panel-loaded')
   },
 }
