@@ -55,30 +55,30 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
 
   this.addTemplate({
     src: path.resolve(__dirname, 'templates/quasar.js'),
-    fileName: path.join('nuxt-admin', 'quasar.js'),
+    fileName: path.join('admin', 'quasar.js'),
   })
 
   this.addTemplate({
     src: path.resolve(__dirname, 'templates/admin-loader.js'),
-    fileName: path.join('nuxt-admin', 'admin-loader.js'),
+    fileName: path.join('admin', 'admin-loader.js'),
   })
 
   this.addTemplate({
     src: path.resolve(__dirname, 'templates/sedona.js'),
-    fileName: path.join('nuxt-admin', 'sedona.js'),
+    fileName: path.join('admin', 'sedona.js'),
     options,
   })
 
   this.addTemplate({
     src: path.resolve(__dirname, 'templates/event-bus.js'),
-    fileName: path.join('nuxt-admin', 'event-bus.js'),
+    fileName: path.join('admin', 'event-bus.js'),
   })
 
   // Plugins
 
   this.addPlugin({
     src: path.resolve(__dirname, 'templates/plugin.js'),
-    fileName: path.join('nuxt-admin', 'plugin.admin.js'),
+    fileName: path.join('admin', 'plugin.js'),
     mode: 'client',
     options,
   })
