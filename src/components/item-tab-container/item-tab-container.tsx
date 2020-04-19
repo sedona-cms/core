@@ -1,11 +1,11 @@
 import Vue, { VNode, PropType } from 'vue'
-import ItemTaberror from './item-tab-error'
+import AdminItemTabError from './item-tab-error'
 import ItemTabLoading from './item-tab-loading'
 
 const getTabComponent: (componentPath: string) => any = (componentPath: string) => ({
   component: import(`~/admin/${componentPath}`),
   loading: ItemTabLoading,
-  error: ItemTaberror,
+  error: AdminItemTabError,
   timeout: 600,
 })
 
