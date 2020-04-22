@@ -1,7 +1,7 @@
 export default {
   rootDir: 'dev',
 
-  modules: [['../lib/module.js', {}]],
+  modules: ['@nuxt/http', ['../lib/module.js', {}]],
 
   buildModules: ['@getsedona/nuxt-sedona'],
 

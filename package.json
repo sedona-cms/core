@@ -30,6 +30,7 @@
   "devDependencies": {
     "@getsedona/nuxt-sedona": "0.0.20",
     "@getsedona/vue-components": "^0.1.6",
+    "@nuxt/http": "^0.5.0",
     "@nuxt/types": "^0.6.4",
     "@sedona-cms/eslint-config": "^1.0.1",
     "@types/node": "^13.13.2",

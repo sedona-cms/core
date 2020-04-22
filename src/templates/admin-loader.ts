@@ -1,16 +1,17 @@
 import Vue from 'vue'
 
 type AdminLoader = {
-  load: () => Promise<void>
+  load: (fromContext: boolean) => Promise<void>
 }
 
 export const adminLoader: AdminLoader = {
   /**
    * Load admin UI
    *
+   * @param {boolean} fromContext
    * @return {Promise<void>}
    */
-  async load(): Promise<void> {
+  async load(fromContext: boolean = false): Promise<void> {
     // @ts-ignore
     await import('@sedona-cms/core/lib/assets/css/quasar.css')
     // @ts-ignore
@@ -33,10 +34,20 @@ export const adminLoader: AdminLoader = {
     const { eventBus } = await import('@sedona-cms/core')
     eventBus.emit('sedona:loaded')
 
-    // @ts-ignore
-    const { AdminPanel } = await import('@sedona-cms/core/lib/components/admin-panel')
-    document.body.prepend(new AdminPanel().$mount().$el)
+    if (fromContext) {
+      window.onNuxtReady(async () => {
+        await loadAdminPanel()
+      })
+    } else {
+      await loadAdminPanel()
+    }
 
     eventBus.emit('sedona:panel-loaded')
   },
+}
+
+async function loadAdminPanel(): Promise<void> {
+  // @ts-ignore
+  const { AdminPanel } = await import('@sedona-cms/core/lib/components/admin-panel')
+  document.body.prepend(new AdminPanel({ parent: window.$nuxt }).$mount().$el)
 }

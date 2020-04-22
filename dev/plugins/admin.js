@@ -1,8 +1,8 @@
 /**
  * Admin load
  *
- * @param {Context} context nuxt context
- * @returns {Promise<void>}
+ * @param {import('@nuxt/types').Context} context nuxt context
+ * @return {Promise<void>}
  */
 export default async function (context) {
   if (context.query.loggedIn === 'true') {

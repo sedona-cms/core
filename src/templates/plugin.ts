@@ -5,5 +5,7 @@ const options: ModuleConfig = JSON.parse('<%= JSON.stringify(options) %>')
 
 export default async function (context: Context, inject: Function): Promise<void> {
   inject('adminLoader', adminLoader)
-  context['$adminLoader'] = adminLoader
+  context.$adminLoader = {
+    load: () => adminLoader.load(true),
+  }
 }
