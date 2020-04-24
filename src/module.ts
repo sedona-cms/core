@@ -1,7 +1,7 @@
 import * as path from 'path'
 import { Module } from '@nuxt/types'
-import { uid } from 'quasar'
 import { loadConfigFile } from './utils/config'
+import { generateId } from './utils/nanoid'
 
 export const meta = require('../package.json')
 
@@ -48,7 +48,7 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
 
   options.items = options.items.map(item => {
     return {
-      id: uid(),
+      id: generateId(),
       ...item,
     }
   })
