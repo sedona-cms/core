@@ -14,12 +14,15 @@ import { QTooltip } from 'quasar/src/components/tooltip'
 import { QDialog } from 'quasar/src/components/dialog'
 import { QCard } from 'quasar/src/components/card'
 import { QTable, QTd, QTh, QTr } from 'quasar/src/components/table'
+
 import { QInput } from 'quasar/src/components/input'
 import { QCheckbox } from 'quasar/src/components/checkbox'
+import { QField } from 'quasar/src/components/field'
+import { QDate } from 'quasar/src/components/date'
+
 import { QCircularProgress } from 'quasar/src/components/circular-progress'
 import { QMenu } from 'quasar/src/components/menu'
 import { QOptionGroup } from 'quasar/src/components/option-group'
-import { QField } from 'quasar/src/components/field'
 
 import { QScrollArea } from 'quasar/src/components/scroll-area'
 
@@ -55,6 +58,7 @@ export default {
         QTr,
         QInput,
         QCheckbox,
+        QDate,
         QCircularProgress,
         QMenu,
         QOptionGroup,
