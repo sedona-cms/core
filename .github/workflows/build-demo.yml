@@ -15,4 +15,4 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.access_token }}
           BRANCH: gh-pages
           FOLDER: 'dist-docs'
-          BUILD_SCRIPT: npm ci && npm run build:example
+          BUILD_SCRIPT: make -f Makefile build-example
