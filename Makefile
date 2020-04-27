@@ -21,7 +21,7 @@ build-dev: build-ts-dev build-assets
 build-prod: build-ts-prod build-assets copy-css
 
 build-example:
-	sudo apt-get update && sudo apt-get install -y cpio
+	apk add --update-cache cpio
 	npm ci
 	npx npm-self-link
 	make -f Makefile build-prod
