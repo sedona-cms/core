@@ -12,6 +12,12 @@
   "items": [
     {
       "title": "Post List",
+      "type": "item",
+      "component": "views/posts-list",
+      "pattern": ""
+    },
+    {
+      "title": "Post List",
       "subTitle": "Post list Subtitle",
       "type": "item",
       "component": "views/posts-list",

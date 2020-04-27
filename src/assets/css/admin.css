@@ -29,3 +29,7 @@
   top: 5px;
   position: absolute;
 }
+
+.admin-panel .column {
+  padding: 0;
+}
