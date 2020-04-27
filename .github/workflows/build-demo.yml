@@ -15,4 +15,4 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.access_token }}
           BRANCH: gh-pages
           FOLDER: 'dist-docs'
-          BUILD_SCRIPT: make -f Makefile build-example
+          BUILD_SCRIPT: apt-get update && apt-get install -y cpio && make -f Makefile build-example
