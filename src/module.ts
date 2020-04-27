@@ -1,7 +1,6 @@
 import * as path from 'path'
 import { Module } from '@nuxt/types'
-import { loadConfigFile } from './utils/config'
-import { generateId } from './utils/nanoid'
+import { loadConfigFile, setIdToMenuItems } from './utils/config'
 
 export const meta = require('../package.json')
 
@@ -46,12 +45,7 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
     options = Object.assign({}, defaultOptions, moduleOptions)
   }
 
-  options.items = options.items.map(item => {
-    return {
-      id: generateId(),
-      ...item,
-    }
-  })
+  options.items = setIdToMenuItems(options.items)
 
   this.addTemplate({
     src: path.resolve(__dirname, 'templates/quasar.js'),
