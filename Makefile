@@ -25,7 +25,7 @@ build-example:
 	npx npm-self-link
 	make -f Makefile build-prod
 	DEPLOY_ENV=GH_PAGES npx nuxt generate dev --modern
-	mv -r dev/dist ./dist-docs
+	cp -r dev/dist ./dist-docs
 
 watch: build-dev
 	npx tsc-watch --onSuccess 'make -f Makefile copy-css'
