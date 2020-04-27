@@ -45,7 +45,8 @@
     "postcss-remove-rules": "^1.0.0",
     "prettier": "2.0.1",
     "tsc-watch": "^4.2.3",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "web-streams-polyfill": "^2.1.1"
   },
   "husky": {
     "hooks": {
