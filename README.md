@@ -2,6 +2,10 @@
 
 ![Node.js Package](https://github.com/sedona-cms/core/workflows/Node.js%20Package/badge.svg)
 
+
+[Demo](https://sedona-cms.github.io/core/)
+
+
 ## Install
 
 `npm i @sedona-cms/core`
