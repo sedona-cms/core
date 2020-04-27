@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    run: |
+      apt-get update && apt-get install -y cpio
     steps:
       - uses: actions/checkout@v1
       - uses: JamesIves/github-pages-deploy-action@master
