@@ -14,7 +14,12 @@
           invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
           accusam et justo duo dolores et ea rebum.
         </p>
-        <button v-if="!isLogged" class="btn has-mustard-bg is-size-7 a-menu" @click="load">
+        <button
+          v-if="!isLogged"
+          :class="{ 'is-loading': loading }"
+          class="button btn has-mustard-bg is-size-8 a-menu"
+          @click="load"
+        >
           try it now
         </button>
       </div>
@@ -33,6 +38,7 @@
     data() {
       return {
         isLogged: false,
+        loading: false,
       }
     },
     mounted() {
@@ -40,9 +46,11 @@
     },
     methods: {
       async load() {
+        this.loading = true
         window.history.pushState('', '', `${location.href}?loggedIn=true`)
         await this.$adminLoader.load()
         this.isLogged = true
+        this.loading = false
       },
     },
   }
