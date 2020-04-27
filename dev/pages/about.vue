@@ -1,7 +1,5 @@
 <template>
-  <page>
-    <scene view="box">
-      About page
-    </scene>
-  </page>
+  <div>
+    About page
+  </div>
 </template>

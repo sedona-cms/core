@@ -1,16 +1,17 @@
 <template>
-  <page>
-    <scene view="box">
-      Home page
-    </scene>
-  </page>
+  <div>
+    <the-tweeter-feed />
+
+    <the-features />
+  </div>
 </template>
 
 <script>
+  import TheTweeterFeed from '~/components/TheTweeterFeed'
+  import TheFeatures from '~/components/TheFeatures'
+
   export default {
     name: 'HomePage',
-    mounted() {
-      console.log('page', this.$http)
-    },
+    components: { TheTweeterFeed, TheFeatures },
   }
 </script>

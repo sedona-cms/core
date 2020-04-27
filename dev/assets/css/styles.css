@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css?family=Calistoga|Open+Sans&display=swap');
+
+/*
+Colours
+#FFFFFF - White
+#FDBB34 - Mustard
+#1E4132 - Green
+*/
+
+.has-text-green {
+  color: #1e4132 !important;
+}
+
+.has-mustard-bg {
+  background-color: #fdbb34;
+}
+
+.has-green-bg {
+  background-color: #1e4132;
+}
+
+.has-white-mustard-gradient {
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(253, 187, 52, 1) 50%,
+    rgba(253, 187, 52, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(253, 187, 52, 1) 50%,
+    rgba(253, 187, 52, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(253, 187, 52, 1) 50%,
+    rgba(253, 187, 52, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#fdbb34", GradientType=1);
+}
+
+@media (max-width: 1024px) {
+  .has-white-mustard-gradient {
+    background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 25%,
+      rgba(253, 187, 52, 1) 25%,
+      rgba(253, 187, 52, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 25%,
+      rgba(253, 187, 52, 1) 25%,
+      rgba(253, 187, 52, 1) 100%
+    );
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 25%,
+      rgba(253, 187, 52, 1) 25%,
+      rgba(253, 187, 52, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#fdbb34", GradientType=1);
+  }
+}
+
+/*
+Typography
+*/
+
+h1,
+h2,
+h3 {
+  font-family: 'Calistoga';
+  margin-bottom: 10px;
+}
+p,
+a,
+span {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  p {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/*
+Links
+*/
+.a-menu {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: opacity 1s ease;
+  opacity: 0.8;
+}
+
+.a-menu:hover {
+  opacity: 1;
+  color: #1e4132 !important;
+  text-decoration: none;
+}
+
+/*
+Wrapper
+*/
+.section .container,
+.hero .hero-body,
+.hero .hero-head {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/*
+Some aesthetic improvements
+*/
+nav {
+  padding-top: 20px;
+  max-height: 50px;
+}
+
+.paragraph {
+  width: 600px;
+  line-height: 1.5em;
+}
+
+/*
+Hero
+*/
+.burger {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+@media (min-width: 1024px) {
+  .hero-body {
+    background-image: url(~assets/img/hero.png);
+    background-size: 30%;
+    background-position: 80% 50%;
+    background-repeat: no-repeat;
+  }
+  .hero-body p {
+    width: 600px;
+  }
+}
+
+/*
+Button
+*/
+.btn {
+  margin-top: 20px;
+  border-radius: 50px;
+  border: none;
+  padding: 10px 30px;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(253, 186, 52, 1);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(253, 186, 52, 1);
+  box-shadow: 0px 0px 15px 0px rgba(253, 186, 52, 1);
+  transition: opacity 1s ease;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}

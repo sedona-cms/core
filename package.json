@@ -29,10 +29,9 @@
     "quasar": "^1.9.16"
   },
   "devDependencies": {
-    "@getsedona/nuxt-sedona": "0.0.20",
-    "@getsedona/vue-components": "^0.1.6",
     "@nuxt/http": "^0.5.0",
     "@nuxt/types": "^0.6.4",
+    "@nuxtjs/bulma": "^1.2.7",
     "@sedona-cms/eslint-config": "^1.0.1",
     "@types/node": "^13.13.4",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
@@ -45,7 +44,6 @@
     "postcss-prefixwrap": "^1.15.0",
     "postcss-remove-rules": "^1.0.0",
     "prettier": "2.0.1",
-    "sedona-components": "^4.10.3",
     "tsc-watch": "^4.2.3",
     "typescript": "^3.8.3"
   },

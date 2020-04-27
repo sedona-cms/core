@@ -14,7 +14,8 @@
       "title": "Post List",
       "subTitle": "Post list Subtitle",
       "type": "item",
-      "component": "views/posts-list"
+      "component": "views/posts-list",
+      "pattern": ""
     }
   ]
 }

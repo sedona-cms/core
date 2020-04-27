@@ -44,7 +44,7 @@ export default Vue.extend({
       // @ts-ignore
       qApp.style.left = '0px'
       // @ts-ignore
-      nuxtDiv.style.paddingLeft = '350px'
+      nuxtDiv.style.paddingLeft = '300px'
       this.isPanelOpen = true
       localStorage.setItem('sedona-panel-open', String(true))
     },

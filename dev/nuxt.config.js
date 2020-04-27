@@ -1,13 +1,20 @@
 export default {
   rootDir: 'dev',
 
-  modules: ['@nuxt/http', ['../lib/module.js', {}]],
-
-  buildModules: ['@getsedona/nuxt-sedona'],
-
-  sedona: {
-    components: ['page', 'scene', 'feature'],
+  head: {
+    link: [
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Calistoga|Open+Sans&display=swap',
+      },
+    ],
   },
+
+  css: ['~assets/css/styles.css'],
+
+  modules: ['@nuxt/http', '../lib/module.js'],
+
+  buildModules: ['@nuxtjs/bulma'],
 
   plugins: [{ src: '~/plugins/admin', mode: 'client' }],
 
@@ -15,5 +22,12 @@ export default {
 
   build: {
     extractCSS: true,
+    postcss: {
+      preset: {
+        features: {
+          customProperties: false,
+        },
+      },
+    },
   },
 }
