@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: cpio
-        run: apt-get update && apt-get install -y cpio
+        run: sudo apt-get update && sudo apt-get install -y cpio
       - uses: actions/checkout@v1
       - uses: JamesIves/github-pages-deploy-action@master
         env:
