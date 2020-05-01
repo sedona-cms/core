@@ -17,10 +17,10 @@
       "pattern": ""
     },
     {
-      "title": "Post List",
-      "subTitle": "Post list Subtitle",
+      "title": "Menu Editor",
+      "subTitle": "Configure menu items",
       "type": "item",
-      "component": "views/posts-list",
+      "component": "views/menu-editor",
       "pattern": ""
     }
   ]
