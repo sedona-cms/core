@@ -1,5 +1,5 @@
 import Vue, { VNode } from 'vue'
-import { uid } from 'quasar'
+import { generateId } from '../../utils/nanoid'
 
 export default Vue.extend({
   name: 'MainToolbar',
@@ -28,7 +28,7 @@ export default Vue.extend({
     this.$sedona.toolBarConfig.buttons.forEach((button: ToolbarButton) => {
       const title = button?.title || false
       const icon = button?.icon || 'extension'
-      const id = uid()
+      const id = generateId()
 
       buttons.push(
         <q-btn
