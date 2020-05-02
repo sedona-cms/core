@@ -32,4 +32,5 @@
 
 .admin-panel .column {
   padding: 0;
+  flex-basis: auto;
 }
