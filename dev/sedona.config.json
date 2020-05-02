@@ -17,11 +17,23 @@
       "pattern": ""
     },
     {
-      "title": "Menu Editor",
-      "subTitle": "Configure menu items",
-      "type": "item",
-      "component": "views/menu-editor",
-      "pattern": ""
+      "title": "Header",
+      "type": "section",
+      "items": [
+        {
+          "title": "Header Title",
+          "type": "item",
+          "icon": "title",
+          "component": "views/header/header-form"
+        },
+        {
+          "title": "Menu Editor",
+          "subTitle": "Configure menu items",
+          "type": "item",
+          "icon": "menu",
+          "component": "views/header/menu-editor"
+        }
+      ]
     }
   ]
 }
