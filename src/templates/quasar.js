@@ -19,6 +19,7 @@ import { QInput } from 'quasar/src/components/input'
 import { QCheckbox } from 'quasar/src/components/checkbox'
 import { QField } from 'quasar/src/components/field'
 import { QDate } from 'quasar/src/components/date'
+import { QEditor } from 'quasar/src/components/editor'
 
 import { QCircularProgress } from 'quasar/src/components/circular-progress'
 import { QMenu } from 'quasar/src/components/menu'
@@ -59,6 +60,7 @@ export default {
         QInput,
         QCheckbox,
         QDate,
+        QEditor,
         QCircularProgress,
         QMenu,
         QOptionGroup,
