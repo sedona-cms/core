@@ -29,17 +29,26 @@ export default Vue.extend({
       )
     }
 
+    function createMenuSection(item: MenuItem): VNode[] {
+      const result: VNode[] = [<q-item-label header={true}>{item.title}</q-item-label>]
+      if (!Array.isArray(item.items)) {
+        return result
+      }
+      for (const menuItem of item.items) {
+        result.push(createMenuItem(menuItem))
+      }
+
+      return result
+    }
+
     this.items.forEach((item: MenuItem) => {
       switch (item.type) {
         case 'item':
           childComponents.add(createMenuItem(item))
           break
-        case 'section': {
-          for (const menuItem of item?.items || []) {
-            childComponents.add(createMenuItem(menuItem))
-          }
+        case 'section':
+          createMenuSection(item).map(item => childComponents.add(item))
           break
-        }
       }
     })
 

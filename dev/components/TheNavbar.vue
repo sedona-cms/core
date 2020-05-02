@@ -11,26 +11,15 @@
 
       <div class="navbar-menu">
         <div class="navbar-end">
-          <nuxt-link
-            :to="{ path: '/', query: { loggedIn: isLogged } }"
-            class="a-menu is-size-7 navbar-item"
-          >
-            home
-          </nuxt-link>
-
-          <nuxt-link
-            :to="{ path: '/about', query: { loggedIn: isLogged } }"
-            class="a-menu is-size-7 navbar-item"
-          >
-            about
-          </nuxt-link>
-
-          <nuxt-link
-            :to="{ path: '/features', query: { loggedIn: isLogged } }"
-            class="a-menu is-size-7 navbar-item"
-          >
-            features
-          </nuxt-link>
+          <template v-for="item in menuItems">
+            <nuxt-link
+              :key="item.id"
+              :to="{ path: item.href, query: { loggedIn: isLogged } }"
+              class="a-menu is-size-7 navbar-item"
+            >
+              {{ item.title }}
+            </nuxt-link>
+          </template>
         </div>
       </div>
       <span class="navbar-burger burger" data-target="navbarMenuHeroA">
@@ -43,12 +32,17 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+
   export default {
     name: 'TheNavbar',
     data() {
       return {
         isLogged: false,
       }
+    },
+    computed: {
+      ...mapState(['menuItems']),
     },
     mounted() {
       this.isLogged = location.search === '?loggedIn=true'
