@@ -17,11 +17,23 @@
       "pattern": ""
     },
     {
-      "title": "Post List",
-      "subTitle": "Post list Subtitle",
-      "type": "item",
-      "component": "views/posts-list",
-      "pattern": ""
+      "title": "Header",
+      "type": "section",
+      "items": [
+        {
+          "title": "Header Title",
+          "type": "item",
+          "icon": "title",
+          "component": "views/header/header-form"
+        },
+        {
+          "title": "Menu Editor",
+          "subTitle": "Configure menu items",
+          "type": "item",
+          "icon": "menu",
+          "component": "views/header/menu-editor"
+        }
+      ]
     }
   ]
 }
