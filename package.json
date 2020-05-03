@@ -40,7 +40,7 @@
     "lint-staged": "^10.2.2",
     "npm-self-link": "^1.1.7",
     "nuxt": "^2.12.2",
-    "postcss": "^7.0.27",
+    "postcss": "^7.0.28",
     "postcss-prefixwrap": "^1.15.0",
     "postcss-remove-rules": "^1.0.0",
     "prettier": "2.0.1",
