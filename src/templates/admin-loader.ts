@@ -27,6 +27,9 @@ export const adminLoader: AdminLoader = {
     const Quasar = await require('./quasar')
     Vue.use(Quasar.default)
 
+    // const { ModalPanel } = await import('@sedona-cms/core/lib/components')
+    // Vue.component('ModalPanel', ModalPanel)
+
     const { Sedona } = await import('./sedona')
     Vue.prototype.$sedona = new Sedona()
 
@@ -49,5 +52,7 @@ export const adminLoader: AdminLoader = {
 async function loadAdminPanel(): Promise<void> {
   // @ts-ignore
   const { AdminPanel } = await import('@sedona-cms/core/lib/components/admin-panel')
-  document.body.prepend(new AdminPanel({ parent: window.$nuxt }).$mount().$el)
+  const admin = new AdminPanel({ parent: window.$nuxt })
+  window.$admin = admin
+  document.body.prepend(admin.$mount().$el)
 }
