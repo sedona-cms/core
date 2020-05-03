@@ -1,4 +1,7 @@
-name: Tests
+name: Run tests
+
+on:
+  push:
 
 jobs:
   publish-npm:
