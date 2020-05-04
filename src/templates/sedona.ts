@@ -1,4 +1,5 @@
 import Vue from 'vue'
+// @ts-ignore
 import { Modal } from '@sedona-cms/core/lib/components'
 
 const config: Readonly<ModuleConfig> = Object.freeze(JSON.parse('<%= JSON.stringify(options) %>'))
