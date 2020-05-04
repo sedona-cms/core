@@ -11,7 +11,6 @@ import { QExpansionItem } from 'quasar/src/components/expansion-item'
 import { QAvatar } from 'quasar/src/components/avatar'
 import { QSeparator } from 'quasar/src/components/separator'
 import { QTooltip } from 'quasar/src/components/tooltip'
-import { QDialog } from 'quasar/src/components/dialog'
 import { QCard } from 'quasar/src/components/card'
 import { QTable, QTd, QTh, QTr } from 'quasar/src/components/table'
 
@@ -28,7 +27,6 @@ import { QOptionGroup } from 'quasar/src/components/option-group'
 import { QScrollArea } from 'quasar/src/components/scroll-area'
 
 import * as directives from 'quasar/src/directives.js'
-import { Dialog } from 'quasar/src/plugins.js'
 
 export default {
   ...VuePlugin,
@@ -51,7 +49,6 @@ export default {
         QAvatar,
         QSeparator,
         QTooltip,
-        QDialog,
         QCard,
         QTable,
         QTd,
@@ -68,9 +65,7 @@ export default {
         QScrollArea,
       },
       directives,
-      plugins: {
-        Dialog,
-      },
+      plugins: {},
     })
   },
 }
