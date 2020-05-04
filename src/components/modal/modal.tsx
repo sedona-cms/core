@@ -26,6 +26,10 @@ export default Vue.extend({
     close(): void {
       // @ts-ignore
       this.$el.style.left = '-300px'
+      const timer = setTimeout(() => {
+        clearTimeout(timer)
+        this.$emit('close')
+      }, 200)
     },
   },
   render(): VNode {
