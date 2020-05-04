@@ -1,4 +1,4 @@
-import Vue, { VNode, PropType } from 'vue'
+import Vue, { VNode, PropType, CreateElement } from 'vue'
 
 import './modal.css'
 
@@ -41,7 +41,7 @@ export default Vue.extend({
       }, 200)
     },
   },
-  render(h): VNode {
+  render(h: CreateElement): VNode {
     const classes = ['modal-panel', 'z-top', 'bg-grey-8']
     if (this.fullScreen) {
       classes.push('fullscreen')
