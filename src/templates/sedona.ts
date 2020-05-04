@@ -23,8 +23,8 @@ export class Sedona {
     { fullScreen = false }: { fullScreen: boolean }
   ): Promise<void> {
     // @ts-ignore
-    const { ModalPanel } = await import('@sedona-cms/core/lib/components')
-    const modal = new ModalPanel({
+    const { Modal } = await import('@sedona-cms/core/lib/components')
+    const modal = new Modal({
       parent: window.$admin,
       propsData: { fullScreen: false, title: 'Open File' },
     })

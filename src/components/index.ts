@@ -1,3 +1,3 @@
 export * from './router-view'
 export * from './links-editor'
-export * from './modal-panel'
+export * from './modal'

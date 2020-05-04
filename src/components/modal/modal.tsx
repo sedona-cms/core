@@ -1,9 +1,9 @@
 import Vue, { VNode, PropType } from 'vue'
 
-import './modal-panel.css'
+import './modal.css'
 
 export default Vue.extend({
-  name: 'ModalPanel',
+  name: 'Modal',
   props: {
     fullScreen: {
       type: Boolean as PropType<boolean>,
