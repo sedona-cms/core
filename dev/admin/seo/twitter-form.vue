@@ -1,11 +1,11 @@
 <template>
   <div>
-    Site SEO Form
+    Twitter
   </div>
 </template>
 
 <script>
   export default {
-    name: 'SiteSeo',
+    name: 'TwitterForm',
   }
 </script>

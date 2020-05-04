@@ -20,5 +20,6 @@ declare module '@nuxt/types' {
 declare global {
   interface Window {
     onNuxtReady: (...args) => void
+    $admin: any
   }
 }

@@ -33,7 +33,10 @@ export default Vue.extend({
 
     const isOpen: boolean = JSON.parse(localStorage.getItem('sedona-panel-open') || 'false')
     if (isOpen) {
-      this.open()
+      const timer = setTimeout(() => {
+        clearTimeout(timer)
+        this.open()
+      }, 600)
     }
   },
   methods: {
