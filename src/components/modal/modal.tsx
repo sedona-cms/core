@@ -60,7 +60,11 @@ export default Vue.extend({
           <q-btn icon="close" round={true} dense={true} flat={true} on-click={this.close} />
           <q-toolbar-title>{this.title}</q-toolbar-title>
         </q-toolbar>
-        {h(this.component)}
+        <q-scroll-area
+          dark={true}
+          style="height: calc(100% - 50px); width: 100%; max-width: 300px;">
+          {h(this.component)}
+        </q-scroll-area>
       </div>
     )
   },
