@@ -37,6 +37,9 @@ export class Sedona {
       case 'object':
         modalComponent = Vue.extend(component)
         break
+      case 'function':
+        modalComponent = component
+        break
       default:
         throw new TypeError(`Wrong component type ${component}`)
     }
