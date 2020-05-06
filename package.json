@@ -38,7 +38,7 @@
     "@nuxtjs/bulma": "^1.2.7",
     "@sedona-cms/eslint-config": "^1.0.1",
     "@types/jest": "^25.2.1",
-    "@types/node": "^13.13.4",
+    "@types/node": "^13.13.5",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-preset-jsx": "^1.1.2",
     "@vue/test-utils": "^1.0.0",
