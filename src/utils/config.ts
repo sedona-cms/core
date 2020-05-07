@@ -17,7 +17,7 @@ export async function loadConfigFile(rootPath: string): Promise<ModuleConfig> {
   throw new Error(`Sedona CMS config file not found in ${configFile}`)
 }
 
-export function setIdToMenuItems(items: MenuItem[] = []): MenuItem[] {
+export function setIdToMenuItems(items: MenuItem[]): MenuItem[] {
   return items.map(item => {
     if (item.id === undefined) {
       item.id = generateId()

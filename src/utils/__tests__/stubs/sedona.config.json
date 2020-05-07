@@ -1,0 +1,44 @@
+{
+  "toolbar": {
+    "title": "Sedona Admin",
+    "buttons": [
+      {
+        "title": "SEO",
+        "icon": "folder",
+        "component": "seo/site-seo-view"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "static-id",
+      "title": "Custom Id",
+      "type": "item",
+      "component": "posts/posts-view"
+    },
+    {
+      "title": "Post List",
+      "type": "item",
+      "component": "posts/posts-view"
+    },
+    {
+      "title": "Header",
+      "type": "section",
+      "items": [
+        {
+          "title": "Header Title",
+          "type": "item",
+          "icon": "title",
+          "component": "views/header/header-form"
+        },
+        {
+          "title": "Menu Editor",
+          "subTitle": "Configure menu items",
+          "type": "item",
+          "icon": "menu",
+          "component": "views/header/menu-editor"
+        }
+      ]
+    }
+  ]
+}
