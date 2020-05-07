@@ -41,7 +41,7 @@
     "@types/node": "^13.13.5",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-preset-jsx": "^1.1.2",
-    "@vue/test-utils": "^1.0.0",
+    "@vue/test-utils": "^1.0.2",
     "babel-jest": "^25.5.1",
     "husky": "^4.2.5",
     "jest": "^25.5.4",
