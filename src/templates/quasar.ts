@@ -1,4 +1,4 @@
-import VuePlugin from 'quasar/src/vue-plugin.js'
+import VuePlugin from 'quasar/src/vue-plugin'
 
 import { QToolbar, QToolbarTitle } from 'quasar/src/components/toolbar'
 import { QSpace } from 'quasar/src/components/space'
@@ -26,7 +26,7 @@ import { QOptionGroup } from 'quasar/src/components/option-group'
 
 import { QScrollArea } from 'quasar/src/components/scroll-area'
 
-import * as directives from 'quasar/src/directives.js'
+import * as directives from 'quasar/src/directives'
 
 export default {
   ...VuePlugin,

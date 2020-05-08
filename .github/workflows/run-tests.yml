@@ -12,4 +12,6 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: npm t
+      - run: npm run test:utils
+      - run: npm run test:components
+      - run: npm run test:e2e
