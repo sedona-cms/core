@@ -14,3 +14,4 @@ scripts/
 Makefile
 tsconfig.json
 tsconfig.build.json
+tsconfig.test.json
