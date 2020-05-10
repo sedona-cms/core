@@ -29,7 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "nanoid": "^3.1.6",
-    "quasar": "^1.10.5"
+    "quasar": "^1.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -54,7 +54,7 @@
     "postcss-prefixwrap": "^1.15.0",
     "postcss-remove-rules": "^1.0.0",
     "prettier": "2.0.1",
-    "ts-jest": "^25.5.0",
+    "ts-jest": "^25.5.1",
     "tsc-watch": "^4.2.3",
     "typescript": "^3.8.3",
     "web-streams-polyfill": "^2.1.1"
