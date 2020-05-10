@@ -1,5 +1,7 @@
 # Sedona CMS
 
+Admin Panel for Nuxt.js sites
+
 ![Node.js Package](https://github.com/sedona-cms/core/workflows/Node.js%20Package/badge.svg)
 
 
@@ -47,14 +49,22 @@ export default {
 
 1. Install dependencies
 
-`npm ci`
+```bash
+npm ci
+```
 
-`npx npm-self-link`
+```bash
+npx npm-self-link # links the package in which it is run
+```
 
 2. Run watch process
 
-`npm run watch`
+```bash
+npm run watch # typescript watch process
+```
 
 3. Run nuxt project from `dev` directory
 
-`npm run dev`
+```bash
+npm run dev
+```
