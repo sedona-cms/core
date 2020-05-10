@@ -6,9 +6,15 @@
 [Demo](https://sedona-cms.github.io/core/)
 
 
-## Install
+## Setup
 
-`npm i @sedona-cms/core`
+1. Add @sedona-cms/core dependency to your project
+
+```bash
+npm i @sedona-cms/core # or yarn add --dev @sedona-cms/core
+```
+
+2. Add `@sedona-cms/core` to the `buildModules` section of `nuxt.config.js`
 
 ## Development
 
