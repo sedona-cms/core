@@ -16,6 +16,33 @@ npm i @sedona-cms/core # or yarn add @sedona-cms/core
 
 2. Add `@sedona-cms/core` to the `modules` section of `nuxt.config.js`
 
+3. Create `sedona.config.json` in project root and create `admin` folder in src root. [Will be fixed](../../issues/3)
+
+4. Add plugin in **client** mode
+
+*admin.client.js*
+
+```js
+export default async function(ctx) {
+   // check for user logged in
+   await ctx.$adminLoader.load()
+}
+```
+
+*nuxt.config.js*
+
+```js
+module.exports = {
+  modules: [
+    '@sedona-cms/core',
+  ],
+  plugins: [
+    '~plugins/admin.client.js',
+  ],
+}
+```
+
+
 ## Development
 
 1. Install dependencies
