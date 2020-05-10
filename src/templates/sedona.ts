@@ -47,8 +47,8 @@ export class Sedona {
     const modal = new Modal({
       parent: window.$admin,
       propsData: {
-        fullScreen: args.fullScreen ?? false,
-        title: args.title ?? '',
+        fullScreen: args?.fullScreen || false,
+        title: args?.title || '',
         component: modalComponent,
       },
     })
