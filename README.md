@@ -32,7 +32,7 @@ export default async function(ctx) {
 *nuxt.config.js*
 
 ```js
-module.exports = {
+export default {
   modules: [
     '@sedona-cms/core',
   ],
