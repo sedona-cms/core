@@ -12,6 +12,8 @@ import { QAvatar } from 'quasar/src/components/avatar'
 import { QSeparator } from 'quasar/src/components/separator'
 import { QTooltip } from 'quasar/src/components/tooltip'
 
+import { QPagination } from 'quasar/src/components/pagination'
+
 import { QCard, QCardSection, QCardActions } from 'quasar/src/components/card'
 
 import { QImg } from 'quasar/src/components/img'
@@ -68,6 +70,7 @@ export default {
         QImg,
         QVideo,
         QUploader,
+        QPagination,
       },
       directives,
       plugins: {},
