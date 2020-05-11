@@ -11,7 +11,9 @@ import { QExpansionItem } from 'quasar/src/components/expansion-item'
 import { QAvatar } from 'quasar/src/components/avatar'
 import { QSeparator } from 'quasar/src/components/separator'
 import { QTooltip } from 'quasar/src/components/tooltip'
-import { QCard } from 'quasar/src/components/card'
+
+import { QCard, QCardSection, QCardActions } from 'quasar/src/components/card'
+
 import { QImg } from 'quasar/src/components/img'
 import { QVideo } from 'quasar/src/components/video'
 
@@ -51,6 +53,8 @@ export default {
         QSeparator,
         QTooltip,
         QCard,
+        QCardSection,
+        QCardActions,
         QInput,
         QCheckbox,
         QDate,
