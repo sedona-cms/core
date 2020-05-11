@@ -29,7 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "nanoid": "^3.1.6",
-    "quasar": "^1.11.0"
+    "quasar": "^1.11.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -50,7 +50,7 @@
     "lint-staged": "^10.2.2",
     "npm-self-link": "^1.1.7",
     "nuxt": "^2.12.2",
-    "postcss": "^7.0.29",
+    "postcss": "^7.0.30",
     "postcss-prefixwrap": "^1.15.0",
     "postcss-remove-rules": "^1.0.0",
     "prettier": "2.0.1",
