@@ -1,4 +1,5 @@
 import Vue, { VNode, PropType } from 'vue'
+import { openURL } from 'quasar'
 
 export default Vue.extend({
   name: 'MediaCard',
@@ -51,6 +52,9 @@ export default Vue.extend({
       this.$emit('remove')
       this.hideRemoveConfirm()
     },
+    openFullImage(): void {
+      openURL(this.src)
+    },
   },
   render(): VNode {
     const title = this.title ? (
@@ -64,6 +68,14 @@ export default Vue.extend({
 
     const toolbar = this.$slots['toolbar'] ?? (
       <q-toolbar dense={true}>
+        <q-btn
+          icon="settings_overscan"
+          flat={true}
+          round={true}
+          dense={true}
+          on-click={this.openFullImage}>
+          <q-tooltip>Full image</q-tooltip>
+        </q-btn>
         <q-space />
         <q-btn
           icon="delete"
