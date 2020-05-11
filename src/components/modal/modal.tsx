@@ -17,6 +17,10 @@ export default Vue.extend({
       type: Function as PropType<() => any>,
       required: true,
     },
+    componentProps: {
+      type: Object as PropType<object>,
+      default: () => {},
+    },
   },
   mounted(): void {
     if (this.fullScreen) return
@@ -54,6 +58,12 @@ export default Vue.extend({
       style['left'] = '-300px'
     }
 
+    const modalComponent = h(this.component, {
+      props: {
+        ...(typeof this.componentProps === 'object' ? { ...this.componentProps } : {}),
+      },
+    })
+
     return (
       <div class={classes} style={style}>
         <q-toolbar>
@@ -63,7 +73,7 @@ export default Vue.extend({
         <q-scroll-area
           dark={true}
           style="height: calc(100% - 50px); width: 100%; max-width: 300px;">
-          {h(this.component)}
+          {modalComponent}
         </q-scroll-area>
       </div>
     )
