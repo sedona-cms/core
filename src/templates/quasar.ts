@@ -16,6 +16,7 @@ import { QCard, QCardSection, QCardActions } from 'quasar/src/components/card'
 
 import { QImg } from 'quasar/src/components/img'
 import { QVideo } from 'quasar/src/components/video'
+import { QUploader } from 'quasar/src/components/uploader'
 
 import { QInput } from 'quasar/src/components/input'
 import { QCheckbox } from 'quasar/src/components/checkbox'
@@ -66,6 +67,7 @@ export default {
         QScrollArea,
         QImg,
         QVideo,
+        QUploader,
       },
       directives,
       plugins: {},
