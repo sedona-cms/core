@@ -11,8 +11,11 @@ import { QExpansionItem } from 'quasar/src/components/expansion-item'
 import { QAvatar } from 'quasar/src/components/avatar'
 import { QSeparator } from 'quasar/src/components/separator'
 import { QTooltip } from 'quasar/src/components/tooltip'
-import { QCard } from 'quasar/src/components/card'
-import { QTable, QTd, QTh, QTr } from 'quasar/src/components/table'
+
+import { QCard, QCardSection, QCardActions } from 'quasar/src/components/card'
+
+import { QImg } from 'quasar/src/components/img'
+import { QVideo } from 'quasar/src/components/video'
 
 import { QInput } from 'quasar/src/components/input'
 import { QCheckbox } from 'quasar/src/components/checkbox'
@@ -50,10 +53,8 @@ export default {
         QSeparator,
         QTooltip,
         QCard,
-        QTable,
-        QTd,
-        QTh,
-        QTr,
+        QCardSection,
+        QCardActions,
         QInput,
         QCheckbox,
         QDate,
@@ -63,6 +64,8 @@ export default {
         QOptionGroup,
         QField,
         QScrollArea,
+        QImg,
+        QVideo,
       },
       directives,
       plugins: {},

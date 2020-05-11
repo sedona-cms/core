@@ -17,6 +17,12 @@
       "pattern": ""
     },
     {
+      "title": "Media Cards",
+      "type": "item",
+      "component": "media/cards",
+      "icon": "wallpaper"
+    },
+    {
       "title": "Header",
       "type": "section",
       "items": [
