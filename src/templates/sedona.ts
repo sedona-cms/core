@@ -9,6 +9,10 @@ type ModalArgs = {
   title: string
 }
 
+type ModalComponentProp = {
+  [key: string]: any
+}
+
 export class Sedona {
   get menuItems(): readonly MenuItem[] {
     return Object.freeze(config?.items || [])
@@ -27,7 +31,11 @@ export class Sedona {
     console.log('goBack hook!')
   }
 
-  async modal(component: string | object, args: ModalArgs): Promise<void> {
+  async modal(
+    component: string | object,
+    args: ModalArgs,
+    props?: ModalComponentProp[]
+  ): Promise<void> {
     let modalComponent
     switch (typeof component) {
       case 'string': {
@@ -44,13 +52,18 @@ export class Sedona {
         throw new TypeError(`Wrong component type ${component}`)
     }
 
+    const propsData = {
+      fullScreen: args?.fullScreen || false,
+      title: args?.title || '',
+      component: modalComponent,
+    }
+    if (props !== undefined) {
+      propsData['componentProps'] = props
+    }
+
     const modal = new Modal({
       parent: window.$admin,
-      propsData: {
-        fullScreen: args?.fullScreen || false,
-        title: args?.title || '',
-        component: modalComponent,
-      },
+      propsData,
     })
 
     const admin: HTMLElement | null = document.querySelector('.admin-panel')

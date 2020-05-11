@@ -25,9 +25,15 @@
         })
       },
       modalFacebook() {
-        this.$sedona.modal('seo/facebook-form', {
-          title: 'Facebook',
-        })
+        this.$sedona.modal(
+          'seo/facebook-form',
+          {
+            title: 'Facebook',
+          },
+          {
+            currentPageId: 'm579mpje5t',
+          }
+        )
       },
     },
   }
