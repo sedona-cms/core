@@ -1,12 +1,41 @@
-# Sedona CMS
-
-Admin Panel for Nuxt.js sites
-
 ![Node.js Package](https://github.com/sedona-cms/core/workflows/Node.js%20Package/badge.svg)
 
+<br />
+<p align="center">
+  <h3 align="center">Sedona CMS</h3>
 
-[Demo](https://sedona-cms.github.io/core/)
+  <p align="center">
+    Admin Panel for Nuxt.js sites
+    <br />
+    <br />
+    <a href="https://sedona-cms.github.io/core/">View Demo</a>
+    ·
+    <a href="https://github.com/sedona-cms/core/issues">Report Bug</a>
+  </p>
+</p>
 
+## Table of Contents
+
+* [About the Project](/#about-the-project)
+  * [Built With](/#built-with)
+* [Getting Started](/#getting-started)
+  * [Prerequisites](/#prerequisites)
+  * [Setup](/#setup)
+* [Usage](/#usage)
+* [Development](/#development)
+
+## About the project
+
+### Built With
+
+* [Nuxt.js](https://nuxtjs.org/)
+* [Quasar Framework](https://quasar.dev/)
+
+## Getting Started
+
+### Prerequisites
+
+* [Nuxt.js](https://nuxtjs.org/)
 
 ## Setup
 
@@ -43,6 +72,8 @@ export default {
   ],
 }
 ```
+
+## Usage
 
 
 ## Development
