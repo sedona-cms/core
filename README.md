@@ -16,13 +16,13 @@
 
 ## Table of Contents
 
-* [About the Project](/#about-the-project)
-  * [Built With](/#built-with)
-* [Getting Started](/#getting-started)
-  * [Prerequisites](/#prerequisites)
-  * [Setup](/#setup)
-* [Usage](/#usage)
-* [Development](/#development)
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Setup](#setup)
+* [Usage](#usage)
+* [Development](#development)
 
 ## About the project
 
