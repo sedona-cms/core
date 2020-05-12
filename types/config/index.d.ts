@@ -4,7 +4,7 @@ type MenuItem = {
   subTitle?: string
   icon?: string
   type: 'item' | 'section'
-  component: string | Function
+  component?: string | Function
   params?: {
     [key: string]: any
   }

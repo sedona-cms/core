@@ -1,6 +1,10 @@
 import Vue from 'vue'
+import { Menu } from './menu'
+
 // @ts-ignore
 import { Modal } from '@sedona-cms/core/lib/components'
+import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
+import { generateId } from '@sedona-cms/core/lib/utils/nanoid'
 
 const config: Readonly<ModuleConfig> = Object.freeze(JSON.parse('<%= JSON.stringify(options) %>'))
 
@@ -11,6 +15,16 @@ type ModalArgs = {
 
 type ModalComponentProp = {
   [key: string]: any
+}
+
+type NavigationItem = {
+  title: string
+  component: string
+  subTitle?: string
+  icon?: string
+  type?: 'item' | 'section'
+  params?: { [key: string]: any }
+  items?: MenuItem[]
 }
 
 export class Sedona {
@@ -28,7 +42,39 @@ export class Sedona {
   }
 
   goBack(): void {
-    console.log('goBack hook!')
+    // @ToDo add api for navigate to previous view
+    console.log('navigate back')
+  }
+
+  navigate(component: string | Function, parameters: { [key: string]: any }): void {
+    const menuItem: MenuItem = {
+      id: generateId(),
+      component: component,
+      type: 'item',
+      params: parameters ?? {},
+    }
+    eventBus.emit('core:navigate', menuItem)
+  }
+
+  navigateItems(items: NavigationItem[]): void {
+    const menuItem: MenuItem = {
+      id: generateId(),
+      type: 'section',
+      items: [],
+    }
+    for (const item of items) {
+      menuItem.items?.push({
+        id: generateId(),
+        type: item.type ?? 'item',
+        title: item.title,
+        component: item.component,
+        subTitle: item.subTitle ?? '',
+        params: item.params ?? {},
+        icon: item.icon,
+        items: item.items,
+      })
+    }
+    eventBus.emit('core:navigate', menuItem)
   }
 
   async modal(

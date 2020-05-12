@@ -1,4 +1,5 @@
 import Vue, { VNode, PropType } from 'vue'
+import { eventBus } from '../../utils/event-bus'
 
 export default Vue.extend({
   name: 'MenuListItem',
@@ -21,34 +22,41 @@ export default Vue.extend({
     },
     component: {
       type: String as PropType<string>,
-      default: '',
     },
     items: {
       type: Array as PropType<MenuItem[]>,
       default: () => [],
     },
     type: {
-      type: String as PropType<string>,
-      default: 'item',
+      type: String as PropType<'item' | 'section'>,
       validator: value => ['item', 'section'].includes(value),
+    },
+    params: {
+      type: Object as PropType<{ [key: string]: any }>,
     },
   },
   methods: {
     menuItemClick(): void {
-      const data: any = {
+      const menuItem: MenuItem = {
         id: this.id,
         title: this.title,
         subTitle: this.subTitle,
         icon: this.icon,
         type: this.type,
-        component: undefined,
       }
-      if (this.type === 'item') {
-        data.component = this.component
-      } else {
-        data.items = this.items
+      if (this.params !== undefined) {
+        menuItem.params = this.params
       }
-      this.$root.$emit('admin:view-change', data)
+
+      switch (this.type) {
+        case 'item':
+          menuItem.component = this.component
+          break
+        case 'section':
+          menuItem.items = this.items
+          break
+      }
+      eventBus.emit('core:navigate', menuItem)
     },
   },
   render(): VNode {

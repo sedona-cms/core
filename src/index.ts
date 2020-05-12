@@ -1,6 +1,5 @@
 import AdminModule, { meta } from './module'
-import { eventBus } from './utils/event-bus'
 
-export { meta, eventBus }
+export { meta }
 
 export default AdminModule
