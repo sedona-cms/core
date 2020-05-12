@@ -79,6 +79,11 @@ export default {
 
 ### Config
 
+`sedona.config.json` has two main sections.
+  
+  1. toolbar – toolbar customization, adding buttons, changing title
+  2. items – menu customization, add items, sections and subitems
+
 ### Events
 
 ## Development
