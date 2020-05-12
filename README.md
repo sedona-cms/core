@@ -22,6 +22,8 @@
   * [Prerequisites](#prerequisites)
   * [Setup](#setup)
 * [Usage](#usage)
+  * [Config](#config)
+  * [Events](#events)
 * [Development](#development)
 
 ## About the project
@@ -75,6 +77,9 @@ export default {
 
 ## Usage
 
+### Config
+
+### Events
 
 ## Development
 
