@@ -27,14 +27,11 @@ export const adminLoader: AdminLoader = {
     const Quasar = await require('./quasar')
     Vue.use(Quasar.default)
 
-    // const { ModalPanel } = await import('@sedona-cms/core/lib/components')
-    // Vue.component('ModalPanel', ModalPanel)
-
     const { Sedona } = await import('./sedona')
     Vue.prototype.$sedona = new Sedona()
 
     // @ts-ignore
-    const { eventBus } = await import('@sedona-cms/core')
+    const { eventBus } = await import('@sedona-cms/core/lib/utils/event-bus')
     eventBus.emit('sedona:loaded')
 
     if (fromContext) {

@@ -1,6 +1,7 @@
 import Vue, { VNode } from 'vue'
 import { MenuList } from '../menu-list'
 import { ItemTabContainer } from '../item-tab-container'
+import { eventBus } from '../../utils/event-bus'
 
 type CurrentMenuItems = {
   [id: string]: MenuItem
@@ -14,28 +15,35 @@ export default Vue.extend({
   },
   data() {
     return {
-      activeTab: 'tab-home', // Tab ID
+      activeTab: 'tab-home' as string, // Tab ID
       items: {} as CurrentMenuItems, // Menu Items
     }
   },
   mounted(): void {
-    this.$root.$on('admin:view-change', (item: MenuItem | string, parameters: any) => {
-      if (typeof item === 'object') {
-        if (`tab-${item.id}` === this.activeTab) {
-          return
-        }
-        this.menuItemClick(Object.assign(item, { icon: 'folder', params: parameters }))
-      }
-      if (typeof item === 'string') {
-        if (this.activeTab === item) {
-          return
-        }
-        this.activeTab = item
-      }
-    })
-    // this.$root.$on('admin:view-back', () => this.goBack())
+    eventBus.on('core:navigate', this.navigate)
+  },
+  beforeDestroy(): void {
+    eventBus.off('core:navigate', this.navigate)
   },
   methods: {
+    async navigate(args: [MenuItem | string]): Promise<void> {
+      const [item] = args
+      switch (typeof item) {
+        case 'object': {
+          if (`tab-${item.id}` === this.activeTab) {
+            return
+          }
+          await this.menuItemClick(Object.assign(item, { icon: 'folder', params: item.params }))
+          break
+        }
+        case 'string': {
+          if (this.activeTab !== item) {
+            this.activeTab = item
+          }
+          break
+        }
+      }
+    },
     async menuItemClick(item: MenuItem): Promise<void> {
       if (item.type === 'section') {
         item.component = MenuList
@@ -74,6 +82,7 @@ export default Vue.extend({
     return (
       <q-scroll-area dark={true} style="height: calc(100% - 50px); width: 100%; max-width: 300px;">
         <q-tab-panels
+          ref="tabPanels"
           class="fit"
           style="color:inherit;background:inherit;"
           animated={true}

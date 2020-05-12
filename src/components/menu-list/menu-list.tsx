@@ -1,4 +1,4 @@
-import Vue, { PropType, VNode } from 'vue'
+import Vue, { PropType, VNode, CreateElement } from 'vue'
 import MenuListItem from './menu-list-item'
 
 export default Vue.extend({
@@ -12,21 +12,22 @@ export default Vue.extend({
       required: true,
     },
   },
-  render(): VNode {
+  render(h: CreateElement): VNode {
     const childComponents = new Set<VNode>()
 
     function createMenuItem(item: MenuItem): VNode {
-      return (
-        <menu-list-item
-          id={item.id}
-          title={item.title}
-          sub-title={item.subTitle}
-          type={item.type}
-          icon={item.icon}
-          component={item.component}
-          items={item.items}
-        />
-      )
+      const props: MenuItem = {
+        id: item.id,
+        ...(item.title !== undefined ? { title: item.title } : {}),
+        ...(item.subTitle !== undefined ? { subTitle: item.subTitle } : {}),
+        ...(item.icon !== undefined ? { icon: item.icon } : {}),
+        ...(item.component !== undefined ? { component: item.component } : {}),
+        ...(item.type !== undefined ? { type: item.type } : { type: 'item' }),
+        ...(item.params !== undefined ? { params: item.params } : {}),
+        ...(item.items !== undefined ? { items: item.items } : {}),
+      }
+
+      return h('menu-list-item', { props })
     }
 
     function createMenuSection(item: MenuItem): VNode[] {

@@ -1,11 +1,15 @@
 import Vue, { VNode } from 'vue'
 import { generateId } from '../../utils/nanoid'
+import { eventBus } from '../../utils/event-bus'
 
 export default Vue.extend({
   name: 'MainToolbar',
   methods: {
-    buttonClick(menuItem: MenuItem | string) {
-      this.$root.$emit('admin:view-change', menuItem)
+    buttonClick(menuItem: MenuItem | string): void {
+      eventBus.emit('core:navigate', menuItem)
+    },
+    goHome(): void {
+      eventBus.emit('core:navigate', 'tab-home')
     },
   },
   render(): VNode {
@@ -13,12 +17,7 @@ export default Vue.extend({
 
     if (this.$sedona.toolBarConfig.showHome) {
       buttons.push(
-        <q-btn
-          flat={true}
-          round={true}
-          dense={true}
-          class="q-mr-sm"
-          on-click={() => this.$root.$emit('admin:view-change', 'tab-home')}>
+        <q-btn flat={true} round={true} dense={true} class="q-mr-sm" on-click={this.goHome}>
           <q-icon name="home" />
           <q-tooltip content-class="bg-amber text-black shadow-4">Home</q-tooltip>
         </q-btn>
