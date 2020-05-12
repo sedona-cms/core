@@ -1,9 +1,10 @@
 import Vue from 'vue'
-import { Menu } from './menu'
 
 // @ts-ignore
 import { Modal } from '@sedona-cms/core/lib/components'
+// @ts-ignore
 import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
+// @ts-ignore
 import { generateId } from '@sedona-cms/core/lib/utils/nanoid'
 
 const config: Readonly<ModuleConfig> = Object.freeze(JSON.parse('<%= JSON.stringify(options) %>'))
