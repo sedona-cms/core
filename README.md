@@ -90,7 +90,7 @@ Sedona CMS uses own [global event bus](src/utils/event-bus.ts).
 
 Using example:
 
-```
+```js
 import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
 
 eventBus.on('sedona:loaded', () => console.log('Fired after Sedona CMS panel loaded'))
