@@ -86,6 +86,21 @@ export default {
 
 ### Events
 
+Sedona CMS uses own [global event bus](src/utils/event-bus.ts). 
+
+Using example:
+
+```
+import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
+
+eventBus.on('sedona:loaded', () => console.log('Fired after Sedona CMS panel loaded'))
+```
+
+#### Used events:
+
+* `sedona:loaded` (no args) – Sedona CMS panel loaded
+* `core:navigate` (item: [MenuItem](types/config/index.d.ts#L1))– change an active panel
+
 ## Development
 
 1. Install dependencies
