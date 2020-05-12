@@ -28,7 +28,7 @@
   "author": "Ivan Kalinichenko <kalinichenko@constlab.ru>",
   "license": "MIT",
   "dependencies": {
-    "nanoid": "^3.1.6",
+    "nanoid": "^3.1.7",
     "quasar": "^1.11.1"
   },
   "devDependencies": {
