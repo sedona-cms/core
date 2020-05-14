@@ -10,22 +10,22 @@ export default Vue.extend({
     },
     title: {
       type: String as PropType<string>,
-      default: '<NO TITLE>',
+      required: true,
     },
     subTitle: {
       type: String as PropType<string>,
-      default: '',
+      required: true,
     },
     icon: {
       type: String as PropType<string>,
-      default: 'folder',
+      required: true,
     },
     component: {
       type: String as PropType<string>,
     },
     items: {
       type: Array as PropType<MenuItem[]>,
-      default: () => [],
+      required: true,
     },
     type: {
       type: String as PropType<'item' | 'section'>,
@@ -33,6 +33,7 @@ export default Vue.extend({
     },
     params: {
       type: Object as PropType<{ [key: string]: any }>,
+      required: true,
     },
   },
   methods: {

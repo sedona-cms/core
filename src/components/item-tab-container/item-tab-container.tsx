@@ -6,7 +6,6 @@ const getTabComponent: (componentPath: string) => any = (componentPath: string) 
   component: import(`~/admin/${componentPath}`),
   loading: ItemTabLoading,
   error: AdminItemTabError,
-  timeout: 600,
 })
 
 export default Vue.extend({
@@ -14,15 +13,15 @@ export default Vue.extend({
   props: {
     title: {
       type: String,
-      default: '',
+      required: true,
     },
     subTitle: {
       type: String,
-      default: '',
+      required: true,
     },
     icon: {
       type: String,
-      default: 'folder',
+      required: true,
     },
     component: {
       type: [String, Function, Object],
@@ -30,12 +29,12 @@ export default Vue.extend({
       validator: value => value !== '',
     },
     items: {
-      type: Array,
-      default: () => [],
+      type: Array as PropType<MenuItem[]>,
+      required: true,
     },
     params: {
-      type: Object,
-      default: () => {},
+      type: Object as PropType<{ [key: string]: any }>,
+      required: true,
     },
   },
   data() {

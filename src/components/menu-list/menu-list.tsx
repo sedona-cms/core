@@ -18,13 +18,13 @@ export default Vue.extend({
     function createMenuItem(item: MenuItem): VNode {
       const props: MenuItem = {
         id: item.id,
-        ...(item.title !== undefined ? { title: item.title } : {}),
-        ...(item.subTitle !== undefined ? { subTitle: item.subTitle } : {}),
-        ...(item.icon !== undefined ? { icon: item.icon } : {}),
+        ...(item.title !== undefined ? { title: item.title } : { title: '<NO TITLE>' }),
+        ...(item.subTitle !== undefined ? { subTitle: item.subTitle } : { subTitle: '' }),
+        ...(item.icon !== undefined ? { icon: item.icon } : { icon: 'folder' }),
         ...(item.component !== undefined ? { component: item.component } : {}),
         ...(item.type !== undefined ? { type: item.type } : { type: 'item' }),
-        ...(item.params !== undefined ? { params: item.params } : {}),
-        ...(item.items !== undefined ? { items: item.items } : {}),
+        ...(item.params !== undefined ? { params: item.params } : { params: {} }),
+        ...(item.items !== undefined ? { items: item.items } : { items: [] }),
       }
 
       return h('menu-list-item', { props })
