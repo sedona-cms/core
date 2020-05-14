@@ -8,6 +8,7 @@
     "jsx": "preserve",
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
     "lib": ["ES6", "DOM", "DOM.Iterable"],
     "typeRoots": ["./node_modules/@types", "./types"]
   }
