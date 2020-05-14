@@ -94,7 +94,40 @@ Editing the config file may be handier with webstorm or vscode.
 
 ### Toolbar configuration
 
+`toolbar` section (object)
+
+```typescript
+type ToolbarConfig = {
+  showHome: boolean
+  title: string
+  buttons: ToolbarButton[]
+}
+
+type ToolbarButton = {
+  title: string
+  icon: string
+  component: string
+}
+```
+
 ### Menu Items configuration
+
+`items` section (array)
+
+```typescript
+type MenuItem = {
+  id?: string
+  title?: string
+  subTitle?: string
+  icon?: string
+  type: 'item' | 'section'
+  component?: string | Function
+  params?: {
+    [key: string]: any
+  }
+  items?: MenuItem[]
+}
+```
 
 ### Events
 
