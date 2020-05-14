@@ -23,6 +23,8 @@
   * [Setup](#setup)
 * [Usage](#usage)
   * [Config](#config)
+  * [Toolbar configuration](#toolbar-configuration)
+  * [Menu Items configuration](#menu-items-configuration)
   * [Events](#events)
 * [Development](#development)
 
@@ -83,6 +85,10 @@ export default {
   
   1. toolbar – toolbar customization, adding buttons, changing title
   2. items – menu customization, add items, sections and subitems
+
+### Toolbar configuration
+
+### Menu Items configuration
 
 ### Events
 
