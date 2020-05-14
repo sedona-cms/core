@@ -15,6 +15,7 @@ import { QTooltip } from 'quasar/src/components/tooltip'
 import { QPagination } from 'quasar/src/components/pagination'
 
 import { QCard, QCardSection, QCardActions } from 'quasar/src/components/card'
+import { QSkeleton } from 'quasar/src/components/skeleton'
 
 import { QImg } from 'quasar/src/components/img'
 import { QVideo } from 'quasar/src/components/video'
@@ -73,6 +74,7 @@ export default {
         QUploader,
         QPagination,
         QSelect,
+        QSkeleton,
       },
       directives,
       plugins: {},
