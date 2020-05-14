@@ -85,6 +85,12 @@ export default {
   
   1. toolbar – toolbar customization, adding buttons, changing title
   2. items – menu customization, add items, sections and subitems
+  
+Config file has [json schema](src/schema/sedona.config.schema.json). This tool helps validate config when module loading. And edit the file without errors. 
+
+Editing the config file may be handier with webstorm or vscode.
+
+1. Webstorm – Languages and Frameworks -> Schemas and DTDs -> JSON Schema Mappings
 
 ### Toolbar configuration
 
