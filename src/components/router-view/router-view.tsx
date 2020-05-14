@@ -83,7 +83,6 @@ export default Vue.extend({
       <q-scroll-area dark={true} style="height: calc(100% - 50px); width: 100%; max-width: 300px;">
         <q-tab-panels
           ref="tabPanels"
-          class="fit"
           style="color:inherit;background:inherit;"
           animated={true}
           keepAlive={false}
