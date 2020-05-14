@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "description": "Admin Menu Items",
+      "default": [],
+      "items": {
+        "$ref": "#/definitions/menuItem"
+      }
+    },
+    "toolbar": {
+      "description": "Top toolbar settings",
+      "properties": {
+        "showHome": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show home button"
+        },
+        "title": {
+          "type": "string",
+          "description": "Admin Panel Title",
+          "default": "Admin"
+        },
+        "buttons": {
+          "type": "array",
+          "description": "Top toolbar buttons",
+          "default": [],
+          "items": {
+            "$ref": "#/definitions/actionButton"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "menuItem": {
+      "type": "object",
+      "required": [
+        "title",
+        "type"
+      ],
+      "default": {
+        "title": "",
+        "type": "item",
+        "component": ""
+      },
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "description": "Menu item type. 'Item' is a link. 'Section' is a group with links",
+          "enum": [
+            "item",
+            "section"
+          ],
+          "default": "item"
+        }
+      },
+      "if": {
+        "properties": {
+          "type": {
+            "const": "item"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "component"
+        ],
+        "properties": {
+          "subTitle": {
+            "type": "string",
+            "default": ""
+          },
+          "icon": {
+            "type": "string",
+            "description": "Icon name from Material Icons",
+            "default": "folder"
+          },
+          "component": {
+            "type": "string",
+            "description": "A component path"
+          }
+        }
+      },
+      "else": {
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "default": [],
+            "items": {
+              "$ref": "#/definitions/menuItem"
+            }
+          }
+        }
+      }
+    },
+    "actionButton": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Button title"
+        },
+        "icon": {
+          "type": "string",
+          "description": "Button icon",
+          "default": "extension"
+        },
+        "component": {
+          "type": "string",
+          "description": "A component path in admin folder"
+        }
+      }
+    }
+  }
+}

@@ -12,6 +12,7 @@ build-ts-prod: lint
 build-assets:
 	node scripts/build.quasar.js
 	cp -r src/assets lib
+	cp -r src/schema lib
 
 copy-css:
 	cd ./src && find . -name '*.css' | cpio -pdm ./../lib
