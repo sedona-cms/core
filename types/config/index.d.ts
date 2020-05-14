@@ -1,8 +1,8 @@
 type MenuItem = {
-  id?: string
-  title?: string
+  id?: string // unique id. Generated automatically if not provided
+  title?: string // menu item title. Default <NO TITLE>
   subTitle?: string
-  icon?: string
+  icon?: string // icon name. Uses https://material.io/resources/icons/
   type: 'item' | 'section'
   component?: string | Function
   params?: {
