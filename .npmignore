@@ -3,6 +3,8 @@
 node_modules/
 dev/
 scripts/
+coverage/
+__mocks__
 
 .gitignore
 .eslintignore
