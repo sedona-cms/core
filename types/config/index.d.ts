@@ -1,15 +1,42 @@
-type MenuItem = {
-  id?: string // unique id. Generated automatically if not provided
-  title?: string // menu item title. Default <NO TITLE>
+type MenuItem = SimpleMenuItem | HeaderMenuItem | SectionMenuItem
+
+type SimpleMenuItem = {
+  id?: string
+  title?: string
   subTitle?: string
-  icon?: string // icon name. Uses https://material.io/resources/icons/
-  type: 'item' | 'section'
+  icon?: string
+  type: 'item'
   component?: string | Function
   params?: {
     [key: string]: any
   }
-  items?: MenuItem[]
+  conditions?: MenuItemCondition[]
 }
+
+type HeaderMenuItem = {
+  id?: string
+  title?: string
+  type: 'header'
+  conditions?: MenuItemCondition[]
+}
+
+type SectionMenuItem = {
+  id?: string
+  title?: string
+  subTitle?: string
+  icon?: string
+  type: 'section'
+  items?: MenuItem[]
+  conditions?: MenuItemCondition[]
+}
+
+type MenuItemCondition =
+  | {
+      field: 'meta'
+      value: { [key: string]: any }
+      type: '=' | 'regex'
+    }
+  | { field: 'path' | 'name'; value: string; type: '=' | 'regex' }
 
 type ToolbarButton = {
   title: string

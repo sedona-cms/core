@@ -21,7 +21,7 @@
     "eslint": "eslint --fix '{src,scripts}/**/*.{js,ts,tsx}'",
     "test": "npm run test:utils && npm run test:components && npm run test:e2e",
     "test:utils": "jest --color --coverage src/utils/__tests__/*.test.ts",
-    "test:components": "jest --color --coverage --coverage src/components/*/__tests__/*.test.ts",
+    "test:components": "jest --color --coverage src/components/*/__tests__/*.test.ts",
     "test:e2e": "echo 'Test e2e'"
   },
   "keywords": [],
@@ -58,6 +58,7 @@
     "ts-jest": "^25.5.1",
     "tsc-watch": "^4.2.5",
     "typescript": "^3.9.2",
+    "vue-typed-mixins": "^0.2.0",
     "web-streams-polyfill": "^2.1.1"
   },
   "jest": {

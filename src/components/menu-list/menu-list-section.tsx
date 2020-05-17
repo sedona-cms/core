@@ -1,31 +1,27 @@
 import { VNode, PropType } from 'vue'
 import mixins from 'vue-typed-mixins'
-import { eventBus } from '../../utils/event-bus'
 import { menuListItemMixin } from './mixins/menu-list-item-mixin'
+import { eventBus } from '../../utils/event-bus'
 
 export default mixins(menuListItemMixin).extend({
-  name: 'MenuListItem',
+  name: 'MenuListSection',
   props: {
-    component: {
-      type: String as PropType<string>,
-    },
-    params: {
-      type: Object as PropType<{ [key: string]: any }>,
+    items: {
+      type: Array as PropType<MenuItem[]>,
       required: true,
     },
   },
   methods: {
     menuItemClick(): void {
-      const menuItem: MenuItem = {
+      const item: SectionMenuItem = {
+        type: 'section',
         id: this.id,
         title: this.title,
         subTitle: this.subTitle,
         icon: this.icon,
-        type: this.type,
-        component: this.component,
-        params: this.params,
+        items: this.items,
       }
-      eventBus.emit('core:navigate', menuItem)
+      eventBus.emit('core:navigate', item)
     },
   },
   render(): VNode {
@@ -42,6 +38,9 @@ export default mixins(menuListItemMixin).extend({
         <q-item-section>
           <q-item-label lines={1}>{this.title}</q-item-label>
           {subTitle}
+        </q-item-section>
+        <q-item-section side={true}>
+          <q-icon name="keyboard_arrow_right" />
         </q-item-section>
       </q-item>
     )

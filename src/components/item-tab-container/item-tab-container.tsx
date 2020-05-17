@@ -30,11 +30,9 @@ export default Vue.extend({
     },
     items: {
       type: Array as PropType<MenuItem[]>,
-      required: true,
     },
     params: {
       type: Object as PropType<{ [key: string]: any }>,
-      required: true,
     },
   },
   data() {
@@ -49,12 +47,12 @@ export default Vue.extend({
   },
   render(h): VNode {
     const viewProperties = {
-      items: this.items,
+      items: this?.items || [],
     }
     let view
     switch (typeof this.component) {
       case 'string':
-        view = h(this.asyncComponent, { props: this.params })
+        view = h(this.asyncComponent, { props: this?.params || {} })
         break
       case 'function':
         view = h(this.component, { props: viewProperties })

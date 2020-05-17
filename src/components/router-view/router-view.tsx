@@ -1,10 +1,14 @@
-import Vue, { VNode } from 'vue'
+import Vue, { VNode, CreateElement } from 'vue'
 import { MenuList } from '../menu-list'
 import { ItemTabContainer } from '../item-tab-container'
 import { eventBus } from '../../utils/event-bus'
 
+type RouteSectionMenuItem = SectionMenuItem & { component: string | Function }
+
+type RouteMenuItem = SimpleMenuItem | RouteSectionMenuItem
+
 type CurrentMenuItems = {
-  [id: string]: MenuItem
+  [id: string]: RouteMenuItem
 }
 
 export default Vue.extend({
@@ -28,53 +32,69 @@ export default Vue.extend({
   methods: {
     async navigate(args: [MenuItem | string]): Promise<void> {
       const [item] = args
-      switch (typeof item) {
-        case 'object': {
-          if (`tab-${item.id}` === this.activeTab) {
-            return
+      if (typeof item === 'string') {
+        if (this.activeTab !== item) {
+          this.activeTab = item
+        }
+        return
+      }
+
+      switch (item.type) {
+        case 'item': {
+          const menuitem: RouteMenuItem = {
+            ...item,
+            type: 'item',
           }
-          await this.menuItemClick(Object.assign(item, { icon: 'folder', params: item.params }))
+          this.$set(this.items, String(item.id), menuitem)
           break
         }
-        case 'string': {
-          if (this.activeTab !== item) {
-            this.activeTab = item
+        case 'section': {
+          const menuitem: RouteMenuItem = {
+            ...item,
+            type: 'section',
+            component: MenuList,
           }
+          this.$set(this.items, String(item.id), menuitem)
           break
         }
       }
-    },
-    async menuItemClick(item: MenuItem): Promise<void> {
-      if (item.type === 'section') {
-        item.component = MenuList
-      }
-      this.$set(this.items, String(item.id), item)
+
       await this.$nextTick()
       this.activeTab = `tab-${item.id}`
     },
   },
-  render(): VNode {
+  render(h: CreateElement): VNode {
     const itemKeys = Object.keys(this.items)
 
     if (itemKeys.length === 0) {
-      const adminMenu = <menu-list items={this.$sedona.menuItems} on-click={this.menuItemClick} />
-      this.$set(this.items, 'home', { id: 'home', component: adminMenu })
+      const adminMenu = <menu-list items={this.$sedona.menuItems} />
+      this.$set(this.items, 'home', { id: 'home', component: adminMenu, type: 'item' })
     }
 
     const views = new Set<VNode>()
 
     itemKeys.forEach(menuId => {
       const item = this.items[menuId]
+      const props: any = {
+        title: item?.title || '',
+        subTitle: item?.subTitle || '',
+        icon: item?.icon || 'folder',
+        component: item.component,
+      }
+      switch (item.type) {
+        case 'item':
+          props.params = item?.params || {}
+          break
+        case 'section':
+          props.items = item.items
+          break
+      }
+
+      const container = h('item-tab-container', { props })
+
       views.add(
         <q-tab-panel name={`tab-${item.id}`} style="padding:5px 0px">
-          <item-tab-container
-            title={item?.title || ''}
-            subTitle={item?.subTitle || ''}
-            icon={item?.icon || 'folder'}
-            component={item.component}
-            items={item?.items || []}
-            params={item?.params || {}}
-          />
+          {container}
         </q-tab-panel>
       )
     })
