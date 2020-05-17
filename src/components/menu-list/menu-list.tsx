@@ -32,26 +32,30 @@ export default Vue.extend({
   },
   computed: {
     menuItems(): MenuItem[] {
-      const items: MenuItem[] = []
-      for (const menuItem of this.items) {
-        switch (menuItem.type) {
-          case 'item': {
-            if (menuItem.conditions === undefined || isConditionTrue.call(this, menuItem)) {
-              items.push(menuItem)
+      return this.items.filter(item => {
+        if (item.conditions === undefined) return true
+        for (const condition of item.conditions) {
+          switch (condition.type) {
+            case '=': {
+              const result = this.$route[condition.field] === condition.value
+              if (result) return true
+              break
             }
-            break
+            case 'regex': {
+              // const regExp = new RegExp(condition.value)
+              break
+            }
           }
-          case 'section':
-            break
         }
-      }
-      return items
+
+        return false
+      })
     },
   },
   render(h: CreateElement): VNode {
     const childComponents = new Set<VNode>()
 
-    this.items.forEach((item: MenuItem) => {
+    this.menuItems.forEach((item: MenuItem) => {
       switch (item.type) {
         case 'item':
           childComponents.add(
