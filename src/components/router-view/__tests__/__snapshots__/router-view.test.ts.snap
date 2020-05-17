@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RouterView navigate to component 1`] = `
+"<div class=\\"q-scrollarea q-scrollarea--dark\\" style=\\"height: calc(100% - 50px); width: 100%; max-width: 300px;\\">
+  <div class=\\"scroll relative-position fit hide-scrollbar\\">
+    <div class=\\"absolute full-width\\"><object tabindex=\\"-1\\" type=\\"text/html\\" data=\\"about:blank\\" aria-hidden=\\"true\\" style=\\"display: block; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;\\"></object>
+      <div class=\\"q-tab-panels q-panel-parent\\">
+        <transition-stub name=\\"q-transition--slide-left\\">
+          <div role=\\"tabpanel\\" class=\\"q-panel scroll\\">
+            <div class=\\"q-tab-panel\\" style=\\"padding: 5px 0px;\\">
+              <div class=\\"fit\\">
+                <div class=\\"q-toolbar row no-wrap items-center\\"><button tabindex=\\"0\\" type=\\"button\\" role=\\"button\\" class=\\"q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense\\"><span class=\\"q-focus-helper\\"></span><span class=\\"q-btn__wrapper col row q-anchor--skip\\"><span class=\\"q-btn__content text-center col items-center q-anchor--skip justify-center row\\"><i aria-hidden=\\"true\\" role=\\"img\\" class=\\"material-icons q-icon notranslate\\">folder</i></span></span></button>
+                  <div class=\\"q-toolbar__title ellipsis col-shrink\\">Posts</div>
+                </div>
+                <hr role=\\"separator\\" aria-orientation=\\"horizontal\\" class=\\"q-separator q-separator q-separator--horizontal col-grow q-separator--dark\\" horizontal=\\"true\\">
+                <div>
+                  Posts View
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+    <!---->
+  </div><object tabindex=\\"-1\\" type=\\"text/html\\" data=\\"about:blank\\" aria-hidden=\\"true\\" style=\\"display: block; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;\\"></object>
+  <div class=\\"q-scrollarea__bar q-scrollarea__bar--v absolute-right q-scrollarea__bar--invisible\\"></div>
+  <div class=\\"q-scrollarea__thumb q-scrollarea__thumb--v absolute-right q-scrollarea__thumb--invisible\\" style=\\"height: 50px;\\"></div>
+</div>"
+`;
+
+exports[`RouterView navigate to section 1`] = `
+"<div class=\\"q-scrollarea q-scrollarea--dark\\" style=\\"height: calc(100% - 50px); width: 100%; max-width: 300px;\\">
+  <div class=\\"scroll relative-position fit hide-scrollbar\\">
+    <div class=\\"absolute full-width\\"><object tabindex=\\"-1\\" type=\\"text/html\\" data=\\"about:blank\\" aria-hidden=\\"true\\" style=\\"display: block; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;\\"></object>
+      <div class=\\"q-tab-panels q-panel-parent\\">
+        <transition-stub name=\\"q-transition--slide-left\\">
+          <div role=\\"tabpanel\\" class=\\"q-panel scroll\\">
+            <div class=\\"q-tab-panel\\" style=\\"padding: 5px 0px;\\">
+              <div class=\\"fit\\">
+                <div class=\\"q-toolbar row no-wrap items-center\\"><button tabindex=\\"0\\" type=\\"button\\" role=\\"button\\" class=\\"q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense\\"><span class=\\"q-focus-helper\\"></span><span class=\\"q-btn__wrapper col row q-anchor--skip\\"><span class=\\"q-btn__content text-center col items-center q-anchor--skip justify-center row\\"><i aria-hidden=\\"true\\" role=\\"img\\" class=\\"material-icons q-icon notranslate\\">folder</i></span></span></button>
+                  <div class=\\"q-toolbar__title ellipsis col-shrink\\">Meta Section</div>
+                </div>
+                <hr role=\\"separator\\" aria-orientation=\\"horizontal\\" class=\\"q-separator q-separator q-separator--horizontal col-grow q-separator--dark\\" horizontal=\\"true\\">
+                <div class=\\"q-list q-list--dark q-list--padding full-width\\">
+                  <div tabindex=\\"0\\" class=\\"q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable\\">
+                    <div tabindex=\\"-1\\" class=\\"q-focus-helper\\"></div>
+                    <div class=\\"q-item__section column q-item__section--avatar q-item__section--side justify-center\\">
+                      <div class=\\"q-avatar\\">
+                        <div class=\\"q-avatar__content row flex-center overflow-hidden bg-grey-7 text-white q-chip--colored\\"><i aria-hidden=\\"true\\" role=\\"presentation\\" class=\\"material-icons q-icon notranslate\\">folder</i></div>
+                      </div>
+                    </div>
+                    <div class=\\"q-item__section column q-item__section--main justify-center\\">
+                      <div class=\\"q-item__label ellipsis\\">Submenu Posts</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+    <!---->
+  </div><object tabindex=\\"-1\\" type=\\"text/html\\" data=\\"about:blank\\" aria-hidden=\\"true\\" style=\\"display: block; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;\\"></object>
+  <div class=\\"q-scrollarea__bar q-scrollarea__bar--v absolute-right q-scrollarea__bar--invisible\\"></div>
+  <div class=\\"q-scrollarea__thumb q-scrollarea__thumb--v absolute-right q-scrollarea__thumb--invisible\\" style=\\"height: 50px;\\"></div>
+</div>"
+`;
+
+exports[`RouterView to click on menu item 1`] = `
+"<div class=\\"q-scrollarea q-scrollarea--dark\\" style=\\"height: calc(100% - 50px); width: 100%; max-width: 300px;\\">
+  <div class=\\"scroll relative-position fit hide-scrollbar\\">
+    <div class=\\"absolute full-width\\"><object tabindex=\\"-1\\" type=\\"text/html\\" data=\\"about:blank\\" aria-hidden=\\"true\\" style=\\"display: block; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;\\"></object>
+      <div class=\\"q-tab-panels q-panel-parent\\">
+        <transition-stub name=\\"q-transition--slide-left\\">
+          <div role=\\"tabpanel\\" class=\\"q-panel scroll\\">
+            <div class=\\"q-tab-panel\\" style=\\"padding: 5px 0px;\\">
+              <div class=\\"fit\\">
+                <div class=\\"q-toolbar row no-wrap items-center\\"><button tabindex=\\"0\\" type=\\"button\\" role=\\"button\\" class=\\"q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense\\"><span class=\\"q-focus-helper\\"></span><span class=\\"q-btn__wrapper col row q-anchor--skip\\"><span class=\\"q-btn__content text-center col items-center q-anchor--skip justify-center row\\"><i aria-hidden=\\"true\\" role=\\"img\\" class=\\"material-icons q-icon notranslate\\">folder</i></span></span></button>
+                  <div class=\\"q-toolbar__title ellipsis col-shrink\\">Submenu Posts</div>
+                </div>
+                <hr role=\\"separator\\" aria-orientation=\\"horizontal\\" class=\\"q-separator q-separator q-separator--horizontal col-grow q-separator--dark\\" horizontal=\\"true\\">
+                <div>
+                  Posts View
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+    <!---->
+  </div><object tabindex=\\"-1\\" type=\\"text/html\\" data=\\"about:blank\\" aria-hidden=\\"true\\" style=\\"display: block; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;\\"></object>
+  <div class=\\"q-scrollarea__bar q-scrollarea__bar--v absolute-right q-scrollarea__bar--invisible\\"></div>
+  <div class=\\"q-scrollarea__thumb q-scrollarea__thumb--v absolute-right q-scrollarea__thumb--invisible\\" style=\\"height: 50px;\\"></div>
+</div>"
+`;

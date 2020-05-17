@@ -45,6 +45,7 @@
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-preset-jsx": "^1.1.2",
     "@vue/test-utils": "^1.0.2",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.5.1",
     "husky": "^4.2.5",
     "jest": "^25.5.4",
@@ -58,13 +59,24 @@
     "ts-jest": "^25.5.1",
     "tsc-watch": "^4.2.5",
     "typescript": "^3.9.2",
+    "vue-jest": "^3.0.5",
     "vue-typed-mixins": "^0.2.0",
     "web-streams-polyfill": "^2.1.1"
   },
   "jest": {
+    "verbose": true,
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx",
+      "ts",
+      "tsx",
+      "vue"
+    ],
     "transform": {
       "^.+\\.jsx?$": "babel-jest",
-      "^.+\\.(ts|tsx)$": "ts-jest"
+      "^.+\\.(ts|tsx)$": "ts-jest",
+      "^.+\\.vue$": "vue-jest"
     },
     "globals": {
       "ts-jest": {
@@ -74,7 +86,8 @@
     },
     "moduleNameMapper": {
       "\\.(css)$": "<rootDir>/__mocks__/styleMock.js",
-      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js",
+      "~(.*)$": "<rootDir>/__mocks__/$1"
     }
   },
   "husky": {

@@ -28,6 +28,7 @@ describe('MenuList', () => {
     const vm = wrapper.vm
 
     expect(wrapper.exists()).toBeTruthy
+
     expect(vm.menuItems).toBeInstanceOf(Array)
     expect(vm.menuItems).toHaveLength(0)
   })
@@ -60,6 +61,8 @@ describe('MenuList', () => {
     expect(vm.menuItems).toBeInstanceOf(Array)
     expect(vm.menuItems).toHaveLength(2)
 
+    expect(wrapper.html()).toMatchSnapshot()
+
     const labelWrapper = wrapper.findAll('.q-item__label')
     expect(labelWrapper).toHaveLength(2)
     expect(labelWrapper.at(0).text()).toEqual('Post List')
@@ -79,10 +82,6 @@ describe('MenuList', () => {
     })
 
     wrapper.find('.q-item').trigger('click')
-
-    // await vm.$nextTick()
-
-    // console.log(wrapper.get('.q-toolbar__title'))
   })
 
   test('it can be render menu header', () => {

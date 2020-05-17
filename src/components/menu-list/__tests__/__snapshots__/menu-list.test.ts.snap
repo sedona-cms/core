@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuList it can be render menu items 1`] = `
+"<div class=\\"q-list q-list--dark q-list--padding full-width\\">
+  <div tabindex=\\"0\\" class=\\"q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable\\">
+    <div tabindex=\\"-1\\" class=\\"q-focus-helper\\"></div>
+    <div class=\\"q-item__section column q-item__section--avatar q-item__section--side justify-center\\">
+      <div class=\\"q-avatar\\">
+        <div class=\\"q-avatar__content row flex-center overflow-hidden bg-grey-7 text-white q-chip--colored\\"><i aria-hidden=\\"true\\" role=\\"presentation\\" class=\\"material-icons q-icon notranslate\\">folder</i></div>
+      </div>
+    </div>
+    <div class=\\"q-item__section column q-item__section--main justify-center\\">
+      <div class=\\"q-item__label ellipsis\\">Post List</div>
+    </div>
+  </div>
+  <div tabindex=\\"0\\" class=\\"q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable\\">
+    <div tabindex=\\"-1\\" class=\\"q-focus-helper\\"></div>
+    <div class=\\"q-item__section column q-item__section--avatar q-item__section--side justify-center\\">
+      <div class=\\"q-avatar\\">
+        <div class=\\"q-avatar__content row flex-center overflow-hidden bg-grey-7 text-white q-chip--colored\\"><i aria-hidden=\\"true\\" role=\\"presentation\\" class=\\"material-icons q-icon notranslate\\">folder</i></div>
+      </div>
+    </div>
+    <div class=\\"q-item__section column q-item__section--main justify-center\\">
+      <div class=\\"q-item__label ellipsis\\">SEO</div>
+    </div>
+    <div class=\\"q-item__section column q-item__section--side justify-center\\"><i aria-hidden=\\"true\\" role=\\"presentation\\" class=\\"material-icons q-icon notranslate\\">keyboard_arrow_right</i></div>
+  </div>
+</div>"
+`;

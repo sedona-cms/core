@@ -70,13 +70,7 @@ export default Vue.extend({
     return (
       <div class="fit">
         <q-toolbar inset={false}>
-          <q-btn
-            flat={true}
-            round={true}
-            dense={true}
-            icon={this.icon}
-            on-click={this.$sedona.goBack}
-          />
+          <q-btn flat={true} round={true} dense={true} icon={this.icon} />
           <q-toolbar-title shrink={true}>{this.title}</q-toolbar-title>
         </q-toolbar>
         <q-separator dark={true} horizontal={true} inset={false} />
