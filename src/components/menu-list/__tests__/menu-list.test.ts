@@ -58,11 +58,13 @@ describe('MenuList', () => {
 
     expect(wrapper.exists()).toBeTruthy
     expect(vm.menuItems).toBeInstanceOf(Array)
-    // expect(vm.menuItems).toHaveLength(2)
+    expect(vm.menuItems).toHaveLength(2)
 
-    // console.log(wrapper.findAll('.q-item__label').length)
+    const labelWrapper = wrapper.findAll('.q-item__label')
+    expect(labelWrapper).toHaveLength(2)
+    expect(labelWrapper.at(0).text()).toEqual('Post List')
+    expect(labelWrapper.at(1).text()).toEqual('SEO')
 
-    expect(wrapper.get('.q-item__label').text()).toEqual('Post List')
     expect(wrapper.get('.q-avatar__content').text()).toEqual('folder')
 
     eventBus.on('core:navigate', ([item]) => {
@@ -81,5 +83,64 @@ describe('MenuList', () => {
     // await vm.$nextTick()
 
     // console.log(wrapper.get('.q-toolbar__title'))
+  })
+
+  test('it can be render menu header', () => {
+    const items = [
+      {
+        id: generateId(),
+        title: 'Post Meta',
+        type: 'header',
+      },
+    ]
+    const wrapper = mount(MenuList, {
+      localVue,
+      propsData: {
+        items,
+      },
+    })
+    const vm = wrapper.vm
+
+    expect(wrapper.exists()).toBeTruthy
+
+    expect(vm.menuItems).toBeInstanceOf(Array)
+    expect(vm.menuItems).toHaveLength(1)
+
+    expect(wrapper.get('.q-item__label').text()).toEqual('Post Meta')
+  })
+
+  test('it can be render menu section', () => {
+    const items = [
+      {
+        id: generateId(),
+        title: 'Post Meta',
+        subTitle: 'Post Meta Subtitle',
+        type: 'section',
+        items: [
+          {
+            id: generateId(),
+            title: 'Post List',
+            type: 'item',
+            component: 'posts/posts-view',
+          },
+          {
+            id: generateId(),
+            title: 'SEO',
+            type: 'section',
+            items: [],
+          },
+        ],
+      },
+    ]
+    const wrapper = mount(MenuList, {
+      localVue,
+      propsData: {
+        items,
+      },
+    })
+    const vm = wrapper.vm
+
+    expect(vm.menuItems).toBeInstanceOf(Array)
+    expect(vm.menuItems).toHaveLength(1)
   })
 })
