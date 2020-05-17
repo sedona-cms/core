@@ -13,14 +13,53 @@
     {
       "title": "Post List",
       "type": "item",
-      "component": "posts/posts-view",
-      "pattern": ""
+      "component": "posts/posts-view"
     },
     {
       "title": "Media Cards",
       "type": "item",
       "component": "media/cards",
       "icon": "wallpaper"
+    },
+    {
+      "type": "header",
+      "title": "Header menu item"
+    },
+    {
+      "title": "Subitems test",
+      "type": "section",
+      "items": [
+        {
+          "title": "Section",
+          "type": "section",
+          "items": [
+            {
+              "title": "Item",
+              "type": "section",
+              "icon": "card_giftcard",
+              "items": [
+                {
+                  "title": "Test",
+                  "type": "item",
+                  "component": "seo/site-seo-view"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "About only",
+      "type": "item",
+      "component": "posts/posts-view",
+      "conditions": [
+        {
+          "field": "name",
+          "type": "=",
+          "value": "about"
+        }
+      ]
     },
     {
       "title": "Header",
@@ -38,6 +77,23 @@
           "type": "item",
           "icon": "menu",
           "component": "views/header/menu-editor"
+        },
+        {
+          "title": "Test",
+          "type": "section",
+          "conditions": [
+            {
+              "field": "name",
+              "value": "about"
+            }
+          ],
+          "items": [
+            {
+              "title": "Test subitem",
+              "type": "item",
+              "component": "views/header/header-form"
+            }
+          ]
         }
       ]
     }

@@ -2,6 +2,9 @@ import * as path from 'path'
 import * as fs from 'fs'
 import Ajv from 'ajv'
 import { generateId } from './nanoid'
+
+import menuItemConditionSchema from '../schema/menu-item-condition.schema.json'
+import menuItemSchema from '../schema/menu-item.schema.json'
 import configSchema from '../schema/sedona.config.schema.json'
 
 /**
@@ -25,7 +28,7 @@ export function setIdToMenuItems(items: MenuItem[]): MenuItem[] {
     if (item.id === undefined) {
       item.id = generateId()
     }
-    if (Array.isArray(item.items)) {
+    if (item.type === 'section' && Array.isArray(item.items)) {
       item.items = setIdToMenuItems(item.items)
     }
     return item
@@ -33,9 +36,15 @@ export function setIdToMenuItems(items: MenuItem[]): MenuItem[] {
 }
 
 function validateConfigFile(data: string): void {
-  const ajv = new Ajv()
+  const ajv = new Ajv({
+    extendRefs: true,
+  })
+  ajv.addMetaSchema(menuItemSchema, 'menu-item.schema.json')
+  ajv.addMetaSchema(menuItemConditionSchema, 'menu-item-condition.schema.json')
+
   const validate = ajv.compile(configSchema)
   const valid = validate(data)
+
   if (!valid && Array.isArray(validate.errors)) {
     const message = ['Schema Config Validation Error']
     validate.errors.forEach(error => {
@@ -43,6 +52,7 @@ function validateConfigFile(data: string): void {
       message.push(`schema: ${error.schemaPath}`)
       message.push(`message: ${error.message}`)
     })
+
     throw new Error(message.join(`\n`))
   }
 }
