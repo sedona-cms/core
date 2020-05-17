@@ -25,15 +25,19 @@
   * [Config](#config)
   * [Toolbar configuration](#toolbar-configuration)
   * [Menu Items configuration](#menu-items-configuration)
+  * [The visibility of menu items](#the-visibility-of-menu-items)
   * [Events](#events)
 * [Development](#development)
 
 ## About the project
 
+Sedona CMS can create beautiful and fully customizable admin panel on frontend site.
+
 ### Built With
 
 * [Nuxt.js](https://nuxtjs.org/)
 * [Quasar Framework](https://quasar.dev/)
+* [Material Icons](https://material.io/resources/icons/)
 
 ## Getting Started
 
@@ -112,6 +116,39 @@ type ToolbarButton = {
 
 ### Menu Items configuration
 
+A menu item may be of 3 display variants:
+
+1. `item` – a simple menu item
+2. `header` – a subheader item (not clickable)
+3. `section` – an item can navigate to another menu list
+
+Examples:
+
+Simple menu item with required fields only
+
+```json
+{
+  "title": "Post List",
+  "type": "item",
+  "component": "posts/posts-view"
+}
+```
+
+Simple menu item with all available fields
+
+```json
+{
+  "title": "Post List",
+  "type": "item",
+  "component": "posts/posts-view",
+  "icon": "edit",
+  "subTitle": "Managment posts",
+  "params": {
+    "lang": "ru"
+  }
+}
+```
+
 `items` section (array)
 
 ```typescript
@@ -120,12 +157,70 @@ type MenuItem = {
   title?: string
   subTitle?: string
   icon?: string
-  type: 'item' | 'section'
+  type: 'item' | 'section' | 'header'
   component?: string | Function
   params?: {
     [key: string]: any
   }
   items?: MenuItem[]
+}
+```
+
+### The visibility of menu items
+
+By default, all menu items shows on each page on site. This behavior may be change in the config file.
+
+The visibility depends on a current vue route. All components have property [$route](https://router.vuejs.org/api/#the-route-object).
+Use the `$route` property in conditions you can change the visibility of menu items on site pages.
+
+The `$route` properties that can be used in conditions:
+
+1. `name`
+2. `path`
+3. `meta`
+
+Type of conditions that can be used.
+
+1. `=`
+2. `regex`
+
+Examples:
+
+The menu item shows only on page `about`. 
+The item shows only on pages when the condition returns true `$route.name === 'about'`
+
+```json
+{
+  "title": "Test",
+  "type": "item",
+  "component": "posts/posts-view",
+  "conditions": [
+    {
+      "field": "name",
+      "value": "about"
+    }
+  ],
+}
+```
+
+The menu item shows only on page `about` or `index`. 
+The item shows only on pages when the condition returns true `$route.name === 'about' || $route.name === 'index'`
+
+```json
+{
+  "title": "Test",
+  "type": "item",
+  "component": "posts/posts-view",
+  "conditions": [
+    {
+      "field": "name",
+      "value": "about"
+    },
+    {
+      "field": "name",
+      "value": "index"
+    }
+  ],
 }
 ```
 
