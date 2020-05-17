@@ -18,9 +18,5 @@ export const menuListItemMixin = Vue.extend({
       type: String as PropType<string>,
       required: true,
     },
-    type: {
-      type: String as PropType<'item' | 'section' | 'header'>,
-      validator: value => ['item', 'section', 'header'].includes(value),
-    },
   },
 })

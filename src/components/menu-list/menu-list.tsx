@@ -51,48 +51,19 @@ export default Vue.extend({
   render(h: CreateElement): VNode {
     const childComponents = new Set<VNode>()
 
-    function createMenuItem(item: MenuItem): VNode {
-      const props: MenuItem = {
-        id: item.id,
-        ...(item.title !== undefined ? { title: item.title } : { title: '<NO TITLE>' }),
-        ...(item.type !== undefined ? { type: item.type } : { type: 'item' }),
-      }
-
-      switch (props.type) {
-        case 'item': {
-          props.subTitle = (item as SimpleMenuItem).subTitle ?? ''
-          props.icon = (item as SimpleMenuItem).icon ?? 'folder'
-          props.component = (item as SimpleMenuItem).component
-          props.params = (item as SimpleMenuItem).params ?? {}
-          break
-        }
-        case 'section': {
-          props.subTitle = (item as SectionMenuItem).subTitle ?? ''
-          props.icon = (item as SectionMenuItem).icon ?? 'folder'
-          props.items = (item as SectionMenuItem).items ?? []
-          break
-        }
-      }
-
-      return h('menu-list-item', { props })
-    }
-
-    function createMenuSection(item: SectionMenuItem): VNode[] {
-      const result: VNode[] = [<q-item-label header={true}>{item.title}</q-item-label>]
-      if (!Array.isArray(item.items)) {
-        return result
-      }
-      for (const menuItem of item.items) {
-        result.push(createMenuItem(menuItem))
-      }
-
-      return result
-    }
-
     this.items.forEach((item: MenuItem) => {
       switch (item.type) {
         case 'item':
-          childComponents.add(createMenuItem(item))
+          childComponents.add(
+            <menu-list-item
+              id={item.id}
+              component={item.component}
+              title={item.title ?? '<NO TITLE>'}
+              sub-title={item.subTitle ?? ''}
+              icon={item.icon ?? 'folder'}
+              params={item.params ?? {}}
+            />
+          )
           break
         case 'header':
           childComponents.add(<menu-list-header title={item.title} />)

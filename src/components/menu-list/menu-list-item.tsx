@@ -17,11 +17,11 @@ export default mixins(menuListItemMixin).extend({
   methods: {
     menuItemClick(): void {
       const menuItem: MenuItem = {
+        type: 'item',
         id: this.id,
         title: this.title,
         subTitle: this.subTitle,
         icon: this.icon,
-        type: this.type,
         component: this.component,
         params: this.params,
       }
