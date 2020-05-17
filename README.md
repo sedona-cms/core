@@ -45,7 +45,7 @@ Sedona CMS can create beautiful and fully customizable admin panel on frontend s
 
 * [Nuxt.js](https://nuxtjs.org/)
 
-## Setup
+### Setup
 
 1. Add @sedona-cms/core dependency to your project
 
