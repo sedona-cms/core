@@ -30,7 +30,8 @@
   "dependencies": {
     "ajv": "^6.12.2",
     "nanoid": "^3.1.9",
-    "quasar": "^1.11.3"
+    "quasar": "^1.11.3",
+    "vue-typed-mixins": "^0.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -59,7 +60,6 @@
     "tsc-watch": "^4.2.6",
     "typescript": "^3.9.2",
     "vue-jest": "^3.0.5",
-    "vue-typed-mixins": "^0.2.0",
     "web-streams-polyfill": "^2.1.1"
   },
   "jest": {
