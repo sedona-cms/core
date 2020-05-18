@@ -36,7 +36,6 @@
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-typescript": "^7.9.0",
-    "@nuxt/http": "^0.5.1",
     "@nuxt/types": "^0.7.5",
     "@nuxtjs/bulma": "^1.2.7",
     "@sedona-cms/eslint-config": "^1.0.2",

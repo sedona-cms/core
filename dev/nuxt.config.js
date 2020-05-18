@@ -14,7 +14,7 @@ export default {
 
   css: ['~assets/css/styles.css'],
 
-  modules: ['@nuxt/http', '../lib/module.js'],
+  modules: ['../lib/module.js'],
 
   buildModules: ['@nuxtjs/bulma'],
 
