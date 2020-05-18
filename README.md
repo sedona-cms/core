@@ -45,7 +45,7 @@ Sedona CMS can create beautiful and fully customizable admin panel on frontend s
 
 * [Nuxt.js](https://nuxtjs.org/)
 
-## Setup
+### Setup
 
 1. Add @sedona-cms/core dependency to your project
 
@@ -149,20 +149,51 @@ Simple menu item with all available fields
 }
 ```
 
-`items` section (array)
+Menu item
 
 ```typescript
-type MenuItem = {
+type MenuItem = SimpleMenuItem | HeaderMenuItem | SectionMenuItem
+```
+
+Simple menu item
+
+```typescript
+type SimpleMenuItem = {
   id?: string
   title?: string
   subTitle?: string
   icon?: string
-  type: 'item' | 'section' | 'header'
+  type: 'item'
   component?: string | Function
   params?: {
     [key: string]: any
   }
+  conditions?: MenuItemCondition[]
+}
+```
+
+Header menu item
+
+```typescript
+type HeaderMenuItem = {
+  id?: string
+  title?: string
+  type: 'header'
+  conditions?: MenuItemCondition[]
+}
+```
+
+Section menu item
+
+```typescript
+type SectionMenuItem = {
+  id?: string
+  title?: string
+  subTitle?: string
+  icon?: string
+  type: 'section'
   items?: MenuItem[]
+  conditions?: MenuItemCondition[]
 }
 ```
 
