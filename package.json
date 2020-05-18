@@ -29,8 +29,8 @@
   "license": "MIT",
   "dependencies": {
     "ajv": "^6.12.2",
-    "nanoid": "^3.1.7",
-    "quasar": "^1.11.2"
+    "nanoid": "^3.1.9",
+    "quasar": "^1.11.3"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -39,12 +39,12 @@
     "@nuxt/http": "^0.5.1",
     "@nuxt/types": "^0.7.5",
     "@nuxtjs/bulma": "^1.2.7",
-    "@sedona-cms/eslint-config": "^1.0.1",
+    "@sedona-cms/eslint-config": "^1.0.2",
     "@types/jest": "^25.2.2",
     "@types/node": "^13.13.6",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-preset-jsx": "^1.1.2",
-    "@vue/test-utils": "^1.0.2",
+    "@vue/test-utils": "^1.0.3",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^25.5.1",
     "husky": "^4.2.5",
@@ -57,7 +57,7 @@
     "postcss-remove-rules": "^1.0.0",
     "prettier": "2.0.1",
     "ts-jest": "^25.5.1",
-    "tsc-watch": "^4.2.5",
+    "tsc-watch": "^4.2.6",
     "typescript": "^3.9.2",
     "vue-jest": "^3.0.5",
     "vue-typed-mixins": "^0.2.0",
