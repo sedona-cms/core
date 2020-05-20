@@ -31,7 +31,7 @@
 
 ## About the project
 
-Sedona CMS can create beautiful and fully customizable admin panel on frontend site.
+Sedona CMS can create a beautiful and fully customizable admin panel on the frontend site.
 
 ### Built With
 
@@ -92,7 +92,7 @@ export default {
   
 Config file has [json schema](src/schema/sedona.config.schema.json). This tool helps validate config when module loading. And edit the file without errors. 
 
-Editing the config file may be handier with webstorm or vscode.
+Editing the config file may be handier with WebStorm or VS Code.
 
 1. Webstorm – Languages and Frameworks -> Schemas and DTDs -> JSON Schema Mappings
 
@@ -199,12 +199,11 @@ type SectionMenuItem = {
 
 ### The Visibility of Menu Items
 
-By default, all menu items shows on each page on site. This behavior may be change in the config file.
+By default, all menu items show on each page on site. This behavior may be changed in the config file.
 
-The visibility depends on a current vue route. All components have property [$route](https://router.vuejs.org/api/#the-route-object).
-Use the `$route` property in conditions you can change the visibility of menu items on site pages.
+The visibility depends on a current Vue route. All components have a property $route. Use the $route property in conditions you can change the visibility of menu items on-site pages.
 
-The `$route` properties that can be used in conditions:
+The $route properties that can be used in conditions:
 
 1. `name`
 2. `path`
@@ -217,8 +216,7 @@ Type of conditions that can be used.
 
 Examples:
 
-The menu item shows only on page `about`. 
-The item shows only on pages when the condition returns true `$route.name === 'about'`
+The menu item shows only on-page about. The item shows only on pages when the condition returns true $route.name === 'about'
 
 ```json
 {
