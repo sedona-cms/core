@@ -14,6 +14,15 @@
   </p>
 </p>
 
+<br />
+
+<p align="center">
+  <a href="https://twitter.com/sedonacms" target="_blank">
+    <img src="https://img.shields.io/twitter/follow/sedonacms.svg?logo=twitter">
+  </a>
+</p>
+
+
 ## Table of Contents
 
 * [About the Project](#about-the-project)
