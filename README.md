@@ -28,8 +28,9 @@
   * [The Visibility of Menu Items](#the-visibility-of-menu-items)
   * [Events](#events)
 * [Development](#development)
+* [Tests](#tests)
 
-## About the project
+## About the Project
 
 Sedona CMS can create a beautiful and fully customizable admin panel on the frontend site.
 
@@ -294,4 +295,30 @@ npm run watch # typescript watch process
 
 ```bash
 npm run dev
+```
+
+## Tests
+
+Run unit tests for utils
+
+```bash
+npm run test:utils
+```
+
+Run unit tests for Vue components with vue-test-utils
+
+```bash
+npm run test:components
+```
+
+Run e2e test (not implemented yet)
+
+```bash
+npm run test:e2e
+```
+
+Run all test
+
+```bash
+npm run test
 ```
