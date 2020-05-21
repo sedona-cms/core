@@ -23,15 +23,15 @@
   * [Setup](#setup)
 * [Usage](#usage)
   * [Config](#config)
-  * [Toolbar configuration](#toolbar-configuration)
-  * [Menu Items configuration](#menu-items-configuration)
-  * [The visibility of menu items](#the-visibility-of-menu-items)
+  * [Toolbar Configuration](#toolbar-configuration)
+  * [Menu Items Configuration](#menu-items-configuration)
+  * [The Visibility of Menu Items](#the-visibility-of-menu-items)
   * [Events](#events)
 * [Development](#development)
 
 ## About the project
 
-Sedona CMS can create beautiful and fully customizable admin panel on frontend site.
+Sedona CMS can create a beautiful and fully customizable admin panel on the frontend site.
 
 ### Built With
 
@@ -92,11 +92,11 @@ export default {
   
 Config file has [json schema](src/schema/sedona.config.schema.json). This tool helps validate config when module loading. And edit the file without errors. 
 
-Editing the config file may be handier with webstorm or vscode.
+Editing the config file may be handier with WebStorm or VS Code.
 
 1. Webstorm – Languages and Frameworks -> Schemas and DTDs -> JSON Schema Mappings
 
-### Toolbar configuration
+### Toolbar Configuration
 
 `toolbar` section (object)
 
@@ -114,7 +114,7 @@ type ToolbarButton = {
 }
 ```
 
-### Menu Items configuration
+### Menu Items Configuration
 
 A menu item may be of 3 display variants:
 
@@ -197,14 +197,13 @@ type SectionMenuItem = {
 }
 ```
 
-### The visibility of menu items
+### The Visibility of Menu Items
 
-By default, all menu items shows on each page on site. This behavior may be change in the config file.
+By default, all menu items show on each page on site. This behavior may be changed in the config file.
 
-The visibility depends on a current vue route. All components have property [$route](https://router.vuejs.org/api/#the-route-object).
-Use the `$route` property in conditions you can change the visibility of menu items on site pages.
+The visibility depends on a current Vue route. All components have a property $route. Use the $route property in conditions you can change the visibility of menu items on-site pages.
 
-The `$route` properties that can be used in conditions:
+The $route properties that can be used in conditions:
 
 1. `name`
 2. `path`
@@ -217,8 +216,7 @@ Type of conditions that can be used.
 
 Examples:
 
-The menu item shows only on page `about`. 
-The item shows only on pages when the condition returns true `$route.name === 'about'`
+The menu item shows only on-page about. The item shows only on pages when the condition returns true $route.name === 'about'
 
 ```json
 {
@@ -267,7 +265,7 @@ import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
 eventBus.on('sedona:loaded', () => console.log('Fired after Sedona CMS panel loaded'))
 ```
 
-#### Used events:
+#### Used Events:
 
 * `sedona:loaded` (no args) – Sedona CMS panel loaded
 * `core:navigate` (item: [MenuItem](types/config/index.d.ts#L1))– change an active panel
@@ -280,17 +278,19 @@ eventBus.on('sedona:loaded', () => console.log('Fired after Sedona CMS panel loa
 npm ci
 ```
 
+2. Link the package in which it is run
+
 ```bash
-npx npm-self-link # links the package in which it is run
+npx npm-self-link
 ```
 
-2. Run watch process
+3. Run watch process
 
 ```bash
 npm run watch # typescript watch process
 ```
 
-3. Run nuxt project from `dev` directory
+4. Run nuxt project from `dev` directory
 
 ```bash
 npm run dev
