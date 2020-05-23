@@ -24,12 +24,6 @@
   font-size: 14px;
 }
 
-.admin-panel .toggle-button {
-  left: 305px;
-  top: 5px;
-  position: absolute;
-}
-
 .admin-panel .column {
   padding: 0;
   flex-basis: auto;
@@ -37,4 +31,8 @@
 
 .admin-panel .q-btn__content {
   text-transform: uppercase;
+}
+
+.q-menu {
+  color: #424242;
 }

@@ -12,3 +12,9 @@
 .admin-panel--inner {
   background: inherit;
 }
+
+.admin-panel .toggle-button {
+  left: 305px;
+  top: 5px;
+  position: absolute;
+}
