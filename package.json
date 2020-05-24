@@ -57,7 +57,7 @@
     "postcss-remove-rules": "^1.0.0",
     "prettier": "2.0.1",
     "ts-jest": "^25.5.1",
-    "tsc-watch": "^4.2.7",
+    "tsc-watch": "^4.2.8",
     "typescript": "^3.9.3",
     "vue-jest": "^3.0.5",
     "web-streams-polyfill": "^2.1.1"
