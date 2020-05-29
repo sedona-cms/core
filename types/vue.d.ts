@@ -23,3 +23,9 @@ declare global {
     $admin: any
   }
 }
+
+type SubmitArgs = {
+  label?: string
+  color?: string
+  handler?: () => void
+}
