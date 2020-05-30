@@ -5,7 +5,10 @@ import { QSpace } from 'quasar/src/components/space'
 import { QBtn } from 'quasar/src/components/btn'
 import { QBtnDropdown } from 'quasar/src/components/btn-dropdown'
 import { QIcon } from 'quasar/src/components/icon'
+
 import { QTabPanel, QTabPanels } from 'quasar/src/components/tab-panels'
+import { QTabs, QTab } from 'quasar/src/components/tabs'
+
 import { QList, QItem, QItemSection, QItemLabel } from 'quasar/src/components/item'
 import { QExpansionItem } from 'quasar/src/components/expansion-item'
 import { QAvatar } from 'quasar/src/components/avatar'
@@ -75,6 +78,8 @@ export default {
         QPagination,
         QSelect,
         QSkeleton,
+        QTabs,
+        QTab,
       },
       directives,
       plugins: {},
