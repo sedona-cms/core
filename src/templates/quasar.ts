@@ -4,6 +4,7 @@ import { QToolbar, QToolbarTitle } from 'quasar/src/components/toolbar'
 import { QSpace } from 'quasar/src/components/space'
 import { QBtn } from 'quasar/src/components/btn'
 import { QBtnDropdown } from 'quasar/src/components/btn-dropdown'
+import { QBtnGroup } from 'quasar/src/components/btn-group'
 import { QIcon } from 'quasar/src/components/icon'
 
 import { QTabPanel, QTabPanels } from 'quasar/src/components/tab-panels'
@@ -80,6 +81,7 @@ export default {
         QSkeleton,
         QTabs,
         QTab,
+        QBtnGroup,
       },
       directives,
       plugins: {},
