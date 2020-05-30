@@ -12,7 +12,7 @@ exports[`RouterView navigate to component 1`] = `
                 <div class=\\"q-toolbar row no-wrap items-center\\"><button tabindex=\\"0\\" type=\\"button\\" role=\\"button\\" class=\\"q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense\\"><span class=\\"q-focus-helper\\"></span><span class=\\"q-btn__wrapper col row q-anchor--skip\\"><span class=\\"q-btn__content text-center col items-center q-anchor--skip justify-center row\\"><i aria-hidden=\\"true\\" role=\\"img\\" class=\\"material-icons q-icon notranslate\\">folder</i></span></span></button>
                   <div class=\\"q-toolbar__title ellipsis col-shrink\\">Posts</div>
                 </div>
-                <hr role=\\"separator\\" aria-orientation=\\"horizontal\\" class=\\"q-separator q-separator q-separator--horizontal col-grow q-separator--dark\\" horizontal=\\"true\\">
+                <hr role=\\"separator\\" aria-orientation=\\"horizontal\\" class=\\"q-separator q-separator q-separator--horizontal q-separator--dark\\" horizontal=\\"true\\">
                 <div>
                   Posts View
                 </div>
@@ -41,7 +41,7 @@ exports[`RouterView navigate to section 1`] = `
                 <div class=\\"q-toolbar row no-wrap items-center\\"><button tabindex=\\"0\\" type=\\"button\\" role=\\"button\\" class=\\"q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense\\"><span class=\\"q-focus-helper\\"></span><span class=\\"q-btn__wrapper col row q-anchor--skip\\"><span class=\\"q-btn__content text-center col items-center q-anchor--skip justify-center row\\"><i aria-hidden=\\"true\\" role=\\"img\\" class=\\"material-icons q-icon notranslate\\">folder</i></span></span></button>
                   <div class=\\"q-toolbar__title ellipsis col-shrink\\">Meta Section</div>
                 </div>
-                <hr role=\\"separator\\" aria-orientation=\\"horizontal\\" class=\\"q-separator q-separator q-separator--horizontal col-grow q-separator--dark\\" horizontal=\\"true\\">
+                <hr role=\\"separator\\" aria-orientation=\\"horizontal\\" class=\\"q-separator q-separator q-separator--horizontal q-separator--dark\\" horizontal=\\"true\\">
                 <div class=\\"q-list q-list--dark q-list--padding full-width\\">
                   <div tabindex=\\"0\\" class=\\"q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable\\">
                     <div tabindex=\\"-1\\" class=\\"q-focus-helper\\"></div>
@@ -80,7 +80,7 @@ exports[`RouterView to click on menu item 1`] = `
                 <div class=\\"q-toolbar row no-wrap items-center\\"><button tabindex=\\"0\\" type=\\"button\\" role=\\"button\\" class=\\"q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense\\"><span class=\\"q-focus-helper\\"></span><span class=\\"q-btn__wrapper col row q-anchor--skip\\"><span class=\\"q-btn__content text-center col items-center q-anchor--skip justify-center row\\"><i aria-hidden=\\"true\\" role=\\"img\\" class=\\"material-icons q-icon notranslate\\">folder</i></span></span></button>
                   <div class=\\"q-toolbar__title ellipsis col-shrink\\">Submenu Posts</div>
                 </div>
-                <hr role=\\"separator\\" aria-orientation=\\"horizontal\\" class=\\"q-separator q-separator q-separator--horizontal col-grow q-separator--dark\\" horizontal=\\"true\\">
+                <hr role=\\"separator\\" aria-orientation=\\"horizontal\\" class=\\"q-separator q-separator q-separator--horizontal q-separator--dark\\" horizontal=\\"true\\">
                 <div>
                   Posts View
                 </div>
