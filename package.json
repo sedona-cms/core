@@ -30,12 +30,12 @@
   "dependencies": {
     "ajv": "^6.12.2",
     "nanoid": "^3.1.9",
-    "quasar": "^1.12.0",
+    "quasar": "^1.12.2",
     "vue-typed-mixins": "^0.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.1",
-    "@babel/preset-env": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
     "@babel/preset-typescript": "^7.10.1",
     "@nuxt/types": "^0.7.7",
     "@nuxtjs/bulma": "^1.2.7",
