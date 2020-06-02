@@ -40,6 +40,7 @@
           const timeout = setTimeout(() => {
             clearTimeout(timeout)
             eventBus.emit('core:save-loading', false)
+            eventBus.emit('core:save-disable', true)
             resolve()
           }, 5000)
         })

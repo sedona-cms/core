@@ -16,6 +16,10 @@
       "component": "posts/posts-view"
     },
     {
+      "type": "header",
+      "title": "Post Edit with Save Panel"
+    },
+    {
       "title": "Post Edit",
       "type": "item",
       "icon": "edit",
