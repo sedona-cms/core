@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 // @ts-ignore
 import { Modal } from '@sedona-cms/core/lib/components'
+import { ModalSave } from '@sedona-cms/core/lib/components/modal'
 // @ts-ignore
 import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
 // @ts-ignore
@@ -10,8 +11,9 @@ import { generateId } from '@sedona-cms/core/lib/utils/nanoid'
 const config: Readonly<ModuleConfig> = Object.freeze(JSON.parse('<%= JSON.stringify(options) %>'))
 
 type ModalArgs = {
-  fullScreen: boolean
-  title: string
+  fullScreen?: boolean
+  title?: string
+  save?: boolean | ModalSave
 }
 
 type ModalComponentProp = {
@@ -102,6 +104,7 @@ export class Sedona {
     const propsData = {
       fullScreen: args?.fullScreen || false,
       title: args?.title || '',
+      save: args.save || false,
       component: modalComponent,
     }
     if (props !== undefined) {

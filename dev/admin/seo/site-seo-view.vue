@@ -29,6 +29,9 @@
           'seo/facebook-form',
           {
             title: 'Facebook',
+            save: {
+              label: 'OK',
+            },
           },
           {
             currentPageId: 'm579mpje5t',

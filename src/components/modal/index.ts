@@ -1,3 +1,3 @@
-import Modal from './modal'
+import Modal, { ModalSave } from './modal'
 
-export { Modal }
+export { Modal, ModalSave }

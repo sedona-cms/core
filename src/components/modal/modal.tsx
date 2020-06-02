@@ -1,9 +1,19 @@
 import Vue, { VNode, PropType, CreateElement } from 'vue'
+import { eventBus } from '../../utils/event-bus'
+import ModalSave from './modal-save'
 
 import './modal.css'
 
+export type ModalSave = {
+  label?: string
+  color?: string
+}
+
 export default Vue.extend({
   name: 'Modal',
+  components: {
+    ModalSave,
+  },
   props: {
     fullScreen: {
       type: Boolean as PropType<boolean>,
@@ -21,6 +31,10 @@ export default Vue.extend({
       type: Object as PropType<object>,
       default: () => {},
     },
+    save: {
+      type: [Boolean, Object] as PropType<boolean | ModalSave>,
+      default: false,
+    },
   },
   mounted(): void {
     if (this.fullScreen) return
@@ -29,6 +43,11 @@ export default Vue.extend({
       // @ts-ignore
       this.$el.style.left = '0px'
     }, 100)
+
+    eventBus.on('core:modal-close', this.close)
+  },
+  beforeDestroy(): void {
+    eventBus.off('core:modal-close', this.close)
   },
   methods: {
     close(): void {
@@ -64,11 +83,21 @@ export default Vue.extend({
       },
     })
 
+    let savePanel: VNode | undefined
+    if (this.save) {
+      let props: any = {}
+      if (typeof this.save === 'object') {
+        props = this.save
+      }
+      savePanel = h('modal-save', { props })
+    }
+
     return (
       <div class={classes} style={style}>
         <q-toolbar>
           <q-btn icon="close" round={true} dense={true} flat={true} on-click={this.close} />
           <q-toolbar-title>{this.title}</q-toolbar-title>
+          {savePanel}
         </q-toolbar>
         <q-scroll-area
           dark={true}
