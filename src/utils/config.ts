@@ -6,6 +6,7 @@ import { generateId } from './nanoid'
 import menuItemConditionSchema from '../schema/menu-item-condition.schema.json'
 import menuItemSchema from '../schema/menu-item.schema.json'
 import configSchema from '../schema/sedona.config.schema.json'
+import savePanelSchema from '../schema/save-panel.schema.json'
 
 /**
  * Load sedona.config.json from root directory
@@ -41,6 +42,7 @@ function validateConfigFile(data: string): void {
   })
   ajv.addMetaSchema(menuItemSchema, 'menu-item.schema.json')
   ajv.addMetaSchema(menuItemConditionSchema, 'menu-item-condition.schema.json')
+  ajv.addMetaSchema(savePanelSchema, 'save-panel.schema.json')
 
   const validate = ajv.compile(configSchema)
   const valid = validate(data)

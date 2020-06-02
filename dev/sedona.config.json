@@ -16,6 +16,28 @@
       "component": "posts/posts-view"
     },
     {
+      "type": "header",
+      "title": "Post Edit with Save Panel"
+    },
+    {
+      "title": "Post Edit",
+      "type": "item",
+      "icon": "edit",
+      "component": "posts/post-edit",
+      "save": true
+    },
+    {
+      "title": "Post Edit with custom Save",
+      "type": "item",
+      "icon": "edit",
+      "component": "posts/post-edit",
+      "save": {
+        "label": "Save Post",
+        "color": "brown-5",
+        "size": "xl"
+      }
+    },
+    {
       "title": "Media Cards",
       "type": "item",
       "component": "media/cards",

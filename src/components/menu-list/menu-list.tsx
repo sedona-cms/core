@@ -66,6 +66,7 @@ export default Vue.extend({
               sub-title={item.subTitle ?? ''}
               icon={item.icon ?? 'folder'}
               params={item.params ?? {}}
+              save={item.save ?? false}
             />
           )
           break

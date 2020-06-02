@@ -37,6 +37,15 @@
         "component": {
           "type": "string",
           "description": "A component path"
+        },
+        "save": {
+          "description": "A Save Panel",
+          "anyOf": [
+            { "type": "boolean", "default": false },
+            {
+              "$ref": "save-panel.schema.json"
+            }
+          ]
         }
       },
       "required": ["component"]

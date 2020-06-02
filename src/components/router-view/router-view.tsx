@@ -23,6 +23,17 @@ export default Vue.extend({
       items: {} as CurrentMenuItems, // Menu Items
     }
   },
+  computed: {
+    isSavePanel(): boolean {
+      let result = false
+      const activeItem = this.items[this.activeTab.replace('tab-', '')]
+      if (activeItem.type === 'item') {
+        result = Boolean(activeItem.save)
+      }
+
+      return result
+    },
+  },
   mounted(): void {
     eventBus.on('core:navigate', this.navigate)
   },
@@ -82,9 +93,11 @@ export default Vue.extend({
         component: item.component,
       }
       switch (item.type) {
-        case 'item':
+        case 'item': {
           props.params = item?.params || {}
+          props.save = item.save || false
           break
+        }
         case 'section':
           props.items = item.items
           break
@@ -99,8 +112,12 @@ export default Vue.extend({
       )
     })
 
+    const offset: number = this.isSavePanel ? 140 : 50
+
     return (
-      <q-scroll-area dark={true} style="height: calc(100% - 50px); width: 100%; max-width: 300px;">
+      <q-scroll-area
+        dark={true}
+        style={{ height: `calc(100% - ${offset}px)`, width: '100%', 'max-width': '300px' }}>
         <q-tab-panels
           ref="tabPanels"
           style="color:inherit;background:inherit;"
