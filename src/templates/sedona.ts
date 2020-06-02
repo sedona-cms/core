@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 // @ts-ignore
 import { Modal } from '@sedona-cms/core/lib/components'
+// @ts-ignore
 import { ModalSave } from '@sedona-cms/core/lib/components/modal'
 // @ts-ignore
 import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
