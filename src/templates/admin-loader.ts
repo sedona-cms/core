@@ -24,8 +24,7 @@ export const adminLoader: AdminLoader = {
 
     document.body.style.setProperty('--admin-panel-width', '300px')
 
-    const Quasar = await require('./quasar')
-    Vue.use(Quasar.default)
+    await import('./quasar')
 
     const { Sedona } = await import('./sedona')
     Vue.prototype.$sedona = new Sedona()

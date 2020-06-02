@@ -26,7 +26,6 @@
   * [Toolbar Configuration](#toolbar-configuration)
   * [Menu Items Configuration](#menu-items-configuration)
   * [The Visibility of Menu Items](#the-visibility-of-menu-items)
-  * [The Modal Panel](#the-modal-panel)
   * [Events](#events)
 * [Development](#development)
 * [Tests](#tests)
@@ -254,10 +253,6 @@ The item shows only on pages when the condition returns true `$route.name === 'a
   ],
 }
 ```
-
-### The Modal Panel
-
-The Sedona CMS provides functions for show modal panels. It's helpful for a show a single edit item for example.
 
 ### Events
 

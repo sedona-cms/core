@@ -46,6 +46,10 @@ export default Vue.extend({
       buttons.push(<q-toolbar-title>{this.$sedona.toolBarConfig.title}</q-toolbar-title>)
     }
 
-    return <q-toolbar class="bg-grey-7">{buttons}</q-toolbar>
+    return (
+      <q-toolbar class="bg-grey-7" style={{ width: 'auto' }}>
+        {buttons}
+      </q-toolbar>
+    )
   },
 })
