@@ -35,6 +35,7 @@
   * [Toolbar Configuration](#toolbar-configuration)
   * [Menu Items Configuration](#menu-items-configuration)
   * [The Visibility of Menu Items](#the-visibility-of-menu-items)
+  * [A Save Panel](#a-save-panel)
   * [Events](#events)
 * [Development](#development)
 * [Tests](#tests)
@@ -263,6 +264,99 @@ The item shows only on pages when the condition returns true `$route.name === 'a
 }
 ```
 
+### A Save Panel
+
+Each admin view can have a save panel. The Save Panel is a panel in a bottom with a button.
+
+#### Enable the save panel
+
+Add `save` attribute to menu item configuration:
+
+```json
+{
+  "title": "Post Edit",
+  "type": "item",
+  "icon": "edit",
+  "component": "posts/post-edit",
+  "save": true
+}
+```
+
+You can change the Save Panel options:
+
+```json
+{
+  "title": "Post Edit",
+  "type": "item",
+  "icon": "edit",
+  "component": "posts/post-edit",
+  "save": {
+    "label": "Save Post",
+    "color": "brown-5",
+    "size": "xl"
+  
+}
+```
+
+#### Set disabled state for the Save Panel
+
+In `posts/post-edit`:
+
+```vue
+<script>
+    import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
+    
+    export default {
+        name: 'PostEdit',
+        mounted() {
+            eventBus.emit('core:save-disable', true)
+        },
+    }
+</script>
+```
+
+#### Set loading state for the Save Panel
+
+In `posts/post-edit`:
+
+```vue
+<script>
+    import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
+    
+    export default {
+        name: 'PostEdit',
+        methods: {
+            save() {
+                eventBus.emit('core:save-loading', true)
+                // A request here
+                eventBus.emit('core:save-loading', false)
+            }
+        },
+    }
+</script>
+```
+
+#### Catch click event 
+
+```vue
+<script>
+    import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
+    
+    export default {
+        name: 'PostEdit',
+        mounted() {
+          eventBus.on('core:save-click', this.save)
+        },
+        beforeDestroy() {
+          eventBus.off('core:save-click', this.save)
+        },
+        methods: {
+            save() {}
+        },
+    }
+</script>
+```
+
 ### Events
 
 Sedona CMS uses own [global event bus](src/utils/event-bus.ts). 
@@ -279,6 +373,9 @@ eventBus.on('sedona:loaded', () => console.log('Fired after Sedona CMS panel loa
 
 * `sedona:loaded` (no args) – Sedona CMS panel loaded
 * `core:navigate` (item: [MenuItem](types/config/index.d.ts#L1))– change an active panel
+* `core:save-click` (no args) – A click on Save button
+* `core:save-loading` (boolean) – Set a loading state for Save button
+* `core:save-disable` (boolean) – Set a disabled state for Save button
 
 ## Development
 
