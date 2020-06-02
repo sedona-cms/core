@@ -9,6 +9,10 @@ export default mixins(menuListItemMixin).extend({
     component: {
       type: String as PropType<string>,
     },
+    save: {
+      type: [Boolean, Object] as PropType<boolean | SavePanel>,
+      required: true,
+    },
     params: {
       type: Object as PropType<{ [key: string]: any }>,
       required: true,
@@ -24,6 +28,7 @@ export default mixins(menuListItemMixin).extend({
         icon: this.icon,
         component: this.component,
         params: this.params,
+        save: this.save,
       }
       eventBus.emit('core:navigate', menuItem)
     },

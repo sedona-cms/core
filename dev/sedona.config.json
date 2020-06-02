@@ -16,6 +16,13 @@
       "component": "posts/posts-view"
     },
     {
+      "title": "Post Edit",
+      "type": "item",
+      "icon": "edit",
+      "component": "posts/post-edit",
+      "save": true
+    },
+    {
       "title": "Media Cards",
       "type": "item",
       "component": "media/cards",

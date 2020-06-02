@@ -11,6 +11,7 @@ type SimpleMenuItem = {
     [key: string]: any
   }
   conditions?: MenuItemCondition[]
+  save?: SavePanel | boolean
 }
 
 type HeaderMenuItem = {
@@ -37,6 +38,11 @@ type MenuItemCondition =
       type: '=' | 'regex'
     }
   | { field: 'path' | 'name'; value: string; type: '=' | 'regex' }
+
+type SavePanel = {
+  label?: string // default is `Save`
+  color?: string // default is `primary`
+}
 
 type ToolbarButton = {
   title: string

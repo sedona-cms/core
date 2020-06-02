@@ -82,9 +82,11 @@ export default Vue.extend({
         component: item.component,
       }
       switch (item.type) {
-        case 'item':
+        case 'item': {
           props.params = item?.params || {}
+          props.save = item.save || false
           break
+        }
         case 'section':
           props.items = item.items
           break
@@ -100,7 +102,7 @@ export default Vue.extend({
     })
 
     return (
-      <q-scroll-area dark={true} style="height: calc(100% - 50px); width: 100%; max-width: 300px;">
+      <q-scroll-area dark={true} style="height: calc(100% - 130px); width: 100%; max-width: 300px;">
         <q-tab-panels
           ref="tabPanels"
           style="color:inherit;background:inherit;"

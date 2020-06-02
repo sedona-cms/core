@@ -1,6 +1,8 @@
 import Vue, { VNode } from 'vue'
 import { RouterView } from '../router-view'
 import MainToolbar from './main-toolbar'
+import { SavePanel } from '../save-panel'
+import { eventBus } from '../../utils/event-bus'
 
 import './admin-panel.css'
 
@@ -12,10 +14,12 @@ export default Vue.extend({
   components: {
     RouterView,
     MainToolbar,
+    SavePanel,
   },
   data() {
     return {
       isPanelOpen: false as Boolean,
+      savePanel: false as SavePanel | boolean,
     }
   },
   async mounted(): Promise<void> {
@@ -38,6 +42,11 @@ export default Vue.extend({
         this.open()
       }, 600)
     }
+
+    eventBus.on('core:navigate', this.initSavePanel)
+  },
+  beforeDestroy(): void {
+    eventBus.off('core:navigate', this.initSavePanel)
   },
   methods: {
     toggle(): void {
@@ -59,8 +68,22 @@ export default Vue.extend({
       this.isPanelOpen = false
       localStorage.setItem('sedona-panel-open', String(false))
     },
+    initSavePanel(args: [MenuItem | string]): void {
+      this.savePanel = false
+      const [item] = args
+      if (typeof item !== 'object') return
+      if (item.type !== 'item') return
+
+      this.savePanel = item.save || false
+    },
   },
   render(): VNode {
+    let savePanel: VNode | undefined
+    if (this.savePanel) {
+      const savePanelProps: any = {}
+      savePanel = <save-panel />
+    }
+
     return (
       <div id="q-app" class="admin-panel q-dark" style="left: -300px">
         <div class="admin-panel--inner fit text-white q-gutter-y-sm shadow-5" style="z-index:1000">
@@ -74,6 +97,7 @@ export default Vue.extend({
           <div class="fit">
             <main-toolbar />
             <router-view />
+            {savePanel}
           </div>
         </div>
       </div>
