@@ -42,6 +42,7 @@ type MenuItemCondition =
 type SavePanel = {
   label?: string // default is `Save`
   color?: string // default is `primary`
+  size?: string  // default is `lg`
 }
 
 type ToolbarButton = {
