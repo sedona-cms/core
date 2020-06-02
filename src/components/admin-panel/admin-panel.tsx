@@ -1,4 +1,4 @@
-import Vue, { VNode } from 'vue'
+import Vue, { VNode, CreateElement } from 'vue'
 import { RouterView } from '../router-view'
 import MainToolbar from './main-toolbar'
 import { SavePanel } from '../save-panel'
@@ -77,11 +77,14 @@ export default Vue.extend({
       this.savePanel = item.save || false
     },
   },
-  render(): VNode {
+  render(h: CreateElement): VNode {
     let savePanel: VNode | undefined
     if (this.savePanel) {
-      const savePanelProps: any = {}
-      savePanel = <save-panel />
+      let props: any = {}
+      if (typeof this.savePanel === 'object') {
+        props = this.savePanel
+      }
+      savePanel = h('save-panel', { props })
     }
 
     return (
