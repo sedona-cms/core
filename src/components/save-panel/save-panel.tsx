@@ -23,17 +23,23 @@ export default Vue.extend({
   data() {
     return {
       loading: false as boolean,
+      disable: false as boolean,
     }
   },
   mounted(): void {
     eventBus.on('core:save-loading', this.__saveLoading)
+    eventBus.on('core:save-disable', this.__saveDisable)
   },
   beforeDestroy(): void {
     eventBus.off('core:save-loading', this.__saveLoading)
+    eventBus.off('core:save-disable', this.__saveDisable)
   },
   methods: {
     __saveLoading(value: [boolean]): void {
       this.loading = Boolean(value?.[0])
+    },
+    __saveDisable(value: [boolean]): void {
+      this.disable = Boolean(value?.[0])
     },
   },
   render(): VNode {
@@ -44,6 +50,7 @@ export default Vue.extend({
           color={this.color}
           size={this.size}
           loading={this.loading}
+          disable={this.disable}
           class="full-width"
           on-click={() => eventBus.emit('core:save-click')}
         />
