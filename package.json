@@ -41,7 +41,7 @@
     "@nuxtjs/bulma": "^1.2.7",
     "@sedona-cms/eslint-config": "^1.0.4",
     "@types/jest": "^25.2.3",
-    "@types/node": "^13.13.9",
+    "@types/node": "^13.13.10",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-preset-jsx": "^1.1.2",
     "@vue/test-utils": "^1.0.3",
@@ -58,7 +58,7 @@
     "prettier": "2.0.1",
     "ts-jest": "^25.5.1",
     "tsc-watch": "^4.2.8",
-    "typescript": "^3.9.3",
+    "typescript": "^3.9.5",
     "vue-jest": "^3.0.5",
     "web-streams-polyfill": "^2.1.1"
   },
