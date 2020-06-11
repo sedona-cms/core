@@ -35,8 +35,9 @@
   * [Toolbar Configuration](#toolbar-configuration)
   * [Menu Items Configuration](#menu-items-configuration)
   * [The Visibility of Menu Items](#the-visibility-of-menu-items)
-  * [A Save Panel](#a-save-panel)
+  * [Save Panel](#save-panel)
   * [Lock Navigation](#lock-navigation)
+  * [Programmatic Navigation](#programmatic-navigation)
   * [Events](#events)
 * [Development](#development)
 * [Tests](#tests)
@@ -265,7 +266,7 @@ The item shows only on pages when the condition returns true `$route.name === 'a
 }
 ```
 
-### A Save Panel
+### Save Panel
 
 Each admin view can have a save panel. The Save Panel is a panel in a bottom with a button.
 
@@ -364,6 +365,59 @@ In `posts/post-edit`:
 this.$sedona.lockNavigate()
 this.$sedona.unlockNavigate()
 this.$sedona.isNavigateLock()
+```
+
+### Programmatic Navigation
+
+#### Examples:
+
+Go to `PostView` and provide `postId` prop.
+
+```js
+    import PostView from '~/admin/posts/post-view'
+    
+    export default {
+        name: 'Posts',
+        methods: {
+          goToPost() {
+            this.$sedona.navigate(PostView, {
+              postId: 12,
+            })
+          }
+        },
+    }
+```
+
+Go to component by path
+
+```js
+    export default {
+        name: 'Posts',
+        methods: {
+          goToPost() {
+            this.$sedona.navigate('posts/post-view', {
+              postId: 12,
+            })
+          }
+        },
+    }
+```
+
+Go to component by path with Save Panel
+
+```js
+    export default {
+        name: 'Posts',
+        methods: {
+          goToPost() {
+            this.$sedona.navigate('posts/post-view', {
+              postId: 12,
+            }, {
+              save: true
+            })
+          }
+        },
+    }
 ```
 
 ### Events

@@ -52,12 +52,19 @@ export class Sedona {
     console.log('navigate back')
   }
 
-  navigate(component: string | Function, parameters: { [key: string]: any }): void {
+  navigate(
+    component: string | Function,
+    props: { [key: string]: any },
+    parameters: { save: SavePanel | boolean } | undefined
+  ): void {
     const menuItem: MenuItem = {
       id: generateId(),
       component: component,
       type: 'item',
-      params: parameters ?? {},
+      params: props ?? {},
+    }
+    if (parameters?.save) {
+      menuItem.save = parameters.save
     }
     eventBus.emit('core:navigate', menuItem)
   }

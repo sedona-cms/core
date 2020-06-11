@@ -38,7 +38,7 @@
         ])
       },
       metaPost() {
-        this.$sedona.navigate('posts/components/post-meta', { postId: 'post-id' })
+        this.$sedona.navigate('posts/components/post-meta', { postId: 'post-id' }, { save: true })
       },
       openFullScreen() {
         this.$sedona.modal(PostsTable, {
