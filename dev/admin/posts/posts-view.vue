@@ -14,6 +14,7 @@
 
 <script>
   import PostsTable from './components/posts-table'
+  import PostMeta from './components/post-meta'
 
   export default {
     name: 'PostView',

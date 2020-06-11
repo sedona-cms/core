@@ -53,13 +53,13 @@ export class Sedona {
   }
 
   navigate(
-    component: string | Function,
+    component: string,
     props: { [key: string]: any },
     parameters: { save: SavePanel | boolean } | undefined
   ): void {
     const menuItem: MenuItem = {
       id: generateId(),
-      component: component,
+      component,
       type: 'item',
       params: props ?? {},
     }

@@ -371,24 +371,7 @@ this.$sedona.isNavigateLock()
 
 #### Examples:
 
-Go to `PostView` and provide `postId` prop.
-
-```js
-    import PostView from '~/admin/posts/post-view'
-    
-    export default {
-        name: 'Posts',
-        methods: {
-          goToPost() {
-            this.$sedona.navigate(PostView, {
-              postId: 12,
-            })
-          }
-        },
-    }
-```
-
-Go to component by path
+Go to `PostView` and provide `postId` prop
 
 ```js
     export default {
@@ -403,7 +386,7 @@ Go to component by path
     }
 ```
 
-Go to component by path with Save Panel
+Go to component by a path with Save Panel
 
 ```js
     export default {
