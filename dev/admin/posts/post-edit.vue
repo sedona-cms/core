@@ -23,17 +23,28 @@
         deep: true,
         handler() {
           eventBus.emit('core:save-disable', false)
+          this.$sedona.lockNavigate()
         },
       },
     },
     mounted() {
       eventBus.on('core:save-click', this.save)
+      eventBus.on('core:navigate', this.__checkForSave)
+
       eventBus.emit('core:save-disable', true)
     },
     beforeDestroy() {
       eventBus.off('core:save-click', this.save)
+      eventBus.off('core:navigate', this.__checkForSave)
     },
     methods: {
+      __checkForSave() {
+        if (!this.$sedona.isNavigateLock) return
+        const result = confirm('Save?')
+        if (!result) {
+          this.$sedona.unlockNavigate(true)
+        }
+      },
       async save() {
         eventBus.emit('core:save-loading', true)
         return new Promise(resolve => {
@@ -41,6 +52,7 @@
             clearTimeout(timeout)
             eventBus.emit('core:save-loading', false)
             eventBus.emit('core:save-disable', true)
+            this.$sedona.unlockNavigate()
             resolve()
           }, 5000)
         })

@@ -2,6 +2,7 @@ import Vue, { VNode, CreateElement } from 'vue'
 import { MenuList } from '../menu-list'
 import { ItemTabContainer } from '../item-tab-container'
 import { eventBus } from '../../utils/event-bus'
+import { mutations, state } from '../../store/router'
 
 type RouteSectionMenuItem = SectionMenuItem & { component: string | Function }
 
@@ -33,16 +34,29 @@ export default Vue.extend({
 
       return result
     },
+    isNavigationLocked(): boolean {
+      return state.lock
+    },
   },
   mounted(): void {
     eventBus.on('core:navigate', this.navigate)
+    eventBus.on('core:lock-navigate', this.__lockNavigation)
   },
   beforeDestroy(): void {
     eventBus.off('core:navigate', this.navigate)
+    eventBus.off('core:lock-navigate', this.__lockNavigation)
   },
   methods: {
+    __lockNavigation(args: [boolean]): void {
+      const value: boolean = args?.[0] || false
+      mutations.setLock(value)
+    },
     async navigate(args: [MenuItem | string]): Promise<void> {
       const [item] = args
+      if (this.isNavigationLocked) {
+        mutations.setLockedMenuItem(item)
+        return
+      }
       if (typeof item === 'string') {
         if (this.activeTab !== item) {
           this.activeTab = item
@@ -119,7 +133,6 @@ export default Vue.extend({
         dark={true}
         style={{ height: `calc(100% - ${offset}px)`, width: '100%', 'max-width': '300px' }}>
         <q-tab-panels
-          ref="tabPanels"
           style="color:inherit;background:inherit;"
           animated={true}
           keepAlive={false}

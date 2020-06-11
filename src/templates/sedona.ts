@@ -8,6 +8,8 @@ import { ModalSave } from '@sedona-cms/core/lib/components/modal'
 import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
 // @ts-ignore
 import { generateId } from '@sedona-cms/core/lib/utils/nanoid'
+// @ts-ignore
+import { router } from '@sedona-cms/core/lib/store/router'
 
 const config: Readonly<ModuleConfig> = Object.freeze(JSON.parse('<%= JSON.stringify(options) %>'))
 
@@ -79,6 +81,23 @@ export class Sedona {
       })
     }
     eventBus.emit('core:navigate', menuItem)
+  }
+
+  lockNavigate(): void {
+    eventBus.emit('core:lock-navigate', true)
+  }
+
+  unlockNavigate(navigateToRoute: boolean = false): void {
+    eventBus.emit('core:lock-navigate', false)
+    if (navigateToRoute) {
+      if (router.state.lockedMenuItem !== undefined) {
+        eventBus.emit('core:navigate', router.state.lockedMenuItem)
+      }
+    }
+  }
+
+  get isNavigateLock(): boolean {
+    return router.state.lock
   }
 
   async modal(

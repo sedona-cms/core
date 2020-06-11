@@ -36,6 +36,7 @@
   * [Menu Items Configuration](#menu-items-configuration)
   * [The Visibility of Menu Items](#the-visibility-of-menu-items)
   * [A Save Panel](#a-save-panel)
+  * [Lock Navigation](#lock-navigation)
   * [Events](#events)
 * [Development](#development)
 * [Tests](#tests)
@@ -351,10 +352,18 @@ In `posts/post-edit`:
           eventBus.off('core:save-click', this.save)
         },
         methods: {
-            save() {}
+          save() {}
         },
     }
 </script>
+```
+
+### Lock Navigation
+
+```js
+this.$sedona.lockNavigate()
+this.$sedona.unlockNavigate()
+this.$sedona.isNavigateLock()
 ```
 
 ### Events
@@ -372,7 +381,10 @@ eventBus.on('sedona:loaded', () => console.log('Fired after Sedona CMS panel loa
 #### Used Events:
 
 * `sedona:loaded` (no args) – Sedona CMS panel loaded
-* `core:navigate` (item: [MenuItem](types/config/index.d.ts#L1))– change an active panel
+
+* `core:navigate` (item: [MenuItem](types/config/index.d.ts#L1)) – change an active panel
+* `core:lock-navigate` (flag: boolean) – if flag is `true` to lock a navigation
+
 * `core:save-click` (no args) – A click on Save button
 * `core:save-loading` (boolean) – Set a loading state for Save button
 * `core:save-disable` (boolean) – Set a disabled state for Save button

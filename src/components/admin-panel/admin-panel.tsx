@@ -3,6 +3,7 @@ import { RouterView } from '../router-view'
 import MainToolbar from './main-toolbar'
 import { SavePanel } from '../save-panel'
 import { eventBus } from '../../utils/event-bus'
+import { state } from '../../store/router'
 
 import './admin-panel.css'
 
@@ -69,6 +70,7 @@ export default Vue.extend({
       localStorage.setItem('sedona-panel-open', String(false))
     },
     initSavePanel(args: [MenuItem | string]): void {
+      if (state.lock) return
       this.savePanel = false
       const [item] = args
       if (typeof item !== 'object') return
@@ -88,7 +90,7 @@ export default Vue.extend({
     }
 
     return (
-      <div id="q-app" class="admin-panel q-dark" style="left: -300px">
+      <div id="q-app" class="admin-panel q-dark" style="left: -300px;">
         <div class="admin-panel--inner fit text-white q-gutter-y-sm shadow-5" style="z-index:1000">
           <q-btn
             color="dark"
