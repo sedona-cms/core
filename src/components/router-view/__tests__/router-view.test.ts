@@ -66,7 +66,14 @@ describe('RouterView', () => {
     localVue,
     mocks: {
       $sedona: {
-        menuItems,
+        config: {
+          menuItems,
+          toolBar: {
+            showHome: true,
+            title: '',
+            buttons: [],
+          },
+        },
       },
     },
   })

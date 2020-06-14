@@ -17,10 +17,13 @@ localVue.use(Quasar, {
 })
 
 const $sedona = {
-  toolBarConfig: {
-    title: 'Toolbar Title',
-    showHome: true,
-    buttons: [],
+  config: {
+    menuItems: [],
+    toolBar: {
+      title: 'Toolbar Title',
+      showHome: true,
+      buttons: [],
+    },
   },
 }
 
