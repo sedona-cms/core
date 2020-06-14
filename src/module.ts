@@ -36,6 +36,8 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
 
   options.items = setIdToMenuItems(options.items)
 
+  // Templates
+
   this.addTemplate({
     src: path.resolve(__dirname, 'templates/quasar.js'),
     fileName: path.join('admin', 'quasar.js'),
@@ -44,6 +46,22 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
   this.addTemplate({
     src: path.resolve(__dirname, 'templates/admin-loader.js'),
     fileName: path.join('admin', 'admin-loader.js'),
+  })
+
+  this.addTemplate({
+    src: path.resolve(__dirname, 'templates/sedona/config.js'),
+    fileName: path.join('admin', 'sedona', 'config.js'),
+    options,
+  })
+
+  this.addTemplate({
+    src: path.resolve(__dirname, 'templates/sedona/modal.js'),
+    fileName: path.join('admin', 'sedona', 'modal.js'),
+  })
+
+  this.addTemplate({
+    src: path.resolve(__dirname, 'templates/sedona/navigate.js'),
+    fileName: path.join('admin', 'sedona', 'navigate.js'),
   })
 
   this.addTemplate({

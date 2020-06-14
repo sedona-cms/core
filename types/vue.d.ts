@@ -1,8 +1,8 @@
-import { Sedona } from './templates/sedona'
+import { sedona } from '../src/templates/sedona'
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $sedona: Sedona
+    $sedona: sedona
     $adminLoader: {
       load: () => Promise<void>
     }

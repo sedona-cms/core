@@ -92,7 +92,7 @@ export default Vue.extend({
     const itemKeys = Object.keys(this.items)
 
     if (itemKeys.length === 0) {
-      const adminMenu = <menu-list items={this.$sedona.menuItems} />
+      const adminMenu = <menu-list items={this.$sedona.config.menuItems} />
       this.$set(this.items, 'home', { id: 'home', component: adminMenu, type: 'item' })
     }
 

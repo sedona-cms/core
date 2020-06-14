@@ -7,9 +7,7 @@
       class="full-width q-mt-sm"
       @click="modalFacebook"
     />
-    <div class="q-mt-md">
-      SEO form
-    </div>
+    <div class="q-mt-md">SEO form</div>
   </div>
 </template>
 
@@ -20,12 +18,12 @@
     name: 'SiteSeo',
     methods: {
       modalTwitter() {
-        this.$sedona.modal(TwitterForm, {
+        this.$sedona.modal.show(TwitterForm, {
           title: 'Twitter Meta',
         })
       },
       modalFacebook() {
-        this.$sedona.modal(
+        this.$sedona.modal.show(
           'seo/facebook-form',
           {
             title: 'Facebook',

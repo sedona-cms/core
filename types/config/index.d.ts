@@ -33,10 +33,10 @@ type SectionMenuItem = {
 
 type MenuItemCondition =
   | {
-      field: 'meta'
-      value: { [key: string]: any }
-      type: '=' | 'regex'
-    }
+    field: 'meta'
+    value: { [key: string]: any }
+    type: '=' | 'regex'
+  }
   | { field: 'path' | 'name'; value: string; type: '=' | 'regex' }
 
 type SavePanel = {
@@ -49,12 +49,6 @@ type ToolbarButton = {
   title: string
   icon: string
   component: string
-}
-
-type ToolbarConfig = {
-  showHome: boolean
-  title: string
-  buttons: ToolbarButton[]
 }
 
 type ModuleConfig = {

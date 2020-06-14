@@ -22,25 +22,24 @@
   </a>
 </p>
 
-
 ## Table of Contents
 
-* [About the Project](#about-the-project)
-  * [Built With](#built-with)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Setup](#setup)
-* [Usage](#usage)
-  * [Config](#config)
-  * [Toolbar Configuration](#toolbar-configuration)
-  * [Menu Items Configuration](#menu-items-configuration)
-  * [The Visibility of Menu Items](#the-visibility-of-menu-items)
-  * [Save Panel](#save-panel)
-  * [Lock Navigation](#lock-navigation)
-  * [Programmatic Navigation](#programmatic-navigation)
-  * [Events](#events)
-* [Development](#development)
-* [Tests](#tests)
+- [About the Project](#about-the-project)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+- [Usage](#usage)
+  - [Config](#config)
+  - [Toolbar Configuration](#toolbar-configuration)
+  - [Menu Items Configuration](#menu-items-configuration)
+  - [The Visibility of Menu Items](#the-visibility-of-menu-items)
+  - [Save Panel](#save-panel)
+  - [Lock Navigation](#lock-navigation)
+  - [Programmatic Navigation](#programmatic-navigation)
+  - [Events](#events)
+- [Development](#development)
+- [Tests](#tests)
 
 ## About the Project
 
@@ -48,15 +47,15 @@ Sedona CMS can create a beautiful and fully customizable admin panel on the fron
 
 ### Built With
 
-* [Nuxt.js](https://nuxtjs.org/)
-* [Quasar Framework](https://quasar.dev/)
-* [Material Icons](https://material.io/resources/icons/)
+- [Nuxt.js](https://nuxtjs.org/)
+- [Quasar Framework](https://quasar.dev/)
+- [Material Icons](https://material.io/resources/icons/)
 
 ## Getting Started
 
 ### Prerequisites
 
-* [Nuxt.js](https://nuxtjs.org/)
+- [Nuxt.js](https://nuxtjs.org/)
 
 ### Setup
 
@@ -72,25 +71,21 @@ npm i @sedona-cms/core # or yarn add @sedona-cms/core
 
 4. Add plugin in **client** mode
 
-*admin.client.js*
+_admin.client.js_
 
 ```js
-export default async function(ctx) {
-   // check for user logged in
-   await ctx.$adminLoader.load()
+export default async function (ctx) {
+  // check for user logged in
+  await ctx.$adminLoader.load()
 }
 ```
 
-*nuxt.config.js*
+_nuxt.config.js_
 
 ```js
 export default {
-  modules: [
-    '@sedona-cms/core',
-  ],
-  plugins: [
-    '~plugins/admin.client.js',
-  ],
+  modules: ['@sedona-cms/core'],
+  plugins: ['~plugins/admin.client.js'],
 }
 ```
 
@@ -99,11 +94,11 @@ export default {
 ### Config
 
 `sedona.config.json` has two main sections.
-  
-  1. toolbar – toolbar customization, adding buttons, changing title
-  2. items – menu customization, add items, sections and subitems
-  
-Config file has [json schema](src/schema/sedona.config.schema.json). This tool helps validate config when module loading. And edit the file without errors. 
+
+1. toolbar – toolbar customization, adding buttons, changing title
+2. items – menu customization, add items, sections and subitems
+
+Config file has [json schema](src/schema/sedona.config.schema.json). This tool helps validate config when module loading. And edit the file without errors.
 
 Editing the config file may be handier with WebStorm or VS Code.
 
@@ -216,7 +211,7 @@ By default, all menu items show on each page on site. This behavior may be chang
 
 The visibility depends on a current Vue route. All components have a property $route. Use the $route property in conditions you can change the visibility of menu items on-site pages.
 
-The $route properties that can be used in conditions:
+The \$route properties that can be used in conditions:
 
 1. `name`
 2. `path`
@@ -229,7 +224,7 @@ Type of conditions that can be used.
 
 Examples:
 
-The menu item shows only on-page about. The item shows only on pages when the condition returns true $route.name === 'about'
+The menu item shows only on-page about. The item shows only on pages when the condition returns true \$route.name === 'about'
 
 ```json
 {
@@ -241,11 +236,11 @@ The menu item shows only on-page about. The item shows only on pages when the co
       "field": "name",
       "value": "about"
     }
-  ],
+  ]
 }
 ```
 
-The menu item shows only on page `about` or `index`. 
+The menu item shows only on page `about` or `index`.
 The item shows only on pages when the condition returns true `$route.name === 'about' || $route.name === 'index'`
 
 ```json
@@ -262,7 +257,7 @@ The item shows only on pages when the condition returns true `$route.name === 'a
       "field": "name",
       "value": "index"
     }
-  ],
+  ]
 }
 ```
 
@@ -296,7 +291,7 @@ You can change the Save Panel options:
     "label": "Save Post",
     "color": "brown-5",
     "size": "xl"
-  
+
 }
 ```
 
@@ -306,14 +301,14 @@ In `posts/post-edit`:
 
 ```vue
 <script>
-    import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
-    
-    export default {
-        name: 'PostEdit',
-        mounted() {
-            eventBus.emit('core:save-disable', true)
-        },
-    }
+  import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
+
+  export default {
+    name: 'PostEdit',
+    mounted() {
+      eventBus.emit('core:save-disable', true)
+    },
+  }
 </script>
 ```
 
@@ -323,48 +318,97 @@ In `posts/post-edit`:
 
 ```vue
 <script>
-    import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
-    
-    export default {
-        name: 'PostEdit',
-        methods: {
-            save() {
-                eventBus.emit('core:save-loading', true)
-                // A request here
-                eventBus.emit('core:save-loading', false)
-            }
-        },
-    }
+  import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
+
+  export default {
+    name: 'PostEdit',
+    methods: {
+      save() {
+        eventBus.emit('core:save-loading', true)
+        // A request here
+        eventBus.emit('core:save-loading', false)
+      },
+    },
+  }
 </script>
 ```
 
-#### Catch click event 
+#### Catch click event
 
 ```vue
 <script>
-    import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
-    
-    export default {
-        name: 'PostEdit',
-        mounted() {
-          eventBus.on('core:save-click', this.save)
-        },
-        beforeDestroy() {
-          eventBus.off('core:save-click', this.save)
-        },
-        methods: {
-          save() {}
-        },
-    }
+  import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
+
+  export default {
+    name: 'PostEdit',
+    mounted() {
+      eventBus.on('core:save-click', this.save)
+    },
+    beforeDestroy() {
+      eventBus.off('core:save-click', this.save)
+    },
+    methods: {
+      save() {},
+    },
+  }
 </script>
 ```
 
 ### Lock Navigation
 
+Sometimes we need to lock navigation in Admin Panel. For example when form fill and not saved yet. Navigation API will may to lock navigation in Admin Panel and on the site.
+
+#### Lock navigation
+
+**this.\$sedona.navigate.lock()**
+
+- Arguments:
+  - `globally`
+- Example:
+
 ```js
-this.$sedona.lockNavigate()
-this.$sedona.unlockNavigate()
-this.$sedona.isNavigateLock()
+export default {
+  name: 'PostEdit',
+  methods: {
+    onChange() {
+      this.$sedona.navigate.lock()
+    },
+  },
+}
+```
+
+#### Unlock navigation
+
+**this.\$sedona.navigate.unlock()**
+
+- Arguments:
+- Example:
+
+```js
+export default {
+  name: 'PostEdit',
+  methods: {
+    onChange() {
+      this.$sedona.navigate.lock()
+    },
+    onSave() {
+      this.$sedona.navigate.unlock()
+    },
+  },
+}
+```
+
+#### Check for is navigation lock
+
+```js
+export default {
+  name: 'PostEdit',
+  computed: {
+    buttonDisable() {
+      return this.$sedona.navigation.isLock
+    },
+  },
+}
 ```
 
 ### Programmatic Navigation
@@ -374,38 +418,42 @@ this.$sedona.isNavigateLock()
 Go to `PostView` and provide `postId` prop
 
 ```js
-    export default {
-        name: 'Posts',
-        methods: {
-          goToPost() {
-            this.$sedona.navigate('posts/post-view', {
-              postId: 12,
-            })
-          }
-        },
-    }
+export default {
+  name: 'Posts',
+  methods: {
+    goToPost() {
+      this.$sedona.navigate('posts/post-view', {
+        postId: 12,
+      })
+    },
+  },
+}
 ```
 
 Go to component by a path with Save Panel
 
 ```js
-    export default {
-        name: 'Posts',
-        methods: {
-          goToPost() {
-            this.$sedona.navigate('posts/post-view', {
-              postId: 12,
-            }, {
-              save: true
-            })
-          }
+export default {
+  name: 'Posts',
+  methods: {
+    goToPost() {
+      this.$sedona.navigate(
+        'posts/post-view',
+        {
+          postId: 12,
         },
-    }
+        {
+          save: true,
+        }
+      )
+    },
+  },
+}
 ```
 
 ### Events
 
-Sedona CMS uses own [global event bus](src/utils/event-bus.ts). 
+Sedona CMS uses own [global event bus](src/utils/event-bus.ts).
 
 Using example:
 
@@ -417,14 +465,14 @@ eventBus.on('sedona:loaded', () => console.log('Fired after Sedona CMS panel loa
 
 #### Used Events:
 
-* `sedona:loaded` (no args) – Sedona CMS panel loaded
+- `sedona:loaded` (no args) – Sedona CMS panel loaded
 
-* `core:navigate` (item: [MenuItem](types/config/index.d.ts#L1)) – change an active panel
-* `core:lock-navigate` (flag: boolean) – if flag is `true` to lock a navigation
+- `core:navigate` (item: [MenuItem](types/config/index.d.ts#L1)) – change an active panel
+- `core:lock-navigate` (flag: boolean) – if flag is `true` to lock a navigation
 
-* `core:save-click` (no args) – A click on Save button
-* `core:save-loading` (boolean) – Set a loading state for Save button
-* `core:save-disable` (boolean) – Set a disabled state for Save button
+- `core:save-click` (no args) – A click on Save button
+- `core:save-loading` (boolean) – Set a loading state for Save button
+- `core:save-disable` (boolean) – Set a disabled state for Save button
 
 ## Development
 

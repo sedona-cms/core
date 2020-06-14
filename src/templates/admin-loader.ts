@@ -26,8 +26,8 @@ export const adminLoader: AdminLoader = {
 
     await import('./quasar')
 
-    const { Sedona } = await import('./sedona')
-    Vue.prototype.$sedona = new Sedona()
+    const { sedona } = await import('./sedona')
+    Vue.prototype.$sedona = sedona
 
     // @ts-ignore
     const { eventBus } = await import('@sedona-cms/core/lib/utils/event-bus')

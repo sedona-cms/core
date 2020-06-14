@@ -15,7 +15,7 @@ export default Vue.extend({
   render(): VNode {
     const buttons: VNode[] = []
 
-    if (this.$sedona.toolBarConfig.showHome) {
+    if (this.$sedona.config.toolBar.showHome) {
       buttons.push(
         <q-btn flat={true} round={true} dense={true} class="q-mr-sm" on-click={this.goHome}>
           <q-icon name="home" />
@@ -24,7 +24,7 @@ export default Vue.extend({
       )
     }
 
-    this.$sedona.toolBarConfig.buttons.forEach((button: ToolbarButton) => {
+    this.$sedona.config.toolBar.buttons.forEach((button: ToolbarButton) => {
       const title = button?.title || false
       const icon = button?.icon || 'extension'
       const id = generateId()
@@ -42,8 +42,8 @@ export default Vue.extend({
       )
     })
 
-    if (this.$sedona.toolBarConfig.title !== '') {
-      buttons.push(<q-toolbar-title>{this.$sedona.toolBarConfig.title}</q-toolbar-title>)
+    if (this.$sedona.config.toolBar.title !== '') {
+      buttons.push(<q-toolbar-title>{this.$sedona.config.toolBar.title}</q-toolbar-title>)
     }
 
     return (

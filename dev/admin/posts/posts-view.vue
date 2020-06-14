@@ -23,7 +23,7 @@
     },
     methods: {
       newPost() {
-        this.$sedona.navigateItems([
+        this.$sedona.navigate.goSection([
           {
             title: 'Regular Post',
             icon: 'post_add',
@@ -39,10 +39,14 @@
         ])
       },
       metaPost() {
-        this.$sedona.navigate('posts/components/post-meta', { postId: 'post-id' }, { save: true })
+        this.$sedona.navigate.go(
+          'posts/components/post-meta',
+          { postId: 'post-id' },
+          { save: true }
+        )
       },
       openFullScreen() {
-        this.$sedona.modal(PostsTable, {
+        this.$sedona.modal.show(PostsTable, {
           title: 'Posts',
           fullScreen: true,
         })
