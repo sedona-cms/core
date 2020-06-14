@@ -15,23 +15,12 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
     }
   })
 
-  /* if (this.options.build === undefined) {
-        this.options.build = {
-            transpile: [ meta.name ],
-        }
-    } else if (Array.isArray(this.options.build.transpile)) {
-        this.options.build.transpile.push(meta.name)
+  if (typeof this.options.build === 'object') {
+    if (Array.isArray(this.options.build.transpile)) {
+      this.options.build.transpile.push(meta.name)
     } else {
-        this.options.build.transpile = [ meta.name ]
-    } */
-
-  // @ts-ignore
-  if (Array.isArray(this.options.build.transpile)) {
-    // @ts-ignore
-    this.options.build.transpile.push(meta.name)
-  } else {
-    // @ts-ignore
-    this.options.build.transpile = [meta.name]
+      this.options.build.transpile = [meta.name]
+    }
   }
 
   let options: ModuleConfig
