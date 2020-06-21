@@ -460,12 +460,13 @@ Using example:
 ```js
 import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
 
-eventBus.on('sedona:loaded', () => console.log('Fired after Sedona CMS panel loaded'))
+eventBus.on('sedona:loaded', () => console.log('Fired after Sedona Core loaded'))
 ```
 
 #### Used Events:
 
-- `sedona:loaded` (no args) – Sedona CMS panel loaded
+- `sedona:loaded` (no args) – Sedona CMS core loaded
+- `sedona:panel-loaded` (no args) – Sedona CMS panel loaded
 
 - `core:navigate` (item: [MenuItem](types/config/index.d.ts#L1)) – change an active panel
 - `core:lock-navigate` (flag: boolean) – if flag is `true` to lock a navigation
