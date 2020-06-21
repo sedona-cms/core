@@ -1,21 +1,21 @@
 import Vue from 'vue'
+import { eventBus } from '../utils/event-bus'
 
-type AdminLoader = {
-  load: (fromContext: boolean) => Promise<void>
-}
+export class AdminLoader {
+  private eventBus?: typeof eventBus
 
-export const adminLoader: AdminLoader = {
   /**
-   * Load admin UI
+   * Load Admin Panel
    *
-   * @param {boolean} fromContext
-   * @return {Promise<void>}
+   * @param fromContext if TRUE panel will be load with NuxtReady hook
    */
-  async load(fromContext: boolean = false): Promise<void> {
-    // @ts-ignore
-    await import('@sedona-cms/core/lib/assets/css/quasar.css')
-    // @ts-ignore
-    await import('@sedona-cms/core/lib/assets/css/admin.css')
+  public async load(fromContext: boolean = false): Promise<void> {
+    await Promise.all([
+      // @ts-ignore
+      import('@sedona-cms/core/lib/assets/css/quasar.css'),
+      // @ts-ignore
+      import('@sedona-cms/core/lib/assets/css/admin.css'),
+    ])
 
     document.body.style.setProperty('--q-color-primary', '#26a69a') // teal-5
     document.body.style.setProperty('--q-color-secondary', '#b0bec5')
@@ -24,31 +24,44 @@ export const adminLoader: AdminLoader = {
 
     document.body.style.setProperty('--admin-panel-width', '300px')
 
-    await import('./quasar')
+    const [, { eventBus }] = await Promise.all([
+      import('./quasar'),
+      // @ts-ignore
+      import('@sedona-cms/core/lib/utils/event-bus'),
+    ])
 
-    const { sedona } = await import('./sedona')
-    Vue.prototype.$sedona = sedona
-
-    // @ts-ignore
-    const { eventBus } = await import('@sedona-cms/core/lib/utils/event-bus')
-    eventBus.emit('sedona:loaded')
+    this.eventBus = eventBus
 
     if (fromContext) {
       window.onNuxtReady(async () => {
-        await loadAdminPanel()
+        await this.loadSedona()
+        await this.loadAdminPanel()
       })
     } else {
-      await loadAdminPanel()
+      await this.loadSedona()
+      await this.loadAdminPanel()
     }
+  }
 
-    eventBus.emit('sedona:panel-loaded')
-  },
-}
+  /**
+   * Load Sedona
+   */
+  private async loadSedona(): Promise<void> {
+    const { sedona } = await import('./sedona')
+    Vue.prototype.$sedona = sedona
 
-async function loadAdminPanel(): Promise<void> {
-  // @ts-ignore
-  const { AdminPanel } = await import('@sedona-cms/core/lib/components/admin-panel')
-  const admin = new AdminPanel({ parent: window.$nuxt })
-  window.$admin = admin
-  document.body.prepend(admin.$mount().$el)
+    this.eventBus?.emit('sedona:loaded')
+  }
+
+  /**
+   * Load admin panel component and add to DOM
+   */
+  private async loadAdminPanel(): Promise<void> {
+    const { AdminPanel } = await import('@sedona-cms/core/lib/components/admin-panel')
+    const admin = new AdminPanel({ parent: window.$nuxt })
+    window.$admin = admin
+    document.body.prepend(admin.$mount().$el)
+
+    this.eventBus?.emit('sedona:panel-loaded')
+  }
 }

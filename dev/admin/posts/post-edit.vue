@@ -23,7 +23,7 @@
         deep: true,
         handler() {
           eventBus.emit('core:save-disable', false)
-          this.$sedona.navigate.lock()
+          this.$sedona.navigate.lock(true)
         },
       },
     },

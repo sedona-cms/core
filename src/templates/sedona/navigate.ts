@@ -1,3 +1,4 @@
+import { Route } from 'vue-router'
 // @ts-ignore
 import { generateId } from '@sedona-cms/core/lib/utils/nanoid'
 // @ts-ignore
@@ -17,6 +18,22 @@ type NavigationItem = {
   params?: { [key: string]: any }
   items?: MenuItem[]
 }
+
+let isNavigateLock = false
+let isGlobalNavigateLock = false
+
+function checkForLock(to: Route, from: Route, next: Function): void {
+  if (isGlobalNavigateLock) {
+    eventBus.emit('core:navigate')
+    router.mutations.setLockedRoute(to.path)
+    return
+  }
+  next()
+}
+
+eventBus.on('sedona:panel-loaded', () => {
+  window.$nuxt.$router.beforeEach(checkForLock)
+})
 
 /**
  * Navigation API
@@ -74,7 +91,13 @@ export const navigate = {
    * @param globally to lock Vue Router Navigation too
    */
   lock(globally: false): void {
-    eventBus.emit('core:lock-navigate', true)
+    if (!isNavigateLock) {
+      eventBus.emit('core:lock-navigate', true)
+      isNavigateLock = true
+    }
+    if (globally && !isGlobalNavigateLock) {
+      isGlobalNavigateLock = true
+    }
   },
   /**
    * Unlock Admin Panel Navigation
@@ -83,6 +106,8 @@ export const navigate = {
    */
   unlock(navigateToRoute: boolean = false): void {
     eventBus.emit('core:lock-navigate', false)
+    isNavigateLock = false
+    isGlobalNavigateLock = false
     if (navigateToRoute) {
       if (router.state.lockedMenuItem !== undefined) {
         eventBus.emit('core:navigate', router.state.lockedMenuItem)
