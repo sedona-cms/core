@@ -1,21 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as path from 'path'
-import Vue from 'vue'
 import { loadConfigFile, setIdToMenuItems } from '../config'
 
-type MenuItem = {
-  id?: string
-  title?: string
-  subTitle?: string
-  icon?: string
-  type: 'item' | 'section'
-  component: string | Vue
-  params?: {
-    [key: string]: unknown
-  }
-  items?: MenuItem[]
-}
-
-function testMenuItem(item: MenuItem): void {
+function testMenuItem(item: any): void {
   expect(item).toHaveProperty('id')
   if (item.items === undefined) return
 

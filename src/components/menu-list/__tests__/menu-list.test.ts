@@ -70,7 +70,8 @@ describe('MenuList', () => {
 
     expect(wrapper.get('.q-avatar__content').text()).toEqual('folder')
 
-    eventBus.on('core:navigate', ([item]) => {
+    eventBus.on('core:navigate', args => {
+      const item = args[0]
       expect(item).toBeInstanceOf(Object)
       expect(item).toHaveProperty('id', items[0].id)
       expect(item).toHaveProperty('title', items[0].title)

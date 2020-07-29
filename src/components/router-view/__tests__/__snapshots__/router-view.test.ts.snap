@@ -24,8 +24,8 @@ exports[`RouterView navigate to component 1`] = `
     </div>
     <!---->
   </div><object tabindex=\\"-1\\" type=\\"text/html\\" data=\\"about:blank\\" aria-hidden=\\"true\\" style=\\"display: block; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;\\"></object>
-  <div class=\\"q-scrollarea__bar q-scrollarea__bar--v absolute-right q-scrollarea__bar--invisible\\"></div>
-  <div class=\\"q-scrollarea__thumb q-scrollarea__thumb--v absolute-right q-scrollarea__thumb--invisible\\" style=\\"height: 50px;\\"></div>
+  <div aria-hidden=\\"true\\" class=\\"q-scrollarea__bar q-scrollarea__bar--v absolute-right q-scrollarea__bar--invisible\\"></div>
+  <div aria-hidden=\\"true\\" class=\\"q-scrollarea__thumb q-scrollarea__thumb--v absolute-right q-scrollarea__thumb--invisible\\" style=\\"height: 50px;\\"></div>
 </div>"
 `;
 
@@ -63,8 +63,8 @@ exports[`RouterView navigate to section 1`] = `
     </div>
     <!---->
   </div><object tabindex=\\"-1\\" type=\\"text/html\\" data=\\"about:blank\\" aria-hidden=\\"true\\" style=\\"display: block; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;\\"></object>
-  <div class=\\"q-scrollarea__bar q-scrollarea__bar--v absolute-right q-scrollarea__bar--invisible\\"></div>
-  <div class=\\"q-scrollarea__thumb q-scrollarea__thumb--v absolute-right q-scrollarea__thumb--invisible\\" style=\\"height: 50px;\\"></div>
+  <div aria-hidden=\\"true\\" class=\\"q-scrollarea__bar q-scrollarea__bar--v absolute-right q-scrollarea__bar--invisible\\"></div>
+  <div aria-hidden=\\"true\\" class=\\"q-scrollarea__thumb q-scrollarea__thumb--v absolute-right q-scrollarea__thumb--invisible\\" style=\\"height: 50px;\\"></div>
 </div>"
 `;
 
@@ -92,7 +92,7 @@ exports[`RouterView to click on menu item 1`] = `
     </div>
     <!---->
   </div><object tabindex=\\"-1\\" type=\\"text/html\\" data=\\"about:blank\\" aria-hidden=\\"true\\" style=\\"display: block; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;\\"></object>
-  <div class=\\"q-scrollarea__bar q-scrollarea__bar--v absolute-right q-scrollarea__bar--invisible\\"></div>
-  <div class=\\"q-scrollarea__thumb q-scrollarea__thumb--v absolute-right q-scrollarea__thumb--invisible\\" style=\\"height: 50px;\\"></div>
+  <div aria-hidden=\\"true\\" class=\\"q-scrollarea__bar q-scrollarea__bar--v absolute-right q-scrollarea__bar--invisible\\"></div>
+  <div aria-hidden=\\"true\\" class=\\"q-scrollarea__thumb q-scrollarea__thumb--v absolute-right q-scrollarea__thumb--invisible\\" style=\\"height: 50px;\\"></div>
 </div>"
 `;
