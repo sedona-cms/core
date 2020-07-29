@@ -1,10 +1,12 @@
-import Vue, { VNode, CreateElement } from 'vue'
+import Vue, { VNode, CreateElement, VueConstructor } from 'vue'
 import { MenuList } from '../menu-list'
 import { ItemTabContainer } from '../item-tab-container'
 import { eventBus } from '../../utils/event-bus'
 import { mutations, state } from '../../store/router'
 
-type RouteSectionMenuItem = SectionMenuItem & { component: string | Function }
+type RouteSectionMenuItem = SectionMenuItem & {
+  component: string | VueConstructor<Record<never, unknown> & Vue>
+}
 
 type RouteMenuItem = SimpleMenuItem | RouteSectionMenuItem
 
@@ -100,6 +102,8 @@ export default Vue.extend({
 
     itemKeys.forEach(menuId => {
       const item = this.items[menuId]
+      // @ToDo fix types
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const props: any = {
         title: item?.title || '',
         subTitle: item?.subTitle || '',

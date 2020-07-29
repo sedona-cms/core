@@ -9,11 +9,11 @@ export class AdminLoader {
    *
    * @param fromContext if TRUE panel will be load with NuxtReady hook
    */
-  public async load(fromContext: boolean = false): Promise<void> {
+  public async load(fromContext = false): Promise<void> {
     await Promise.all([
-      // @ts-ignore
+      // @ts-ignore: load runtime
       import('@sedona-cms/core/lib/assets/css/quasar.css'),
-      // @ts-ignore
+      // @ts-ignore: load runtime
       import('@sedona-cms/core/lib/assets/css/admin.css'),
     ])
 
@@ -26,7 +26,7 @@ export class AdminLoader {
 
     const [, { eventBus }] = await Promise.all([
       import('./quasar'),
-      // @ts-ignore
+      // @ts-ignore: load runtime
       import('@sedona-cms/core/lib/utils/event-bus'),
     ])
 
@@ -57,6 +57,7 @@ export class AdminLoader {
    * Load admin panel component and add to DOM
    */
   private async loadAdminPanel(): Promise<void> {
+    // @ts-ignore: load runtime
     const { AdminPanel } = await import('@sedona-cms/core/lib/components/admin-panel')
     const admin = new AdminPanel({ parent: window.$nuxt })
     window.$admin = admin

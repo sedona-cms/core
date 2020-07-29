@@ -1,12 +1,12 @@
 import { Route } from 'vue-router'
-// @ts-ignore
+// @ts-ignore: will work on runtime, on dev mode only with link
 import { generateId } from '@sedona-cms/core/lib/utils/nanoid'
-// @ts-ignore
+// @ts-ignore: will work on runtime, on dev mode only with link
 import { eventBus } from '@sedona-cms/core/lib/utils/event-bus'
-// @ts-ignore
+// @ts-ignore: will work on runtime, on dev mode only with link
 import { router } from '@sedona-cms/core/lib/store/router'
 
-type Props = { [key: string]: any }
+type Props = { [key: string]: unknown }
 type NavigateParams = { save: SavePanel | boolean } | undefined
 
 type NavigationItem = {
@@ -15,14 +15,16 @@ type NavigationItem = {
   subTitle?: string
   icon?: string
   type?: 'item' | 'section'
-  params?: { [key: string]: any }
+  params?: { [key: string]: unknown }
   items?: MenuItem[]
 }
+
+type RouteCallback = () => void
 
 let isNavigateLock = false
 let isGlobalNavigateLock = false
 
-function checkForLock(to: Route, from: Route, next: Function): void {
+function checkForLock(to: Route, from: Route, next: RouteCallback): void {
   if (isGlobalNavigateLock) {
     eventBus.emit('core:navigate')
     router.mutations.setLockedRoute(to.path)
@@ -104,7 +106,7 @@ export const navigate = {
    *
    * @param navigateToRoute if `true` after unlock will navigate to last clicked Admin Panel link
    */
-  unlock(navigateToRoute: boolean = false): void {
+  unlock(navigateToRoute = false): void {
     eventBus.emit('core:lock-navigate', false)
     isNavigateLock = false
     isGlobalNavigateLock = false

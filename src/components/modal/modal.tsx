@@ -1,4 +1,4 @@
-import Vue, { VNode, PropType, CreateElement } from 'vue'
+import Vue, { VNode, PropType, CreateElement, Component } from 'vue'
 import { eventBus } from '../../utils/event-bus'
 import ModalSave from './modal-save'
 
@@ -24,12 +24,12 @@ export default Vue.extend({
       default: '',
     },
     component: {
-      type: Function as PropType<() => any>,
+      type: Function as PropType<() => Component>,
       required: true,
     },
     componentProps: {
-      type: Object as PropType<object>,
-      default: () => {},
+      type: Object as PropType<Record<string, unknown>>,
+      default: undefined,
     },
     save: {
       type: [Boolean, Object] as PropType<boolean | ModalSave>,
@@ -40,8 +40,7 @@ export default Vue.extend({
     if (this.fullScreen) return
     const timer = setTimeout(() => {
       clearTimeout(timer)
-      // @ts-ignore
-      this.$el.style.left = '0px'
+      ;(this.$el as HTMLElement).style.left = '0px'
     }, 100)
 
     eventBus.on('core:modal-close', this.close)
@@ -56,8 +55,7 @@ export default Vue.extend({
         return
       }
 
-      // @ts-ignore
-      this.$el.style.left = '-300px'
+      (this.$el as HTMLElement).style.left = '-300px'
       const timer = setTimeout(() => {
         clearTimeout(timer)
         this.$emit('close')
@@ -85,7 +83,7 @@ export default Vue.extend({
 
     let savePanel: VNode | undefined
     if (this.save) {
-      let props: any = {}
+      let props: Record<string, unknown> = {}
       if (typeof this.save === 'object') {
         props = this.save
       }

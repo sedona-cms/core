@@ -15,11 +15,11 @@ export default Vue.extend({
   },
   methods: {
     showRemoveConfirm(): void {
-      ;(this.$refs.toolbarWrapper as HTMLElement).style.top = '-60px'
+      (this.$refs.toolbarWrapper as HTMLElement).style.top = '-60px'
       ;(this.$refs.removeConfirm as HTMLElement).style.top = '0'
     },
     hideRemoveConfirm(): void {
-      ;(this.$refs.removeConfirm as HTMLElement).style.top = '-100%'
+      (this.$refs.removeConfirm as HTMLElement).style.top = '-100%'
       ;(this.$refs.toolbarWrapper as HTMLElement).style.top = '0'
     },
     remove(): void {

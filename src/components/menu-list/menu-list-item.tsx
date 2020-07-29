@@ -14,7 +14,7 @@ export default mixins(menuListItemMixin).extend({
       required: true,
     },
     params: {
-      type: Object as PropType<{ [key: string]: any }>,
+      type: Object as PropType<Record<string, unknown>>,
       required: true,
     },
   },

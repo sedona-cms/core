@@ -1,4 +1,4 @@
-import AdminModule, { meta } from './module'
+import AdminModule, { npmMeta as meta } from './module'
 
 export { meta }
 

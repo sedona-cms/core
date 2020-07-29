@@ -2,7 +2,8 @@ import * as path from 'path'
 import { Module } from '@nuxt/types'
 import { loadConfigFile, setIdToMenuItems } from './utils/config'
 
-export const meta = require('../package.json')
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const npmMeta = require('../package.json')
 
 const defaultOptions: ModuleConfig = {
   items: [],
@@ -17,9 +18,9 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
 
   if (typeof this.options.build === 'object') {
     if (Array.isArray(this.options.build.transpile)) {
-      this.options.build.transpile.push(meta.name)
+      this.options.build.transpile.push(npmMeta.name)
     } else {
-      this.options.build.transpile = [meta.name]
+      this.options.build.transpile = [npmMeta.name]
     }
   }
 
@@ -79,5 +80,7 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
     options,
   })
 }
+
+export { npmMeta }
 
 export default adminModule

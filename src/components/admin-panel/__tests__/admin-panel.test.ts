@@ -1,8 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils'
-import { AdminPanel } from '..'
 import MainToolbar from '../main-toolbar'
 import { Quasar, QToolbar, QToolbarTitle, QBtn, QTooltip, QIcon } from 'quasar'
-import NuxtApp from './stubs/nuxt-app'
 
 const localVue = createLocalVue()
 

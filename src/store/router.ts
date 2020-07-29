@@ -7,9 +7,10 @@ export const state = Vue.observable({
 })
 
 export const mutations = {
-  setLock: (value: boolean) => (state.lock = value),
-  setLockedMenuItem: (value: MenuItem | string) => (state.lockedMenuItem = value),
-  setLockedRoute: (value: string) => (state.lockedRoute = value),
+  setLock: (value: boolean): boolean => (state.lock = value),
+  setLockedMenuItem: (value: MenuItem | string): MenuItem | string =>
+    (state.lockedMenuItem = value),
+  setLockedRoute: (value: string): string => (state.lockedRoute = value),
 }
 
 export const router = {

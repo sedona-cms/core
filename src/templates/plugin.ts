@@ -1,7 +1,7 @@
-import { Context } from '@nuxt/types'
+import { Plugin } from '@nuxt/types'
 import { AdminLoader } from './admin-loader'
 
-export default async function (context: Context, inject: Function): Promise<void> {
+const sedonPLugin: Plugin = (context, inject) => {
   const adminLoader = new AdminLoader()
 
   inject('adminLoader', adminLoader)
@@ -9,3 +9,5 @@ export default async function (context: Context, inject: Function): Promise<void
     load: () => adminLoader.load(true),
   }
 }
+
+export default sedonPLugin

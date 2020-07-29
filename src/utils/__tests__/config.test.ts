@@ -1,4 +1,5 @@
 import * as path from 'path'
+import Vue from 'vue'
 import { loadConfigFile, setIdToMenuItems } from '../config'
 
 type MenuItem = {
@@ -7,9 +8,9 @@ type MenuItem = {
   subTitle?: string
   icon?: string
   type: 'item' | 'section'
-  component: string | Function
+  component: string | Vue
   params?: {
-    [key: string]: any
+    [key: string]: unknown
   }
   items?: MenuItem[]
 }
@@ -19,7 +20,7 @@ function testMenuItem(item: MenuItem): void {
   if (item.items === undefined) return
 
   expect(item.items).toBeInstanceOf(Array)
-  item.items.map(testMenuItem)
+  item.items.map(menuItem => testMenuItem(menuItem))
 }
 
 test('it can load config file', async () => {
@@ -40,5 +41,5 @@ test('it can set id to all menu items', async () => {
   expect(config).toHaveProperty('items')
 
   const items = setIdToMenuItems(config.items)
-  items.map(testMenuItem)
+  items.map(menuItem => testMenuItem(menuItem))
 })

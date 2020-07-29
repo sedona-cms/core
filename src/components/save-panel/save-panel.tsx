@@ -1,4 +1,4 @@
-import Vue, { VNode, PropType, CreateElement } from 'vue'
+import Vue, { VNode, PropType } from 'vue'
 import { eventBus } from '../../utils/event-bus'
 
 export default Vue.extend({
@@ -35,7 +35,7 @@ export default Vue.extend({
     eventBus.off('core:save-disable', this.__saveDisable)
   },
   methods: {
-    __saveLoading(value: [boolean]): void {
+    __saveLoading(value: boolean): void {
       this.loading = Boolean(value?.[0])
     },
     __saveDisable(value: [boolean]): void {

@@ -19,7 +19,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      isPanelOpen: false as Boolean,
+      isPanelOpen: false as boolean,
       savePanel: false as SavePanel | boolean,
     }
   },
@@ -54,18 +54,14 @@ export default Vue.extend({
       this.isPanelOpen ? this.close() : this.open()
     },
     open(): void {
-      // @ts-ignore
-      qApp.style.left = '0px'
-      // @ts-ignore
-      nuxtDiv.style.paddingLeft = '300px'
+      if (qApp !== null) qApp.style.left = '0px'
+      if (nuxtDiv !== null) nuxtDiv.style.paddingLeft = '300px'
       this.isPanelOpen = true
       localStorage.setItem('sedona-panel-open', String(true))
     },
     close(): void {
-      // @ts-ignore
-      qApp.style.left = '-300px'
-      // @ts-ignore
-      nuxtDiv.style.paddingLeft = 'unset'
+      if (qApp !== null) qApp.style.left = '-300px'
+      if (nuxtDiv !== null) nuxtDiv.style.paddingLeft = 'unset'
       this.isPanelOpen = false
       localStorage.setItem('sedona-panel-open', String(false))
     },
@@ -82,7 +78,7 @@ export default Vue.extend({
   render(h: CreateElement): VNode {
     let savePanel: VNode | undefined
     if (this.savePanel) {
-      let props: any = {}
+      let props: Record<string, unknown> = {}
       if (typeof this.savePanel === 'object') {
         props = this.savePanel
       }

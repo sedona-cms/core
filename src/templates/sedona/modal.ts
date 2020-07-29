@@ -1,7 +1,7 @@
-import Vue from 'vue'
-// @ts-ignore
+import Vue, { VueConstructor } from 'vue'
+// @ts-ignore: will work on runtime, on dev mode only with link
 import { Modal } from '@sedona-cms/core/lib/components'
-// @ts-ignore
+// @ts-ignore: will work on runtime, on dev mode only with link
 import { ModalSave } from '@sedona-cms/core/lib/components/modal'
 
 type ModalArgs = {
@@ -11,8 +11,10 @@ type ModalArgs = {
 }
 
 type ModalComponentProp = {
-  [key: string]: any
+  [key: string]: unknown
 }
+
+type ModalComponentFunction = () => void
 
 export const modal = {
   /**
@@ -23,11 +25,11 @@ export const modal = {
    * @param props
    */
   async show(
-    component: string | object,
+    component: string | Record<string, unknown>,
     args: ModalArgs,
     props?: ModalComponentProp[]
   ): Promise<void> {
-    let modalComponent: Function
+    let modalComponent: ModalComponentFunction | VueConstructor<Record<never, unknown> & Vue>
     switch (typeof component) {
       case 'string': {
         modalComponent = () => import(`~/admin/${component}`)

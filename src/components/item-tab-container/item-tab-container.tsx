@@ -1,7 +1,8 @@
-import Vue, { VNode, PropType } from 'vue'
+import Vue, { VNode, PropType, VueConstructor, AsyncComponent } from 'vue'
 import AdminItemTabError from './item-tab-error'
 import ItemTabLoading from './item-tab-loading'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getTabComponent: (componentPath: string) => any = (componentPath: string) => ({
   component: import(`~/admin/${componentPath}`),
   loading: ItemTabLoading,
@@ -32,12 +33,15 @@ export default Vue.extend({
       type: Array as PropType<MenuItem[]>,
     },
     params: {
-      type: Object as PropType<{ [key: string]: any }>,
+      type: Object as PropType<Record<string, unknown>>,
     },
   },
   data() {
     return {
-      asyncComponent: undefined as any,
+      asyncComponent: undefined as
+        | VueConstructor<Record<never, unknown> & Vue>
+        | AsyncComponent
+        | undefined,
     }
   },
   created(): void {
@@ -49,7 +53,7 @@ export default Vue.extend({
     const viewProperties = {
       items: this?.items || [],
     }
-    let view
+    let view: VNode | undefined
     switch (typeof this.component) {
       case 'string':
         view = h(this.asyncComponent, { props: this?.params || {} })
@@ -60,6 +64,10 @@ export default Vue.extend({
       case 'object':
         view = this.component
         break
+    }
+
+    if (view === undefined) {
+      throw new Error('Component for route does not created')
     }
 
     // home tab

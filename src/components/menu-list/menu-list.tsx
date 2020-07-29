@@ -1,9 +1,9 @@
-import Vue, { PropType, VNode, CreateElement } from 'vue'
+import Vue, { PropType, VNode } from 'vue'
 import MenuListItem from './menu-list-item'
 import MenuListHeader from './menu-list-header'
 import MenuListSection from './menu-list-section'
 
-function isConditionTrue(menuItem: MenuItem): boolean {
+/* function isConditionTrue(menuItem: MenuItem): boolean {
   if (menuItem.conditions === undefined) return true
   for (const item of menuItem.conditions) {
     if (item.type === '=') {
@@ -15,7 +15,7 @@ function isConditionTrue(menuItem: MenuItem): boolean {
     }
   }
   return false
-}
+} */
 
 export default Vue.extend({
   name: 'MenuList',
@@ -52,7 +52,7 @@ export default Vue.extend({
       })
     },
   },
-  render(h: CreateElement): VNode {
+  render(): VNode {
     const childComponents = new Set<VNode>()
 
     this.menuItems.forEach((item: MenuItem) => {

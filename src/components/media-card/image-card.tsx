@@ -36,16 +36,16 @@ export default Vue.extend({
       this.isShowRemoveConfirm = true
       ;(this.$refs.toolbarWrapper as HTMLElement).style.top = '-50px'
       if (this.$refs.title !== undefined) {
-        ;(this.$refs.title as HTMLElement).style.bottom = '-50px'
+        (this.$refs.title as HTMLElement).style.bottom = '-50px'
       }
 
-      ;(this.$refs.removeConfirm as HTMLElement).style.top = '0'
+      (this.$refs.removeConfirm as HTMLElement).style.top = '0'
     },
     hideRemoveConfirm(): void {
       this.isShowRemoveConfirm = false
       ;(this.$refs.removeConfirm as HTMLElement).style.top = '-100%'
       if (this.$refs.title !== undefined) {
-        ;(this.$refs.title as HTMLElement).style.bottom = '0'
+        (this.$refs.title as HTMLElement).style.bottom = '0'
       }
     },
     remove(): void {
