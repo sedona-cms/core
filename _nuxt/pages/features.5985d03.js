@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[20],{207:function(e,n,t){"use strict";t.r(n);var r={name:"FeaturesPage"},l=t(7),component=Object(l.a)(r,(function(){var e=this.$createElement;return(this._self._c||e)("div",[this._v("\n  features\n")])}),[],!1,null,null,null);n.default=component.exports}}]);

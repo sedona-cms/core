@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[28],{170:function(n,o,e){"use strict";e.r(o),e.d(o,"eventBus",(function(){return c}));var t=new(e(1).a),c={emit:function(n){for(var o=arguments.length,e=new Array(o>1?o-1:0),c=1;c<o;c++)e[c-1]=arguments[c];t.$emit(n,e)},on:function(n,o){t.$on(n,o)},off:function(n,o){t.$off(n,o)},once:function(n,o){t.$once(n,o)}}}}]);

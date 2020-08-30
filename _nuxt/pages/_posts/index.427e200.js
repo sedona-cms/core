@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[18],{209:function(n,e,t){"use strict";t.r(e);var c={name:"PostsIndex"},o=t(7),component=Object(o.a)(c,(function(){var n=this.$createElement;return(this._self._c||n)("div",[this._v("\n  Posts\n")])}),[],!1,null,"663ca3e8",null);e.default=component.exports}}]);

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{133:function(t,e,n){"use strict";n.r(e);var l={name:"RegularPostForm"},r=n(3),component=Object(r.a)(l,(function(){var t=this.$createElement;return(this._self._c||t)("div",{staticClass:"q-pa-md"},[this._v("\n  New Regular Post\n")])}),[],!1,null,null,null);e.default=component.exports}}]);

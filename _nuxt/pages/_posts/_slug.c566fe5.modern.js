@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[16],{154:function(e,n,t){"use strict";t.r(n);var o={name:"PostView"},c=t(3),component=Object(c.a)(o,(function(){var e=this.$createElement;return(this._self._c||e)("div",[this._v("\n  Post view\n")])}),[],!1,null,"1a570968",null);n.default=component.exports}}]);

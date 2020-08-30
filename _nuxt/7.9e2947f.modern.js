@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{119:function(e,n,t){"use strict";t.r(n);var l=t(1).a.extend({name:"PostsTable"}),c=t(3),component=Object(c.a)(l,(function(){var e=this.$createElement;return(this._self._c||e)("div",[this._v("\n  Table\n")])}),[],!1,null,null,null);n.default=component.exports}}]);
