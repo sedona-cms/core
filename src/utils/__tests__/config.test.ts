@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as path from 'path'
+import path from 'path'
 import { loadConfigFile, setIdToMenuItems } from '../config'
 
 function testMenuItem(item: any): void {
