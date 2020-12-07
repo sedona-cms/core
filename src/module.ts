@@ -16,6 +16,30 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
     }
   })
 
+  this.extendBuild(config => {
+    if (config.module === undefined) return
+    if (config.name !== 'server') return
+
+    const index = config.module.rules.findIndex(item => item.resourceQuery === /blockType=admin/)
+    if (index >= 0) return
+
+    config.module.rules.push({
+      resourceQuery: /blockType=admin/,
+      loader: path.resolve(__dirname, '../lib/loaders/menu-loader.js'),
+      options: {
+        rootDir: this.options.rootDir || process.cwd(),
+      },
+    })
+  })
+
+  /* this.nuxt.hook('build:extendRoutes', (routes, resolve) => {
+    const index = routes.findIndex(item => item.name === 'posts')
+    routes[index].meta = {
+      rootDir: this.options.rootDir || process.cwd()
+    }
+    console.log(routes)
+  }) */
+
   if (typeof this.options.build === 'object') {
     if (Array.isArray(this.options.build.transpile)) {
       this.options.build.transpile.push(npmMeta.name)
