@@ -32,14 +32,6 @@ const adminModule: Module<ModuleConfig> = async function (moduleOptions) {
     })
   })
 
-  /* this.nuxt.hook('build:extendRoutes', (routes, resolve) => {
-    const index = routes.findIndex(item => item.name === 'posts')
-    routes[index].meta = {
-      rootDir: this.options.rootDir || process.cwd()
-    }
-    console.log(routes)
-  }) */
-
   if (typeof this.options.build === 'object') {
     if (Array.isArray(this.options.build.transpile)) {
       this.options.build.transpile.push(npmMeta.name)
