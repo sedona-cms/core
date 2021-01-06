@@ -37,9 +37,7 @@ export function setIdToMenuItems(items: MenuItem[]): MenuItem[] {
 }
 
 function validateConfigFile(data: string): void {
-  const ajv = new Ajv({
-    extendRefs: true,
-  })
+  const ajv = new Ajv()
   ajv.addMetaSchema(menuItemSchema, 'menu-item.schema.json')
   ajv.addMetaSchema(menuItemConditionSchema, 'menu-item-condition.schema.json')
   ajv.addMetaSchema(savePanelSchema, 'save-panel.schema.json')
