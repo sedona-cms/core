@@ -51,7 +51,7 @@
     "jest": "^25.5.4",
     "lint-staged": "^10.2.13",
     "npm-self-link": "^1.1.7",
-    "nuxt": "^2.14.4",
+    "nuxt": "^3.0.0",
     "postcss": "^7.0.32",
     "postcss-prefixwrap": "^1.16.0",
     "postcss-remove-rules": "^1.0.0",
@@ -59,7 +59,7 @@
     "ts-jest": "^25.5.1",
     "tsc-watch": "^4.2.9",
     "typescript": "^3.9.7",
-    "vue-jest": "^3.0.6",
+    "vue-jest": "^4.0.1",
     "web-streams-polyfill": "^2.1.1"
   },
   "jest": {
